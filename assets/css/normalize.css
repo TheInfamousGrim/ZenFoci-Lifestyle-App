@@ -7,6 +7,21 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+:root {
+  --sapphire-blue: #2f6690ff;
+  --celadon-blue: #3a7ca5ff;
+  --gainsboro: #d9dcd6ff;
+  --indigo-dye: #16425bff;
+  --dark-sky-blue: #81c3d7ff;
+}
+
+.nav-wrapper {
+  background-color: #3a7ca5ff;
+}
+
+.nav-wrapper > ul > li:hover {
+  background-color: #faa61a;
+}
 
 html {
   line-height: 1.15; /* 1 */
