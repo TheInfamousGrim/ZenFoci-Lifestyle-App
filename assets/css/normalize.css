@@ -25,6 +25,7 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+/* Navbar Styling */
 .nav-wrapper {
   background-color: #3a7ca5ff;
 }
@@ -33,13 +34,14 @@ body {
   background-color: #faa61a;
 }
 
+/* Title Styling */
 .page-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 40vh;
   background-color: #81c3d7ff;
 }
 
@@ -49,7 +51,7 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   opacity: 0;
-  animation: fade-in-text 0.01s linear 1.5s forwards;
+  animation: fade-in-text 0.01s linear 1s forwards;
 }
 
 .swipe-in-text {
@@ -95,36 +97,6 @@ body {
     opacity: 1;
   }
 }
-
-/* .anim {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-} */
-
-/* h1 {
-  opacity: 0;
-  animation: animateText 0.7s forwards;
-}
-
-&::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  background-color: black;
-  animation: showText 0.8s ease;
-}
-
-@keyframes animateText {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-} */
 
 html {
   line-height: 1.15; /* 1 */
