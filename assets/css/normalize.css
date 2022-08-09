@@ -98,6 +98,31 @@ body {
   }
 }
 
+/* Card Styling */
+#container {
+  margin-left: 5%;
+}
+
+#flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 20%;
+
+  /* margin-left: 20%; */
+}
+
+/* .flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+} */
+
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
