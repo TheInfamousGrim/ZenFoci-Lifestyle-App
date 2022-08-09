@@ -48,6 +48,8 @@ body {
   font-size: 72px;
   font-weight: 900;
   text-transform: uppercase;
+  opacity: 0;
+  animation: fade-in-text 0.01s linear 1.5s forwards;
 }
 
 .swipe-in-text {
@@ -61,10 +63,10 @@ body {
   top: 0;
   left: 0;
   right: 100%;
-  width: 90%;
+  width: 50%;
   bottom: 0;
   z-index: 1;
-  background-color: #ff5858;
+  background-color: #d9dcd6ff;
   animation: swipe-in-text 1s ease-out 1s forwards;
 }
 
@@ -82,6 +84,15 @@ body {
   100% {
     width: 0%;
     left: 100%;
+  }
+}
+
+@keyframes fade-in-text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
