@@ -4,6 +4,16 @@
   --gainsboro: #d9dcd6ff;
   --indigo-dye: #16425bff;
   --dark-sky-blue: #81c3d7ff;
+  --red-salsa: #f94144ff;
+  --orange-red: #f3722cff;
+  --yellow-orange-color-wheel: #f8961eff;
+  --mango-tango: #f9844aff;
+  --maize-crayola: #f9c74fff;
+  --pistachio: #90be6dff;
+  --jungle-green: #43aa8bff;
+  --steel-teal: #4d908eff;
+  --queen-blue: #577590ff;
+  --celadon-blue: #277da1ff;
 }
 
 * {
@@ -18,15 +28,15 @@ body {
 
 /* Navbar Styling */
 .nav-wrapper {
-  background-color: #3a7ca5ff;
+  background-color: var(--celadon-blue);
 }
 
 .nav-wrapper > ul > li:hover {
-  background-color: #faa61a;
+  background-color: var(--yellow-orange-color-wheel);
 }
 
 /* Title Styling */
-.page-wrapper {
+#page-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +44,7 @@ body {
   width: 100vw;
   height: 40vh;
   background-color: #81c3d7ff;
+  color: #fff;
 }
 
 .text {
@@ -45,6 +56,40 @@ body {
   animation: fade-in-text 0.01s linear 1s forwards;
 }
 
+h1 {
+  position: relative;
+  font-size: 11vw;
+  -webkit-text-stroke: 0.3vh #16425bff;
+  text-transform: uppercase;
+}
+
+h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #f9844aff;
+  -webkit-text-stroke: 0vw navy;
+  border-right: 2px solid #81c3d7ff;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+
+/* Animations for other titles*/
 .swipe-in-text {
   position: relative;
 }
@@ -62,8 +107,7 @@ body {
   background-color: #d9dcd6ff;
   animation: swipe-in-text 1s ease-out 1s forwards;
 }
-
-@keyframes swipe-in-text {
+*/ @keyframes swipe-in-text {
   0% {
     width: 0%;
     right: 100%;
@@ -89,6 +133,59 @@ body {
   }
 }
 
+/* Calendar Styling */
+.blink_me {
+  animation: blinker 2.5s linear infinite;
+  margin-top: 75%;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 24vh;
+  background-color: var(--mango-tango);
+}
+
+#calendar {
+  margin-top: 20%;
+  margin-left: -80%;
+  height: 350%;
+  width: 252%;
+}
+
+/* Meal-planner Styling */
+
+.meal-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 78%;
+  width: 100vw;
+  height: 20vh;
+  background-color: var(--indigo-dye);
+}
+
+.blink_me {
+  animation: blinker 2.5s linear infinite;
+  margin-top: 75%;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 /* Card Styling */
 #container {
   margin-left: 5%;
@@ -100,11 +197,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  margin-left: 10%;
+  margin-left: 0%;
 }
 
 .card {
-  width: 100%;
+  width: 185%;
   text-align: center;
 }
 
