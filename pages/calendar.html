@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../assets/css/normalize.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./../assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./../assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./../assets/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./../assets/favicons/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css"
+      integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"
+      integrity="sha256-sR+oJaZ3c0FHR6+kKaX1zeXReUGbzuNI8QTKpGHE0sg="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./../assets/css/style.css" />
+    <link rel="stylesheet" href="./../assets/css/calendar.css" />
+    <title>ZenFoci - Calendar</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-wrapper">
+        <!-- <a href="#" class="brand-logo">Logo</a> -->
+        <a href="#"
+          ><img
+            id="logo"
+            src="./../assets/favicons/favicon.ico"
+            alt="logo-image"
+        /></a>
+        <ul id="nav-bar" class="right hide-on-med-and-down">
+          <li><a href="sass.html">User Dashboard</a></li>
+          <li><a href="badges.html">Meals and Groceries</a></li>
+          <li><a href="collapsible.html">Calendar</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container row">
+      <div class="mini-calendar-container col l3">
+        <div class="vanilla-calendar"></div>
+      </div>
+      <div class="large-calendar-container col l9">
+        <div id="calendar"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+      integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/be1d8d18da.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./../assets/js/calendar.js"></script>
+  </body>
+</html>
