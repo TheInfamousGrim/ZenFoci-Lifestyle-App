@@ -107,7 +107,7 @@ h1::before {
   background-color: #d9dcd6ff;
   animation: swipe-in-text 1s ease-out 1s forwards;
 }
-*/ @keyframes swipe-in-text {
+@keyframes swipe-in-text {
   0% {
     width: 0%;
     right: 100%;
