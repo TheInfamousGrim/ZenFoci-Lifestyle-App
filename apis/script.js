@@ -2,6 +2,27 @@ var button = document.querySelector(".submit");
 var input = document.querySelector(".input_text");
 var listings = document.querySelector(".list-group");
 
+function openCity(evt, cityName) {
+  // Declare all variables
+  var k, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (k = 0; k < tabcontent.length; k++) {
+    tabcontent[k].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (k = 0; k < tablinks.length; k++) {
+    tablinks[k].className = tablinks[k].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  $(cityName).css("display", "block");
+  evt.currentTarget.className += " active";
+}
+
 button.addEventListener("click", function (event) {
   event.preventDefault();
   search(event);
@@ -22,7 +43,7 @@ function search(event) {
     {
       method: "GET",
       headers: {
-        "X-RapidAPI-Key": "0170700766mshcf69fb08a467c9bp100823jsn51c168ac4b25",
+        "X-RapidAPI-Key": "e10f9c3829mshc1c6f1c56857494p185016jsne7dfd1e75bb5",
         "X-RapidAPI-Host": "tasty.p.rapidapi.com",
       },
     }
@@ -36,59 +57,124 @@ function search(event) {
         items.push(data.results[i].name % 6);
         console.log(data.results);
         var newInsArray = data.results.map(function (inst) {
-          for (let e = 0; e < 20; e++) {
+          for (let e = 0; e < 20; e = e + 1) {
+            items.push(data.results[e].instructions[e++].display_text);
+            console.log(data.results[i].instructions[e].display_text);
             return (
               "<li class='inst-point'>" +
-              inst.instructions[e].display_text +
+              //   inst.instructions[e].display_text +
+              data.results[i].instructions[(e = e + 1)].display_text +
               "</li>"
             );
           }
+          console.log(data.results[i].instructions[e].display_text);
         });
         console.log(newInsArray.join());
-        console.log(data.results[i].newInsArray);
+        console.log(newInsArray);
         // console.log(instructions[e]);
         // console.log(data.results[i].instructions[e].display_text);
-        console.log(newInsArray.display_text);
+
         var mealName = data.results[i].name;
         const listNo = data.results[i].canonical_id;
-        $(".card").append(
-          $(
-            "<div 'class='card-image waves-effect waves-block waves-light'><div class='result_body'><img class='activator' src='" +
-              data.results[i].thumbnail_url +
-              "'/><div class='description'>" +
-              data.results[i].description +
-              "</div></div></div>"
+
+        $(".title")
+          .append(
+            $(
+              //   "<h2>" +
+              // 	data.results[i].name +
+              // 	"</h2>
+              "<div class='tab'><h2>" + data.results[i].name + "</h2>"
+            )
+              .append(
+                $("<button class='tablinks'>Overview</button>")
+                  .attr("onclick", "openCity(event, London)")
+                  .attr("id", "defaultOpen")
+              )
+              .append(
+                $("<button class='tablinks'>Ingredients</button>").attr(
+                  "onclick",
+                  "openCity(event, Paris)"
+                )
+              )
+              .append(
+                $("<button class='tablinks'>Directions</button></div>").attr(
+                  "onclick",
+                  "openCity(event, Tokyo)"
+                )
+              )
           )
-        );
-        $(".card").append(
-          $("<div class='card-content'>").append(
-            "<span class='card-title activator grey-text text-darken-4'>" +
-              data.results[i].name +
-              "<i class='material-icons right'>more</i></span><p><a href='#'>This is a link</a></p>"
+          .append(
+            $(
+              "</div><div class='tabcontent'><img class='activator' src='" +
+                data.results[i].thumbnail_url +
+                "'/><div class='description'>" +
+                data.results[i].description +
+                "</div></div></div>"
+            ).attr("id", "London")
           )
-        );
-        $(".card").append(
-          $("<div class='card-reveal'>").append(
-            "<span class='card-title grey-text text-darken-4'>" +
-              data.results[i].name +
-              "<ol>" +
-              newInsArray.join("") +
-              "</ol>" +
-              "<i class='material-icons right'>close</i></span><p>" +
-              data.results[i].canonical_id +
-              "</p>"
-          )
-        );
-        // $(".card").append(
-        //   $("<div class='card-content grey lighten-4'>").append(
-        //     "<div id='test4'>," +
-        //       listNo +
-        //       "<div id='test5'>" +
-        //       listNo +
-        //       "<div id='test6'>" +
-        //       listNo
-        // "<a href='#test4'>" + listNo + "</a>" + "</li>"
+          .append(
+            $(
+              "<div class='tabcontent'>" +
+                "<ol>" +
+                newInsArray.join("") +
+                "</ol>" +
+                "</div></div>"
+            ).attr("id", "Paris")
+          );
+
+        // $(".tab").append($("<button class='tablinks'>recipie</button>"));
       }
+
+      // $(".card").append(
+      //   $("<div class='card-reveal'>").append(
+      //     "<span class='card-title grey-text text-darken-4'>" +
+      //       data.results[i].name +
+      //       "<ol>" +
+      //       newInsArray.join("") +
+      //       "</ol>" +
+      //       "<i class='material-icons right'>close</i></span><p>" +
+      //       data.results[i].canonical_id +
+      //       "</p>"
+      //   )
+      // );
+      // $(".card").append(
+      //   $(
+      //     "<div 'class='card-image waves-effect waves-block waves-light'><div class='result_body'><img class='activator' src='" +
+      //       data.results[i].thumbnail_url +
+      //       "'/><div class='description'>" +
+      //       data.results[i].description +
+      //       "</div></div></div>"
+      //   )
+      // );
+      // $(".card").append(
+      //   $("<div class='card-content'>").append(
+      //     "<span class='card-title activator grey-text text-darken-4'>" +
+      //       data.results[i].name +
+      //       "<i class='material-icons right'>more</i></span><p><a href='#'>This is a link</a></p>"
+      //   )
+      // );
+      // $(".card").append(
+      //   $("<div class='card-reveal'>").append(
+      //     "<span class='card-title grey-text text-darken-4'>" +
+      //       data.results[i].name +
+      //       "<ol>" +
+      //       newInsArray.join("") +
+      //       "</ol>" +
+      //       "<i class='material-icons right'>close</i></span><p>" +
+      //       data.results[i].canonical_id +
+      //       "</p>"
+      //   )
+      // );
+      // $(".card").append(
+      //   $("<div class='card-content grey lighten-4'>").append(
+      //     "<div id='test4'>," +
+      //       listNo +
+      //       "<div id='test5'>" +
+      //       listNo +
+      //       "<div id='test6'>" +
+      //       listNo
+      // "<a href='#test4'>" + listNo + "</a>" + "</li>"
+      // }
       // <img src='" +
       //   data.results[i].thumbnail_url +
       //   "'>"

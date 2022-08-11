@@ -8,28 +8,57 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   </head>
-  <body>
-    <nav class="navbar bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand">Navbar</a>
-        <div class="d-flex" role="search">
-          <input
-            type="text"
-            placeholder="Search"
-            class="input_text form-control me-2"
-          />
-          <input type="submit" value="Submit" class="submit btn" />
-        </div>
+  <body><header> <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Navbar</a>
+      <div class="d-flex" role="search">
+        <input
+          type="text"
+          placeholder="Search"
+          class="input_text form-control me-2"
+        />
+        <input type="submit" value="Submit" class="submit btn" />
       </div>
-    </nav>
-    
-    <div class="card"></div>
-      
+    </div>
+  </nav></header>
+ <container>
+  <div class="title"></div>
+  
+  
+  
+ </container>
+
+
+ <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+</div>
+
+<!-- Tab content -->
+<div id="London" class="tabcontent">
+  <h3>London</h3>
+  <p>London is the capital city of England.</p>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
 </body>
    
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+      // Get the element with id="defaultOpen" and click on it
+      $("defaultOpen").onclick();
+      </script>
   </body>
 </html>
