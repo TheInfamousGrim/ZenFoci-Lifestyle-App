@@ -1,0 +1,40 @@
+{
+  "events": {
+    "habits": [
+      {
+        "id": 1,
+        "habit_name": "skateboarding",
+        "habit_repeat_time": "09:00",
+        "habit_repeat_days": {
+          "mon": true,
+          "tue": true,
+          "wed": true,
+          "thu": true,
+          "fri": true,
+          "sat": false,
+          "sun": false
+        }
+      }
+    ],
+    "monthly_goals": [
+      {
+        "id": 1,
+        "goal_name": "bench press 100kgs",
+        "completed": false
+      }
+    ],
+    "meals" [{
+        "id": 1,
+        "meal_type": "breakfast",
+        "meal_time": "07:30"
+    }, {
+        "id": 2,
+        "meal_type": "lunch",
+        "meal_time": "12:00"
+    }, {
+        "id": 3,
+        "meal_type": "dinner",
+        "meal_time"
+    }]
+  }
+}

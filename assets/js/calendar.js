@@ -25,3 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     calendar.render();
     calendar.updateSize();
 });
+
+
+// event types
+// habits
+// goals
+// 
