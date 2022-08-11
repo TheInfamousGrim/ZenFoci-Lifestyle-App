@@ -1,4 +1,16 @@
-img.thumbnail {
+img.activator {
   width: 300px;
+  /* FONT-WEIGHT: 200; */
+  /* FONT-WEIGHT: 200; */
   height: auto;
+}
+.result_body {
+  display: inline-flex;
+  padding: 10px;
+}
+.description {
+  padding: 10px;
+}
+.card-content {
+  background: #f7f7f7;
 }

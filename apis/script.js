@@ -29,32 +29,90 @@ function search(event) {
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
+      console.log(data.results);
       const items = [];
 
       for (let i = 0; i < 20; i++) {
         items.push(data.results[i].name % 6);
-        console.log(data.results[i].name);
-
+        console.log(data.results);
+        var newInsArray = data.results.map(function (inst) {
+          for (let e = 0; e < 20; e++) {
+            return (
+              "<li class='inst-point'>" +
+              inst.instructions[e].display_text +
+              "</li>"
+            );
+          }
+        });
+        console.log(newInsArray.join());
+        console.log(data.results[i].newInsArray);
+        // console.log(instructions[e]);
+        // console.log(data.results[i].instructions[e].display_text);
+        console.log(newInsArray.display_text);
         var mealName = data.results[i].name;
         const listNo = data.results[i].canonical_id;
-        $(".list-group")
-          .append(
-            "<div ><img src='" +
+        $(".card").append(
+          $(
+            "<div 'class='card-image waves-effect waves-block waves-light'><div class='result_body'><img class='activator' src='" +
               data.results[i].thumbnail_url +
-              "'>" +
-              data.results[i].name
+              "'/><div class='description'>" +
+              data.results[i].description +
+              "</div></div></div>"
           )
-
-          .find("div:last")
-          .addClass("list-group-item list-group-item-action d-flex gap-3 py-3")
-
-          .find("img:last")
-          .addClass("thumbnail") + "</div>";
-
-        $(".list-group-item").attr("onclick", "handler()").attr("id", listNo);
-        console.log(listNo);
+        );
+        $(".card").append(
+          $("<div class='card-content'>").append(
+            "<span class='card-title activator grey-text text-darken-4'>" +
+              data.results[i].name +
+              "<i class='material-icons right'>more</i></span><p><a href='#'>This is a link</a></p>"
+          )
+        );
+        $(".card").append(
+          $("<div class='card-reveal'>").append(
+            "<span class='card-title grey-text text-darken-4'>" +
+              data.results[i].name +
+              "<ol>" +
+              newInsArray.join("") +
+              "</ol>" +
+              "<i class='material-icons right'>close</i></span><p>" +
+              data.results[i].canonical_id +
+              "</p>"
+          )
+        );
+        // $(".card").append(
+        //   $("<div class='card-content grey lighten-4'>").append(
+        //     "<div id='test4'>," +
+        //       listNo +
+        //       "<div id='test5'>" +
+        //       listNo +
+        //       "<div id='test6'>" +
+        //       listNo
+        // "<a href='#test4'>" + listNo + "</a>" + "</li>"
       }
+      // <img src='" +
+      //   data.results[i].thumbnail_url +
+      //   "'>"
+
+      //     .find("div:last")
+      //     .addClass("card-content");
+
+      //   // .find("img:last")
+      //   // .addClass("thumbnail") + "</div>";
+
+      //   $(".card-content").append("<div>") + "</div>";
+      //   $(".card-tabs")
+      //     .append("<div>")
+      //     .addClass("card-tabs")
+      //     .append("<ul>")
+      //     .find("ul.last")
+      //     .addClass("tabs tabs-fixed-width") + "</ul>";
+
+      //   $(".tabs")
+      //     .append("<li>" + data.results[i].canonical_id)
+      //     .find("li:last")
+      //     .addClass("tab") + "</li>";
+      //   console.log(listNo);
+      // }
 
       //   $(".list-group-item").attr("onclick", "handler");
 
