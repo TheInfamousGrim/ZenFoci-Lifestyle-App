@@ -19,15 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
         headerToolbar: {
             start: 'title',
             center: '',
-            end: 'today prev, next',
+            end: 'prev today next',
         },
     });
     calendar.render();
     calendar.updateSize();
 });
 
-
 // event types
 // habits
 // goals
-// 
+//

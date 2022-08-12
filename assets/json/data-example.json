@@ -23,18 +23,55 @@
         "completed": false
       }
     ],
-    "meals" [{
+    "meals": [
+      {
         "id": 1,
         "meal_type": "breakfast",
-        "meal_time": "07:30"
-    }, {
+        "meal_time": "07:30",
+        "repeat": "daily"
+      },
+      {
         "id": 2,
         "meal_type": "lunch",
-        "meal_time": "12:00"
-    }, {
+        "meal_time": "12:00",
+        "repeat": "daily"
+      },
+      {
         "id": 3,
         "meal_type": "dinner",
-        "meal_time"
+        "meal_time": "18:00",
+        "repeat": "daily"
+      }
+    ],
+    "general-events": [
+      {
+        "id": 1,
+        "start_day": "Thursday August 11, 2022",
+        "start_time": "21:00",
+        "end_day": "Thursday August 11, 2022",
+        "end_time": "22:00",
+        "all_day": false,
+        "repeat": "no",
+        "location": "The Gym",
+        "description": "Aliqua dolor sint laboris ut elit nulla."
+      }
+    ]
+  },
+  "groceries" {
+    "red_meat": [{
+      "id": 1,
+      "food_name": "steak",
+      "food_quantity": 2
+    }, {
+      "id": 2,
+      "food_name": "lamb chop",
+      "food_quanity": 4,
+    }],
+    "poultry": [],
+    "fish": [{
+      "id": 1,
+      "food_name": "salmon",
+      ""
     }]
   }
 }
