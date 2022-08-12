@@ -1,59 +1,68 @@
 img.activator {
-  width: 300px;
-  /* FONT-WEIGHT: 200; */
-  /* FONT-WEIGHT: 200; */
-  height: auto;
-}
-.result_body {
-  display: inline-flex;
-  padding: 10px;
-}
-.description {
-  padding: 10px;
-}
-.card-content {
-  background: #f7f7f7;
-}
+    width: 300px;
+    /* FONT-WEIGHT: 200; */
+    /* FONT-WEIGHT: 200; */
+    height: auto;
+  }
+  .result_body {
+    display: inline-flex;
+    padding: 10px;
+  }
+  .description {
+    padding: 10px;
+  }
+  .card-content {
+    background: #f7f7f7;
+  }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
+  /* Style the tab */
+  .tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
 
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
+  /* Style the buttons that are used to open the tab content */
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+  }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+    background-color: #ddd;
+  }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
+  /* Create an active/current tablink class */
+  .tab button.active {
+    background-color: #ccc;
+  }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-header {
-  margin-bottom: 200px;
-}
+  /* Style the tab content */
+  .tabcontent {
+   display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  header {
+    margin-bottom: 200px;
+  }
+  .tabcontent.active {
+    display: block!important;
+  }
+  ul {
+    padding-left: 12px!important;
+  }
 
-/* .tablinks .active{
-  display: block;
-} */
+  ul li {
+    list-style: circle!important;
+  }
+  /* .tablinks .active{
+    display: block;
+  } */
