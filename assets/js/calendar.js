@@ -2,65 +2,55 @@
 /*                               add event modal                              */
 /* -------------------------------------------------------------------------- */
 
-// When I select a day on the mini calendar
-// I'll select the same day on the full calendar
+/* -------------------------------------------------------------------------- */
+/*                         full calendar main calendar                        */
+/* -------------------------------------------------------------------------- */
 
-let dateSelected = dayjs().format('YYYY-MM-DD');
+const calendarEl = document.getElementById('calendar');
+const calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'timeGridWeek',
+    height: 650,
+    windowResize: () => {
+        if ($(window).width() < 678) {
+            calendar.changeView('timeGridDay');
+        } else calendar.changeView('timeGridWeek');
+    },
+    // initialize selectable trait
+    selectable: true,
+    // Set up for add event button
+    customButtons: {
+        newEventButton: {
+            text: '+ add event',
+            click() {
+                alert('clicked the custom button!');
+            },
+        },
+    },
+    // Initializes what's in the header of the calendar
+    headerToolbar: {
+        start: 'newEventButton',
+        center: 'title',
+        end: 'prev today next',
+    },
+});
+// Renders the calendar to the screen
+calendar.render();
+// Updates the size to fit in the container
+calendar.updateSize();
+
+// When I select a day on the full calendar
+// The mini calendar updates as well
 
 /* -------------------------------------------------------------------------- */
 /*                      vanilla javascript mini calendar                      */
 /* -------------------------------------------------------------------------- */
 
-document.addEventListener('DOMContentLoaded', () => {
-    const calendarMini = new VanillaCalendar('.vanilla-calendar', {
-        actions: {
-            clickDay(e, dates) {
-                dateSelected = dates[0];
-            },
+const calendarMini = new VanillaCalendar('.vanilla-calendar', {
+    actions: {
+        clickDay(e, dates) {
+            // go to the date selected
+            calendar.gotoDate(dates[0]);
         },
-    });
-    calendarMini.init();
+    },
 });
-
-/* -------------------------------------------------------------------------- */
-/*                         full calendar main calendar                        */
-/* -------------------------------------------------------------------------- */
-
-document.addEventListener('DOMContentLoaded', () => {
-    const calendarEl = document.getElementById('calendar');
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'timeGridWeek',
-        height: 650,
-        // initialize selectable trait
-        selectable: true,
-        // Set up for add event button
-        customButtons: {
-            newEventButton: {
-                text: '+ add event',
-                click() {
-                    alert('clicked the custom button!');
-                },
-            },
-        },
-        // Initializes what's in the header of the calendar
-        headerToolbar: {
-            start: 'newEventButton',
-            center: 'title',
-            end: 'prev today next',
-        },
-    });
-    // Renders the calendar to the screen
-    calendar.render();
-    // Updates the size to fit in the container
-    calendar.updateSize();
-    // 
-    // Set an interval for changing the date using the mini calendar
-    setInterval(() => calendar.gotoDate(dateSelected), 100);
-});
-
-// event types
-// habits
-// goals
-
-// When I select a day on the full calendar
-// The mini calendar updates as well
+calendarMini.init();
