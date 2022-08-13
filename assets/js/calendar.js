@@ -53,7 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     calendar.render();
     // Updates the size to fit in the container
     calendar.updateSize();
-    // go to the date specified in the mini calendar
+    // 
+    // Set an interval for changing the date using the mini calendar
+    setInterval(() => calendar.gotoDate(dateSelected), 100);
 });
 
 // event types
