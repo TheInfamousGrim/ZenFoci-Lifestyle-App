@@ -14,6 +14,16 @@
   --steel-teal: #4d908eff;
   --queen-blue: #577590ff;
   --celadon-blue: #277da1ff;
+  --pink-lace: #ffd6ffff;
+  --mauve: #e7c6ffff;
+  --maximum-blue-purple: #c8b6ffff;
+  --lavender-blue: #b8c0ffff;
+  --lavender-blue-2: #bbd0ffff;
+  --rich-black-fogra-29: #0d1b2aff;
+  --oxford-blue: #1b263bff;
+  --bdazzled-blue: #415a77ff;
+  --shadow-blue: #778da9ff;
+  --platinum: #e0e1ddff;
 }
 
 * {
@@ -160,6 +170,42 @@ h1::before {
   margin-left: -80%;
   height: 350%;
   width: 252%;
+}
+
+/* Form Styling */
+
+header {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  background: var(--celadon-blue);
+  color: #fff;
+  padding: 2rem 1rem;
+  max-width: 650px;
+  width: 100%;
+}
+
+header section {
+  margin-top: 10%;
+}
+
+header h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--gainsboro);
+  text-decoration: underline;
+}
+
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#new-task-form {
+  display: flex;
 }
 
 /* Meal-planner Styling */
