@@ -5,7 +5,7 @@
   margin: 5rem auto;
 }
 
-/* ---------------------------- calendar stylings --------------------------- */
+/* ------------------------- mini calendar stylings ------------------------- */
 
 .vanilla-calendar {
   font-family: "Quicksand", sans-serif;
@@ -14,10 +14,17 @@
   margin-bottom: 2rem;
 }
 
-/* ------------------------- full calendar stylings ------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           full calendar stylings                           */
+/* -------------------------------------------------------------------------- */
 
 #calendar {
   margin: 0;
   width: 100%;
   font-family: "Quicksand", sans-serif;
+}
+
+/* ----------------------------- calendar icons ----------------------------- */
+
+.material-icons {
 }
