@@ -24,17 +24,50 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ------------------------------- date picker ------------------------------ */
+// selector for the date picker input container
+const dateInputPicker = $('.date-picker-input-container');
+// selector for the date input label
+const endDateInput = $('[name="end-date-input"]');
+endDateInput.val('pepega');
 
-const dateInputPicker = $('.date-picker');
+// selector for the
+const datePickers = $('.date-picker-general');
+// add a calendar for each date-picker div
+$.each(datePickers, (key, datePicker) => {
+    const datePickerCalendar = new VanillaCalendar(datePicker, {
+        type: 'default',
+        actions: {
+            clickDay(e, dates) {
+                if (dates) {
+                    // Get the correct input
+                    const currentDateInput =
+                        e.target.parentElement.parentElement.parentElement.parentElement.parentElement
+                            .firstElementChild;
+                    // Format the date for the input
+                    const formattedDateInput = dayjs(dates[0]).format('MMMM DD, YYYY');
+                    // Add the formatted date to the selected input
+                    currentDateInput.value = formattedDateInput;
+                }
+            },
+        },
+    });
+    datePickerCalendar.init();
+});
 
 function handleDateInput(e) {
-    // select the correct date picker container
-    const datePickerContainer = e.currentTarget.parentElement.parentElement.lastElementChild;
-    console.log(datePickerContainer);
-    const datePicker = new VanillaCalendar(datePickerContainer, {
-        type: 'default',
-    });
-    datePicker.init();
+    // select the correct date picker div
+    const currentDatePicker = e.currentTarget.lastElementChild;
+    // display the selected date picker
+    currentDatePicker.classList.remove('date-picker-general-hidden');
+    // style the selected date picker
+    currentDatePicker.classList.add('date-picker-general-visible');
+    console.log('is the input not selected: ', e.target !== document.activeElement);
+    // remove the date picker after the user has 
+    console.log('Is the date picker not being focused on: ', !currentDatePicker.contains(e.target));
+    if (!currentDatePicker.contains(e.target) && e.target !== document.activeElement) {
+        currentDatePicker.classList.remove('date-picker-general-visible');
+        currentDatePicker.classList.add('date-picker-general-hidden');
+    }
 }
 
 dateInputPicker.on('click', handleDateInput);

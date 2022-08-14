@@ -86,9 +86,11 @@
             </div>
           </div>
           <div class="start-event-container row col s12">
-            <div class="input-field col s6">
-              <input type="text" placeholder="August 14, 2022" id="dateStartEventInput" class="date-picker">
-              <label for="start-inputs-container">Start Date</label>
+            <div class="input-field col s6 date-picker-input-container">
+              <input type="text" name="start-date-input" placeholder="August 14, 2022" id="dateStartInput"
+                class="date-picker">
+              <label for="start-date-input" class="start-date-label">Start Date</label>
+              <div class="date-picker-start date-picker-general date-picker-general-hidden"></div>
             </div>
             <div class="input-field col s6 l4">
               <select class="select-start-time">
@@ -120,16 +122,16 @@
               </select>
               <label><i class="fa-solid fa-clock"></i> Start Time</label>
             </div>
-            <div class="date-picker-calendar"></div>
           </div>
           <div class="end-event-container row col s12">
-            <div class="input-field col s6">
-              <input name="end-inputs-container" type="text" placeholder="August 14, 2022" id="dateStartEventInput"
+            <div class="input-field col s6 date-picker-input-container">
+              <input name="end-date-input" type="text" placeholder="August 14, 2022" id="dateEndInput"
                 class="date-picker">
-              <label for="end-inputs-container">End Date</label>
+              <label for="end-date-input" class="end-date-label">End Date</label>
+              <div class="date-picker-end date-picker-general date-picker-general-hidden"></div>
             </div>
             <div class="input-field col s6 l4">
-              <select class="select-start-time">
+              <select class="select-end-time">
                 <option value="" disabled selected>Choose time</option>
                 <option value="00:00">00:00</option>
                 <option value="01:00">01:00</option>
@@ -158,8 +160,6 @@
               </select>
               <label><i class="fa-solid fa-clock"></i> End Time</label>
             </div>
-            <div class="date-picker-calendar"></div>
-
           </div>
           <div class="event-time-settings row col s12">
             <div class="input-field col s6 l3">
@@ -172,7 +172,8 @@
             </div>
             <div class="input-field col s6 l4">
               <!-- Dropdown Trigger -->
-              <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="fa-solid fa-repeat"></i> Repeat
+              <a class='dropdown-trigger btn repeat-choice-btn' href='#' data-target='dropdown1'><i
+                  class="fa-solid fa-repeat"></i> Repeat
                 when?</a>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content'>
