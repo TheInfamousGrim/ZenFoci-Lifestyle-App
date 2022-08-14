@@ -16,9 +16,9 @@ fetch("https://type.fit/api/quotes")
       console.log(rand.text);
       console.log(rand.author);
     }
-    $("#btn").click(function (data) {
-      data.reload();
-    });
+    // $("#btn").click(function (data) {
+    //   data.reload();
+    // });
     html += "<div class='row'>";
     html += "<div class='col s12 m6'>";
     html += "<div class='card blue-grey darken-1'>";
