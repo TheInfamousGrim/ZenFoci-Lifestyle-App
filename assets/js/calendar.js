@@ -17,6 +17,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Dropdown initializer
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.dropdown-trigger');
+    const instances = M.Dropdown.init(elems, {});
+});
+
+/* ------------------------------- date picker ------------------------------ */
+
+const dateInputPicker = $('.date-picker');
+
+function handleDateInput(e) {
+    // select the correct date picker container
+    const datePickerContainer = e.currentTarget.parentElement.parentElement.lastElementChild;
+    console.log(datePickerContainer);
+    const datePicker = new VanillaCalendar(datePickerContainer, {
+        type: 'default',
+    });
+    datePicker.init();
+}
+
+dateInputPicker.on('click', handleDateInput);
+
 /* -------------------------------------------------------------------------- */
 /*                         full calendar main calendar                        */
 /* -------------------------------------------------------------------------- */

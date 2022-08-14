@@ -57,6 +57,7 @@
       <div class="new-event-button-container row col s12"><a class="waves-effect waves-light btn modal-trigger"
           href="#new-event-modal"><i class="fa-solid fa-calendar-circle-plus"></i> Add an event</a></div>
     </div>
+    <!-- full calendar -->
     <div class="large-calendar-container col xl9 s12">
       <div id="calendar"></div>
     </div>
@@ -86,7 +87,7 @@
           </div>
           <div class="start-event-container row col s12">
             <div class="input-field col s6">
-              <input type="text" placeholder="August 14, 2022" id="dateStartEventInput">
+              <input type="text" placeholder="August 14, 2022" id="dateStartEventInput" class="date-picker">
               <label for="start-inputs-container">Start Date</label>
             </div>
             <div class="input-field col s6 l4">
@@ -119,10 +120,12 @@
               </select>
               <label><i class="fa-solid fa-clock"></i> Start Time</label>
             </div>
+            <div class="date-picker-calendar"></div>
           </div>
           <div class="end-event-container row col s12">
             <div class="input-field col s6">
-              <input name="end-inputs-container" type="text" placeholder="August 14, 2022" id="dateStartEventInput">
+              <input name="end-inputs-container" type="text" placeholder="August 14, 2022" id="dateStartEventInput"
+                class="date-picker">
               <label for="end-inputs-container">End Date</label>
             </div>
             <div class="input-field col s6 l4">
@@ -155,6 +158,8 @@
               </select>
               <label><i class="fa-solid fa-clock"></i> End Time</label>
             </div>
+            <div class="date-picker-calendar"></div>
+
           </div>
           <div class="event-time-settings row col s12">
             <div class="input-field col s6 l3">
@@ -166,16 +171,19 @@
               </p>
             </div>
             <div class="input-field col s6 l4">
-              <select class="select-repeat-when">
-                <option value="" disabled selected>Choose repeat</option>
-                <option value="1">Does not repeat</option>
-                <option value="every day">Every day</option>
-                <option value="every week">Every week</option>
-                <option value="every month">Every month</option>
-                <option value="every year">Every year</option>
-                <option value="custom">Custom</option>
-              </select>
-              <label><i class="fa-solid fa-repeat"></i> When to repeat</label>
+              <!-- Dropdown Trigger -->
+              <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="fa-solid fa-repeat"></i> Repeat
+                when?</a>
+              <!-- Dropdown Structure -->
+              <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
+                <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
+                <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
+                <li><a href="#!" class="repeat-basic-choices">Every month</a></li>
+                <li><a href="#!" class="repeat-basic-choices">Every year</a></li>
+                <li class="divider" tabindex="-1"></li>
+                <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
+              </ul>
             </div>
           </div>
           <div class="event-description-container row col s12">

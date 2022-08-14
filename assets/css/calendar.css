@@ -13,7 +13,8 @@
   margin-bottom: 2rem;
 }
 
-.vanilla-calendar {
+.vanilla-calendar,
+.date-picker-active {
   font-family: "Quicksand", sans-serif;
   border: 1px solid black;
   background-color: rgba(0 0 0 0.5);
