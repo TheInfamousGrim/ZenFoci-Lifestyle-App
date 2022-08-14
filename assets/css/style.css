@@ -47,6 +47,10 @@ body {
   background-color: var(--yellow-orange-color-wheel);
 }
 
+/* -------------------------------------------------------------------------- */
+/*                             materialize resets                             */
+/* -------------------------------------------------------------------------- */
+
 /* Title Styling */
 #page-wrapper {
   display: flex;
@@ -274,18 +278,6 @@ button {
   align-items: center;
   flex-direction: row;
   margin-left: 0%;
-}
-
-.card {
-  width: 185%;
-  text-align: center;
-}
-
-.row {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-  width: 40%;
 }
 
 /* margin-left: 20%; */
