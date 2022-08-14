@@ -1,10 +1,13 @@
 /* -------------------------------------------------------------------------- */
-/*                               add event modal                              */
+/*                               new event modal                              */
 /* -------------------------------------------------------------------------- */
 
 // Modal initializer
 const elems = document.querySelectorAll('.modal');
-const instances = M.Modal.init(elems, {});
+const instances = M.Modal.init(elems, {
+    startingTop: '0%',
+    endingTop: '0%',
+});
 
 // Select initializer
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const calendarEl = document.getElementById('calendar');
 const calendar = new FullCalendar.Calendar(calendarEl, {
-    // Set the initial for depending on the window width
+    // Set the initial view depending on the window width
     initialView: $(window).width() < 678 ? 'timeGridDay' : 'timeGridWeek',
+    // Set the initial height depending on the window width
     height: $(window).width() < 678 ? 'auto' : 650,
     // Theme system for icons
     themeSystem: 'bootstrap',
@@ -30,19 +34,20 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
         newEventButton: {
             hint: 'add a new event to the calendar',
             click() {
-                /* ---------------- CHANGE!!!! THIS IS JUST A PLACEHOLDER!!! ---------------- */
+                window.location = '#new-event-modal';
+                console.log('clicked new event');
             },
         },
         dayCalendarButton: {
             hint: 'view the calendar by the selected day',
             click() {
-                alert('day calendar has been clicked');
+                calendar.changeView('timeGridDay');
             },
         },
         weekCalendarButton: {
             hint: 'view the calendar by the selected week',
             click() {
-                alert('week calendar has been clicked');
+                calendar.changeView('timeGridWeek');
             },
         },
     },
@@ -66,8 +71,7 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
             calendar.changeView('timeGridWeek');
             calendar.setOption('height', 650);
             calendar.setOption('headerToolbar', {
-                start: 'newEventButton',
-                center: 'title',
+                start: 'title',
                 end: 'dayCalendarButton weekCalendarButton prev today next',
             });
         }
@@ -83,8 +87,7 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
                   end: 'next',
               }
             : {
-                  start: 'newEventButton',
-                  center: 'title',
+                  start: 'title',
                   end: 'dayCalendarButton weekCalendarButton prev today next',
               },
 });
