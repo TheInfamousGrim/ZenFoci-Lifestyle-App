@@ -4,6 +4,11 @@
 
 :root {
   --selected-day: #289b95;
+  --bg-color: #fffcf2;
+}
+
+body {
+  background-color: var(--bg-color);
 }
 
 /* --------------------------- materialize resets --------------------------- */
@@ -23,7 +28,7 @@
 
 .vanilla-calendar,
 .date-picker-active {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif !important;
   border: 1px solid black;
   background-color: rgba(0 0 0 0.5);
   margin-bottom: 2rem;
