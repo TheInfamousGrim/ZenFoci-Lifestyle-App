@@ -28,9 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/* -------------------------------------------------------------------------- */
+/*    !!!!!!!!!!disengaged this as was unsure what it was doing!!!!!!!!       */
+/* -------------------------------------------------------------------------- */
+
 // Saves to local storage
-const save_button = document.getElementById('Save');
-save_button.onclick = saveData;
+// const save_button = document.getElementById('Save');
+// save_button.onclick = saveData;
 
 function saveData() {
     const input = document.getElementById('saveServer');

@@ -21,86 +21,92 @@
 <body>
   <!-- modals  -->
   <!-- Modal Structure delete habit -->
-  <div id="delete-modal" class="modal">
+  <div id="delete-modal" class="modal row">
     <div class="modal-content">
-      <h4>Are you sure you want to delete?</h4>
-      <a href="#!" class="modal-action modal-close btn teal lighten-1">Yes</a>
-      <a href="#!" class="modal-action modal-close btn red darken-1">No</a>
+      <h4 class="center">Are you sure you want to delete this habit?</h4>
+      <form action="" class="delete-habit-form row center-align">
+        <div class="cancel-delete-habit-container col"><a href="#!"
+            class="modal-action modal-close btn red darken-1 cancel-delete-habit-btn"><i
+              class="fa-solid fa-xmark left"></i>No</a></div>
+        <div class="delete-habit-container col">
+          <button class="btn waves-effect waves-light modal-close delete-habit-btn" type="submit" name="action"
+            href="!#">Yes
+            <i class="fa-solid fa-check left"></i>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
   <!-- Modal Structure for habits settings -->
-  <div id="habit-modal" class="modal">
-    <div class="modal-content">
-      <h4>Habit setting</h4>
-      <div id="habit" class="habit-name-wrapper row left"><label class="col s3" for="habit-name">Habit
-          title</label><input class="col s9" type="text" name="habit-name" id="habitName"></div>
-      <div class="input-field col s6 l4 right">
-        <select class="select-end-time">
-          <option value="" disabled selected>Choose time</option>
-          <option value="00:00">00:00</option>
-          <option value="01:00">01:00</option>
-          <option value="02:00">02:00</option>
-          <option value="03:00">03:00</option>
-          <option value="04:00">04:00</option>
-          <option value="05:00">05:00</option>
-          <option value="06:00">06:00</option>
-          <option value="07:00">07:00</option>
-          <option value="08:00">08:00</option>
-          <option value="09:00">09:00</option>
-          <option value="10:00">10:00</option>
-          <option value="11:00">11:00</option>
-          <option value="12:00">12:00</option>
-          <option value="13:00">13:00</option>
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
-          <option value="16:00">16:00</option>
-          <option value="17:00">17:00</option>
-          <option value="18:00">18:00</option>
-          <option value="19:00">19:00</option>
-          <option value="20:00">20:00</option>
-          <option value="21:00">21:00</option>
-          <option value="22:00">22:00</option>
-          <option value="23:00">23:00</option>
-        </select>
-        <label><i class="fa-solid fa-clock"></i> End Time</label>
-
-        <div class="delete">
-          <!-- Modal Trigger -->
-          <div class="delete-button">
-            <a class="waves-effect waves-light red btn modal-trigger row right" href="#modal1">Delete<i
-                class="fa-solid fa-trash-can"></i></a>
-          </div>
-
-          <!-- Modal Structure -->
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>Are you sure you want to delete?</h4>
-              <a href="#!" class="modal-action modal-close btn teal lighten-1">Yes</a>
-              <a href="#!" class="modal-action modal-close btn red darken-1">No</a>
-            </div>
-          </div>
-
+  <div id="habit-modal" class="modal row">
+    <form class="habit-settings-form col s12">
+      <div class="modal-content">
+        <h4>Habit setting</h4>
+        <div class="input-field col s12">
+          <input placeholder="Enter your name" id="habit_name" type="text" class="validate">
+          <label for="first_name">Habit Name</label>
+        </div>
+        <div class="input-field col s12">
+          <select class="select-end-time">
+            <option value="" disabled selected>Choose time</option>
+            <option value="00:00">00:00</option>
+            <option value="01:00">01:00</option>
+            <option value="02:00">02:00</option>
+            <option value="03:00">03:00</option>
+            <option value="04:00">04:00</option>
+            <option value="05:00">05:00</option>
+            <option value="06:00">06:00</option>
+            <option value="07:00">07:00</option>
+            <option value="08:00">08:00</option>
+            <option value="09:00">09:00</option>
+            <option value="10:00">10:00</option>
+            <option value="11:00">11:00</option>
+            <option value="12:00">12:00</option>
+            <option value="13:00">13:00</option>
+            <option value="14:00">14:00</option>
+            <option value="15:00">15:00</option>
+            <option value="16:00">16:00</option>
+            <option value="17:00">17:00</option>
+            <option value="18:00">18:00</option>
+            <option value="19:00">19:00</option>
+            <option value="20:00">20:00</option>
+            <option value="21:00">21:00</option>
+            <option value="22:00">22:00</option>
+            <option value="23:00">23:00</option>
+          </select>
+          <label><i class="fa-solid fa-clock"></i> Habit Start Time</label>
+        </div>
+        <!-- Dropdown Trigger -->
+        <div class="repeat-dropdown-btn-container row center-align">
+          <a class='dropdown-trigger btn' href='#' data-target='repeatWhenDropdown'><i
+              class="fa-solid fa-repeat left-align"></i>
+            Repeat
+            when?</a>
+        </div>
+        <!-- Repeat when dropdown Structure -->
+        <ul id='repeatWhenDropdown' class='dropdown-content'>
+          <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
+          <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
+          <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
+          <li class="divider" tabindex="-1"></li>
+          <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
+        </ul>
+        <!-- <input type='text' name="" id="saveServer" /><button
+          onclick="save_data()" type="button" value="Save" id="Save">Save</button> -->
+      </div>
+      <div class="modal-footer habit-settings-footer row">
+        <div class="cancel-button-container col">
+          <a class="btn red waves-effect waves-light modal-close left" href="!#">Cancel
+            <i class="fa-solid fa-floppy-disk right"></i>
+          </a>
+        </div>
+        <div class="save-settings-container col">
+          <button class="btn waves-effect waves-light modal-close" type="submit" name="action" href="!#">Save settings
+            <i class="fa-solid fa-floppy-disk right"></i>
+          </button>
         </div>
       </div>
-      <!-- Dropdown Trigger -->
-      <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="fa-solid fa-repeat"></i> Repeat
-        when?</a>
-      <!-- Dropdown Structure -->
-      <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
-        <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
-        <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
-        <li><a href="#!" class="repeat-basic-choices">Every month</a></li>
-        <li><a href="#!" class="repeat-basic-choices">Every year</a></li>
-        <li class="divider" tabindex="-1"></li>
-        <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
-      </ul>
-      <label for="serveri"> Habit: </label> <input type='text' name="" id="saveServer" /> <button onclick="save_data()"
-        type="button" value="Save" id="Save">Save</button>
-    </div>
-    <div class="modal-footer left">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
+    </form>
   </div>
   <!-- Navbar -->
   <nav>
@@ -118,9 +124,9 @@
   <div id="page-wrapper">
     <h1 data-text="ZenFoci">ZenFoci</h1>
   </div>
-  <!-- user dashboard -->
+  <!-- user dashboard section -->
   <div class="dashboard-call-to-action-container row">
-    <div class="create-habits col s4">
+    <div class="create-habits col l4 s12">
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <div class="row ongoing-habits-title-container">
@@ -153,7 +159,8 @@
           </div>
           <!-- Modal Trigger -->
           <div class="row add-habit-btn-container center">
-            <a class="waves-effect waves-light btn modal-trigger" href="#habit-modal"><i class="fa-solid fa-plus"></i>
+            <a class="waves-effect waves-light btn modal-trigger" href="#habit-modal"><i
+                class="fa-solid fa-plus left"></i>
               Add
               habit</a>
           </div>

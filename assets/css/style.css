@@ -241,13 +241,22 @@ button {
   color: rgb(149, 135, 191);
 }
 
-#delete-habit {
-  margin-right: 23%;
-  margin-top: -29.5%;
-}
-
 .delete {
   margin-top: -7%;
+}
+
+/* -------------------------- habit settings modal -------------------------- */
+
+.habit-settings-footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* --------------------------- delete habit modal --------------------------- */
+
+.delete-habit-form {
+  display: flex;
+  justify-content: center;
 }
 
 /* Meal-planner Styling */
