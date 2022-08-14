@@ -1,40 +1,39 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const elems = document.querySelectorAll(".modal");
-  const instances = M.Modal.init(elems, { opacity: 1 });
+/* -------------------------------------------------------------------------- */
+/*                                   modals                                   */
+/* -------------------------------------------------------------------------- */
+
+// Modal initializer
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.modal');
+    const instances = M.Modal.init(elems, { opacity: 0.5 });
 });
 
-     
-document.addEventListener("DOMContentLoaded", function () {
+// Modal
 
-  const select = document.querySelector('select');
-  M.FormSelect.init(select)
-
-})
-
+/* -------------------------------------------------------------------------- */
+/*                                    forms                                   */
+/* -------------------------------------------------------------------------- */
 
 // Dropdown initializer
 document.addEventListener('DOMContentLoaded', () => {
-  const elems = document.querySelectorAll('.dropdown-trigger');
-  const instances = M.Dropdown.init(elems, {});
+    const elems = document.querySelectorAll('.dropdown-trigger');
+    const instances = M.Dropdown.init(elems, {});
 });
 
 // Select initializer
 document.addEventListener('DOMContentLoaded', () => {
-  const elems = document.querySelectorAll('select');
-  const instances = M.FormSelect.init(elems, {
-      dropdownOptions: {},
-  });
+    const elems = document.querySelectorAll('select');
+    const instances = M.FormSelect.init(elems, {
+        dropdownOptions: {},
+    });
 });
 
 // Saves to local storage
-var save_button = document.getElementById('Save')
+const save_button = document.getElementById('Save');
 save_button.onclick = saveData;
 
-function saveData(){
-  var input = document.getElementById("saveServer");
-  localStorage.setItem("server", input.value);
-  var storedValue = localStorage.getItem("server");
+function saveData() {
+    const input = document.getElementById('saveServer');
+    localStorage.setItem('server', input.value);
+    const storedValue = localStorage.getItem('server');
 }
-
-
- 
