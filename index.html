@@ -53,8 +53,24 @@
             </div>
             <br>
             <div class="actions">
-              <button class="btn waves-effect blue lighten-2">Edit</button>
-              <button class="btn waves-effect blue lighten-2">Delete</button>
+              <button class="btn waves-effect green lighten-2">Edit</button>
+              <div class="delete">
+                <!-- Modal Trigger -->
+                <div class="delete-button">
+                  <a class="waves-effect waves-light red btn modal-trigger row right" href="#modal1">Delete<i
+                      class="fa-solid fa-trash-can"></i></a>
+                </div>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>Are you sure you want to delete?</h4>
+                    <a href="#!" class="modal-action modal-close btn teal lighten-1">Yes</a>
+                    <a href="#!" class="modal-action modal-close btn red darken-1">No</a>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -97,6 +113,24 @@
               <option value="23:00">23:00</option>
             </select>
             <label><i class="fa-solid fa-clock"></i> End Time</label>
+
+            <div class="delete">
+              <!-- Modal Trigger -->
+              <div class="delete-button">
+                <a class="waves-effect waves-light red btn modal-trigger row right" href="#modal1">Delete<i
+                    class="fa-solid fa-trash-can"></i></a>
+              </div>
+
+              <!-- Modal Structure -->
+              <div id="modal1" class="modal">
+                <div class="modal-content">
+                  <h4>Are you sure you want to delete?</h4>
+                  <a href="#!" class="modal-action modal-close btn teal lighten-1">Yes</a>
+                  <a href="#!" class="modal-action modal-close btn red darken-1">No</a>
+                </div>
+              </div>
+
+            </div>
           </div>
           <!-- Dropdown Trigger -->
           <a class='dropdown-trigger btn' href='#' data-target='dropdown1'><i class="fa-solid fa-repeat"></i> Repeat
@@ -121,11 +155,8 @@
     </div>
 
 
-  </header>
-  <div id="delete-habit" class="yellow row s12 m7">
-    <h2 id="habit">Are you sure you want to delete your habits?</h2>
 
-  </div>
+  </header>
 
 
   <main>
