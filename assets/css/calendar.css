@@ -5,7 +5,13 @@
   margin: 5rem auto;
 }
 
-/* ------------------------- mini calendar stylings ------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                           mini calendar stylings                           */
+/* -------------------------------------------------------------------------- */
+
+.mini-calendar-container {
+  margin-bottom: 2rem;
+}
 
 .vanilla-calendar {
   font-family: "Quicksand", sans-serif;
@@ -18,13 +24,29 @@
 /*                           full calendar stylings                           */
 /* -------------------------------------------------------------------------- */
 
+/* general */
 #calendar {
   margin: 0;
   width: 100%;
   font-family: "Quicksand", sans-serif;
 }
 
-/* ----------------------------- calendar icons ----------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                              event form modal                              */
+/* -------------------------------------------------------------------------- */
 
-.material-icons {
+/* general */
+.modal-content {
+  width: 100%;
 }
+
+/* label font color */
+.input-field > label {
+  color: #444;
+}
+
+.form-rows-container {
+  width: 100% !important;
+}
+
+/* ------------------------------ quill editor ------------------------------ */

@@ -2,6 +2,18 @@
 /*                               add event modal                              */
 /* -------------------------------------------------------------------------- */
 
+// Modal initializer
+const elems = document.querySelectorAll('.modal');
+const instances = M.Modal.init(elems, {});
+
+// Select initializer
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('select');
+    const instances = M.FormSelect.init(elems, {
+        dropdownOptions: {},
+    });
+});
+
 /* -------------------------------------------------------------------------- */
 /*                         full calendar main calendar                        */
 /* -------------------------------------------------------------------------- */
@@ -19,7 +31,6 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
             hint: 'add a new event to the calendar',
             click() {
                 /* ---------------- CHANGE!!!! THIS IS JUST A PLACEHOLDER!!! ---------------- */
-                alert('clicked the custom button!');
             },
         },
         dayCalendarButton: {
@@ -98,3 +109,5 @@ const calendarMini = new VanillaCalendar('.vanilla-calendar', {
     },
 });
 calendarMini.init();
+
+const largeCalendarContainer = document.querySelector('.large-calendar-container');
