@@ -164,6 +164,7 @@ h1::before {
   width: 100vw;
   height: 24vh;
   background-color: var(--mango-tango);
+  margin-top: 35%;
 }
 
 #calendar {
@@ -226,6 +227,11 @@ button {
 
 .col {
   color: rgb(149, 135, 191);
+}
+
+#delete-habit {
+  margin-right: 23%;
+  margin-top: -29.5%;
 }
 
 /* Meal-planner Styling */
