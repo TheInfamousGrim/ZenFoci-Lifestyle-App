@@ -242,20 +242,28 @@ dateInputPicker.on('click', handleDateInput);
 const eventNameInput = $('#eventNameInput');
 // event type input selector
 const eventTypeSelection = $('.select-event-type');
-console.log(eventTypeSelection);
+console.log(eventTypeSelection.val());
 // event start date selector
 const startDateInput = $('#dateStartInput');
+console.log(startDateInput);
 // event start time selector
 const startTimeSelection = $('.select-start-time');
+console.log(startTimeSelection);
 // event end date selector
-
+const endDateInput = $('#dateEndInput');
+console.log(endDateInput);
 // event end time selector
-
+const endTimeSelection = $('.select-end-time');
+console.log(endTimeSelection);
 // event all day checkbox selector
-
+const allDayCheckbox = $('#allDayCheckbox');
+console.log(allDayCheckbox);
 // event recurring settings button selector
-
+const repeatWhenBtn = $('.repeat-when-button');
+console.log(repeatWhenBtn);
 // event description selector
+const eventDescriptionInput = $('#event-description-textarea');
+console.log(eventDescriptionInput);
 
 /* ---------------------- custom recurring event modal ---------------------- */
 // get the modal instance
@@ -277,6 +285,9 @@ function handleRecurringSubmit(e) {
             repeatDaysData.push(dayChecked.dataset.dayNum);
         }
     });
+    const dirtyRepeatWhenHTML = `<i class="fa-solid fa-repeat left"></i> Custom</a>`;
+    const cleanRepeatWhenHTML = DOMPurify.sanitize(dirtyRepeatWhenHTML, { USE_PROFILE: { html: true } });
+    repeatWhenBtn.html(cleanRepeatWhenHTML);
     recurringEventInstance.close();
 }
 

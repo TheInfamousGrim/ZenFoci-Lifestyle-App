@@ -88,7 +88,7 @@
           </div>
           <div class="start-event-container row col s12">
             <div class="input-field col s6 date-picker-input-container">
-              <input type="text" name="start-date-input" placeholder="August 14, 2022" id="dateStartInput"
+              <input type="text" name="start-date-input" placeholder="Pick a start date" id="dateStartInput"
                 class="date-picker">
               <label for="start-date-input" class="start-date-label">Start Date</label>
               <div class="date-picker-start date-picker-general date-picker-general-hidden"></div>
@@ -126,7 +126,7 @@
           </div>
           <div class="end-event-container row col s12">
             <div class="input-field col s6 date-picker-input-container">
-              <input name="end-date-input" type="text" placeholder="August 14, 2022" id="dateEndInput"
+              <input name="end-date-input" type="text" placeholder="Pick an end date" id="dateEndInput"
                 class="date-picker">
               <label for="end-date-input" class="end-date-label">End Date</label>
               <div class="date-picker-end date-picker-general date-picker-general-hidden"></div>
@@ -162,7 +162,7 @@
               <label><i class="fa-solid fa-clock"></i> End Time</label>
             </div>
           </div>
-          <div class="event-time-settings row col s12">
+          <div class="event-time-settings row col s12 valign-wrapper">
             <div class="input-field col s6 l3">
               <p>
                 <label>
@@ -173,7 +173,7 @@
             </div>
             <div class="input-field col s6 l4">
               <!-- Dropdown Trigger -->
-              <a class='dropdown-trigger btn repeat-choice-btn' href='#' data-target='dropdown1'><i
+              <a class='dropdown-trigger btn repeat-when-button' href='#' data-target='dropdown1'><i
                   class="fa-solid fa-repeat left"></i> Repeat
                 when?</a>
               <!-- Dropdown Structure -->
@@ -189,8 +189,8 @@
           </div>
           <div class="event-description-container row col s12">
             <div class="input-field col s12">
-              <textarea id="textarea1" class="materialize-textarea"></textarea>
-              <label for="textarea1">Event Description</label>
+              <textarea id="event-description-textarea" class="materialize-textarea"></textarea>
+              <label for="event-description-textarea">Event Description</label>
             </div>
           </div>
           <div class="form-submmit-buttons row col s12 center-align">
@@ -291,6 +291,10 @@
   <!-- dayJS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.5/dayjs.min.js"
     integrity="sha512-Ot7ArUEhJDU0cwoBNNnWe487kjL5wAOsIYig8llY/l0P2TUFwgsAHVmrZMHsT8NGo+HwkjTJsNErS6QqIkBxDw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- DOMPurify -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"
+    integrity="sha512-Qr/d6af6cN41/GIKiSmrQd4Y19/fo0YvWhD1VND8O+BsfbFBaZI4K7VVPoUZrd8PzMQ3CE71CkMjhrKf1NbhdQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- page script -->
   <script src="./../assets/js/calendar.js" defer></script>
