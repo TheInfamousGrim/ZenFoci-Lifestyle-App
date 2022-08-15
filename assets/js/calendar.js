@@ -206,7 +206,7 @@ const endDateInput = $('#dateEndInput');
 // event end time selector
 const endTimeSelection = $('.select-end-time');
 // select time selections
-const selectTimeSelections = $('.select-time');
+const selectTimeSelections = document.querySelectorAll('.select-time');
 // event all day checkbox selector
 const allDayCheckbox = $('#allDayCheckbox');
 // event recurring settings button selector
@@ -264,19 +264,22 @@ dateInputPicker.on('click', handleDateInput);
 /* ---------------------------- all day checkbox ---------------------------- */
 
 // all day checkbox event handler
+// enables and disables start time and end time depending on whether all day has been checked
 function handleAllDayCheckbox(e) {
-    const selectTimeInstance = M.FormSelect.getInstance(selectTimeSelections);
-    console.log(selectTimeInstance);
     if (e.currentTarget.checked) {
         console.log('all day is checked');
-        console.log(selectTimeSelections);
         // disable the start time and end time
-        selectTimeInstance.destroy();
-        console.log(selectTimeInstance);
+        selectTimeSelections.forEach((timeSelection) => {
+            timeSelection.setAttribute('disabled', true);
+            const disabledTimeInstance = M.FormSelect.init(timeSelection);
+        });
     }
     if (!e.currentTarget.checked) {
         console.log('all day is unchecked');
-        selectTimeSelections.removeClass('disabled');
+        selectTimeSelections.forEach((timeSelection) => {
+            timeSelection.removeAttribute('disabled');
+            const enabledTimeInstance = M.FormSelect.init(timeSelection);
+        });
     }
 }
 
