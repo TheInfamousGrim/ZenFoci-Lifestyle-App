@@ -192,6 +192,30 @@ calendarMini.init();
 /*                               new event modal                              */
 /* -------------------------------------------------------------------------- */
 
+/* ----------------------------- form selectors ----------------------------- */
+// event name input selector
+const eventNameInput = $('#eventNameInput');
+// event type input selector
+const eventTypeSelection = $('.select-event-type');
+// event start date selector
+const startDateInput = $('#dateStartInput');
+// event start time selector
+const startTimeSelection = $('.select-start-time');
+// event end date selector
+const endDateInput = $('#dateEndInput');
+// event end time selector
+const endTimeSelection = $('.select-end-time');
+// select time selections
+const selectTimeSelections = $('.select-time');
+// event all day checkbox selector
+const allDayCheckbox = $('#allDayCheckbox');
+// event recurring settings button selector
+const repeatWhenBtn = $('.repeat-when-button');
+// event description selector
+const eventDescriptionInput = $('#event-description-textarea');
+// add event button selector
+const addEventBtn = $('.submit-event-button');
+
 /* ------------------------------- date picker ------------------------------ */
 
 // selector for the date picker
@@ -237,35 +261,52 @@ const dateInputPicker = $('.date-picker-input-container');
 // event listeners for the date inputs
 dateInputPicker.on('click', handleDateInput);
 
-/* ---------------------- save and submit event inputs ---------------------- */
-// event name input selector
-const eventNameInput = $('#eventNameInput');
-// event type input selector
-const eventTypeSelection = $('.select-event-type');
-console.log(eventTypeSelection.val());
-// event start date selector
-const startDateInput = $('#dateStartInput');
-console.log(startDateInput);
-// event start time selector
-const startTimeSelection = $('.select-start-time');
-console.log(startTimeSelection);
-// event end date selector
-const endDateInput = $('#dateEndInput');
-console.log(endDateInput);
-// event end time selector
-const endTimeSelection = $('.select-end-time');
-console.log(endTimeSelection);
-// event all day checkbox selector
-const allDayCheckbox = $('#allDayCheckbox');
-console.log(allDayCheckbox);
-// event recurring settings button selector
-const repeatWhenBtn = $('.repeat-when-button');
-console.log(repeatWhenBtn);
-// event description selector
-const eventDescriptionInput = $('#event-description-textarea');
-console.log(eventDescriptionInput);
+/* ---------------------------- all day checkbox ---------------------------- */
 
+// all day checkbox event handler
+function handleAllDayCheckbox(e) {
+    const selectTimeInstance = M.FormSelect.getInstance(selectTimeSelections);
+    console.log(selectTimeInstance);
+    if (e.currentTarget.checked) {
+        console.log('all day is checked');
+        console.log(selectTimeSelections);
+        // disable the start time and end time
+        selectTimeInstance.destroy();
+        console.log(selectTimeInstance);
+    }
+    if (!e.currentTarget.checked) {
+        console.log('all day is unchecked');
+        selectTimeSelections.removeClass('disabled');
+    }
+}
+
+// all day checkbox event listener
+allDayCheckbox.on('click', handleAllDayCheckbox);
+
+/* --------------------------- repeat when button --------------------------- */
+
+// repeat basic choices selector
+const repeatBasicChoices = document.querySelectorAll('.repeat-basic-choices');
+
+// event handler for the repeat basic choices
+function handleRepeatBasicChoices(e) {
+    // get the text for the choice selected
+    const repeatChoiceText = e.currentTarget.innerText;
+    // set the dirty HTML
+    const dirtyRepeatBasicChoicesHTML = `<i class="fa-solid fa-repeat left"></i> ${repeatChoiceText}</a>`;
+    // sanitize the dirty HTML
+    const cleanRepeatBasicChoicesHTML = DOMPurify.sanitize(dirtyRepeatBasicChoicesHTML, {
+        USE_PROFILE: { html: true },
+    });
+    repeatWhenBtn.html(cleanRepeatBasicChoicesHTML);
+}
+
+// event listener for the repeat basic choices
+repeatBasicChoices.forEach((choice) => {
+    choice.addEventListener('click', handleRepeatBasicChoices);
+});
 /* ---------------------- custom recurring event modal ---------------------- */
+
 // get the modal instance
 const recurringEventInstance = M.Modal.getInstance($('#custom-recurring-event'));
 // days checkboxes selector
@@ -301,3 +342,18 @@ function handleRecurringCancel(e) {
 
 // event listener for the recurring event cancel button
 recurringEventCnclBtn.on('click', handleRecurringCancel);
+
+/* ------------------- save event and append to calendars ------------------- */
+
+// handle add event function
+function handleAddEvent(e) {
+    e.preventDefault;
+    console.log(e.target);
+    // grab the inputs
+    // if the title, type, start date and end date aren't selected
+    // return
+    // if all day is checked
+}
+
+// add an event listener to the add event button
+addEventBtn.on('click', handleAddEvent);
