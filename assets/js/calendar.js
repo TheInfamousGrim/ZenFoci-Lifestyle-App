@@ -26,6 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* -------------------------------------------------------------------------- */
+/*                         get the users saved events                         */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
 /*                         full calendar main calendar                        */
 /* -------------------------------------------------------------------------- */
 
@@ -348,14 +352,90 @@ recurringEventCnclBtn.on('click', handleRecurringCancel);
 
 /* ------------------- save event and append to calendars ------------------- */
 
+// format the repeat day inputs for full calendar
+function formatRepeatDays() {
+    if (repeatWhenBtn.text().includes('Repeat') || repeatWhenBtn.text().includes('Does not repeat')) {
+        return null;
+    }
+    if (repeatWhenBtn.text().includes('Every day')) {
+        const everyDayArray = [0, 1, 2, 3, 4, 5, 6];
+        return everyDayArray;
+    }
+    if (repeatWhenBtn.text().includes('Custom')) {
+        const repeatDaysData = [];
+        daysChecked.forEach((dayChecked) => {
+            if (dayChecked.checked) {
+                console.log(dayChecked.checked);
+                // get the checked days data and push it into the array
+                repeatDaysData.push(dayChecked.dataset.dayNum);
+            }
+        });
+        return repeatDaysData;
+    }
+}
+
+// all day event formatter
+function allDayFormatter(userEventInputs) {
+    const { startTime, endTime, ...userAllDayInputs } = userEventInputs;
+    // remove the time inputs from the object
+    const allDayEventsFormatted = {
+        ...userAllDayInputs,
+        start: `${startDateInput.val()}`,
+        end: `${endDateInput.val()}`,
+    };
+    return allDayEventsFormatted;
+}
+// no repeat event formatter
+function noRepeatFormatter(userEventInputs) {
+    const { daysOfWeek, startTime, endTime, ...noRepeatEvents } = userEventInputs;
+    return noRepeatEvents;
+}
+
 // handle add event function
 function handleAddEvent(e) {
-    e.preventDefault;
-    console.log(e.target);
-    // grab the inputs
+    e.preventDefault();
+    // format the start date and time as well as end date and time
+    const startVal = dayjs(`${startDateInput.val()} ${startTimeSelection.val()}`);
+    // grab the inputs and store them in an object
+    const userEventInputs = {
+        title: `${eventNameInput.val()}`,
+        eventType: `${eventTypeSelection.val()}`,
+        classList: `events ${eventTypeSelection.val()}-events`,
+        start: `${startDateInput.val()} ${startTimeSelection.val()}`,
+        startTime: `${startTimeSelection.val()}`,
+        end: `${startDateInput.val()} ${endTimeSelection.val()}`,
+        endTime: `${endTimeSelection.val()}`,
+        allDay: `${allDayCheckbox.is(':checked')}`,
+        daysOfWeek: formatRepeatDays(),
+        description: `${eventDescriptionInput.val()}`,
+    };
+    console.log(userEventInputs);
+
     // if the title, type, start date and end date aren't selected
     // return
+    // if all day and no repeat are checked
+    if (allDayCheckbox.is(':checked') && userEventInputs.daysOfWeek === null) {
+        console.log('all day no repeat');
+        const allDayEvent = allDayFormatter(userEventInputs);
+        const allDayNoRepeatEvent = noRepeatFormatter(allDayEvent);
+        console.log(allDayNoRepeatEvent);
+        return;
+    }
     // if all day is checked
+    if (allDayCheckbox.is(':checked')) {
+        console.log('all day event');
+        const allDayEvent = allDayFormatter(userEventInputs);
+        console.log(allDayEvent);
+        // create event in calendar
+        // save to the local storage
+        return;
+    }
+    // if userEventInputs.daysOfWeek === null remove the allDay property
+    if (userEventInputs.daysOfWeek === null) {
+        console.log('no repeat event');
+        const noRepeatEvents = noRepeatFormatter(userEventInputs);
+        console.log(noRepeatEvents);
+    }
 }
 
 // add an event listener to the add event button
