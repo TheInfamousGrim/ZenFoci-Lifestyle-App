@@ -18,6 +18,14 @@ body {
   margin: 5rem auto;
 }
 
+.row {
+  width: 100%;
+}
+
+.modal-overlay {
+  top: 0%;
+}
+
 /* -------------------------------------------------------------------------- */
 /*                           mini calendar stylings                           */
 /* -------------------------------------------------------------------------- */
@@ -65,7 +73,7 @@ body {
 
 /* general */
 
-.modal {
+#new-event-modal {
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -73,7 +81,7 @@ body {
   max-height: 100vh;
 }
 
-.modal-content {
+.new-event-modal-content {
   height: 100vh;
   border-radius: 0;
   width: 100%;
@@ -91,4 +99,12 @@ body {
 /* form submit buttons */
 .form-submit-buttons {
   margin-bottom: 2rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                        custom recurring event modal                        */
+/* -------------------------------------------------------------------------- */
+
+#custom-recurring-event {
+  margin-top: 10vh;
 }

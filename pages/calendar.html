@@ -63,7 +63,7 @@
     </div>
     <!-- Modal Structure -->
     <div id="new-event-modal" class="modal">
-      <div class="modal-content row">
+      <div class="modal-content new-event-modal-content row">
         <div class="row col s12">
           <h4>Add An Event</h4>
         </div>
@@ -174,7 +174,7 @@
             <div class="input-field col s6 l4">
               <!-- Dropdown Trigger -->
               <a class='dropdown-trigger btn repeat-choice-btn' href='#' data-target='dropdown1'><i
-                  class="fa-solid fa-repeat"></i> Repeat
+                  class="fa-solid fa-repeat left"></i> Repeat
                 when?</a>
               <!-- Dropdown Structure -->
               <ul id='dropdown1' class='dropdown-content'>
@@ -182,7 +182,8 @@
                 <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
                 <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
                 <li class="divider" tabindex="-1"></li>
-                <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
+                <li><a href="#custom-recurring-event" class="modal-trigger">Custom <i
+                      class="fa-solid fa-angle-right"></i></a></li>
               </ul>
             </div>
           </div>
@@ -195,10 +196,85 @@
           <div class="form-submmit-buttons row col s12 center-align">
             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
             <button type="submit" class="submit-event-button waves-effect waves-light btn"><i
-                class="fa-solid fa-plus"></i>
+                class="fa-solid fa-plus left"></i>
               add event</button>
           </div>
         </form>
+        <!-- Custom Event Modal Structure -->
+        <div id="custom-recurring-event" class="modal">
+          <div class="modal-content row custom-recurring-event-content">
+            <div class="row col s12">
+              <h4>Custom Recurring Event</h4>
+            </div>
+            <form class="recurring-event-form">
+              <div class="row col s12 recurring-days-description">
+                <h6>Days event is to be repeated on</h6>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="sunRepeat" data-day-num="0" />
+                    <span>Sunday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="monRepeat" data-day-num="1" />
+                    <span>Monday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="tueRepeat" data-day-num="2" />
+                    <span>Tuesday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="wedRepeat" data-day-num="3" />
+                    <span>Wednesday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="thuRepeat" data-day-num="4" />
+                    <span>Thursday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="friRepeat" data-day-num="5" />
+                    <span>Friday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="row col s12 day-pickers">
+                <p>
+                  <label>
+                    <input type="checkbox" class="filled-in day-repeat-checks" id="satRepeat" data-day-num="6" />
+                    <span>Saturday</span>
+                  </label>
+                </p>
+              </div>
+              <div class="form-submmit-buttons row col s12 center-align">
+                <a href="#new-event-modal" class="cancel-recurring-button waves-effect waves-red btn-flat">Cancel</a>
+                <button type="submit" class="submit-recurring-button waves-effect waves-light btn"><i
+                    class="fa-solid fa-floppy-disk left"></i>
+                  save</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

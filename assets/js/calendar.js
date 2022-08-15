@@ -2,6 +2,29 @@
 /*                                   plugins                                  */
 /* -------------------------------------------------------------------------- */
 
+/* --------------------------- materialize plugins -------------------------- */
+
+// Modal initializer
+const elems = document.querySelectorAll('.modal');
+const instances = M.Modal.init(elems, {
+    startingTop: '0%',
+    endingTop: '0%',
+});
+
+// Select initializer
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('select');
+    const instances = M.FormSelect.init(elems, {
+        dropdownOptions: {},
+    });
+});
+
+// Dropdown initializer
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.dropdown-trigger');
+    const instances = M.Dropdown.init(elems, {});
+});
+
 /* -------------------------------------------------------------------------- */
 /*                         full calendar main calendar                        */
 /* -------------------------------------------------------------------------- */
@@ -86,10 +109,10 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
             eventType: 'general',
             classList: 'events general-events',
             color: '#26a69a',
-            allDay: true,
-            start: '2022-08-16',
+            allDay: false,
+            start: dayjs('2022-08-16 10:00').valueOf(),
             // startTime: '10:00',
-            end: '2022-08-16',
+            end: dayjs('2022-08-16 11:00').valueOf(),
             // endTime: '11:00',
             // [sun, mon, tue, wed, thu, fri, sat]
             // [0  , 1  , 2  , 3  , 4  , 5  , 6  ]
@@ -105,8 +128,19 @@ calendar.updateSize();
 
 /* ------------------------ submit the calendar form ------------------------ */
 
-console.log(dayjs.extend(utc));
-console.log(dayjs.extend(timezone));
+// function that formats either to ISOString or Unix Timestamp milliseconds
+function dateTimeFormatted(date, time) {
+    if (date && !time) {
+        const dateISOString = dayjs(date).toISOString();
+        return dateISOString;
+    }
+    if (date && time) {
+        const UnixTimestamp = dayjs(`${date} ${time}`).valueOf();
+        return UnixTimestamp;
+    }
+}
+
+// function that either formats to
 
 // event object constructor full calendar
 const eventsObj = {
@@ -117,7 +151,7 @@ const eventsObj = {
             id: 1, // increment by one for each event so it has a unique id
             title: 'Meet my friends',
             // This is the event type
-            groupId: 'general',
+            eventType: 'general',
             classList: 'events general-events',
             color: '#26a69a',
             allDay: false,
@@ -128,6 +162,7 @@ const eventsObj = {
             // [sun, mon, tue, wed, thu, fri, sat]
             // [0  , 1  , 2  , 3  , 4  , 5  , 6  ]
             // If recurring the start or stop properties aren't needed
+            // This would recur every tuesday
             daysOfWeek: [2],
             description: 'Going to a tame impala gig at the O2 venue',
         },
@@ -156,27 +191,6 @@ calendarMini.init();
 /* -------------------------------------------------------------------------- */
 /*                               new event modal                              */
 /* -------------------------------------------------------------------------- */
-
-// Modal initializer
-const elems = document.querySelectorAll('.modal');
-const instances = M.Modal.init(elems, {
-    startingTop: '0%',
-    endingTop: '0%',
-});
-
-// Select initializer
-document.addEventListener('DOMContentLoaded', () => {
-    const elems = document.querySelectorAll('select');
-    const instances = M.FormSelect.init(elems, {
-        dropdownOptions: {},
-    });
-});
-
-// Dropdown initializer
-document.addEventListener('DOMContentLoaded', () => {
-    const elems = document.querySelectorAll('.dropdown-trigger');
-    const instances = M.Dropdown.init(elems, {});
-});
 
 /* ------------------------------- date picker ------------------------------ */
 
@@ -222,3 +236,57 @@ function handleDateInput(e) {
 const dateInputPicker = $('.date-picker-input-container');
 // event listeners for the date inputs
 dateInputPicker.on('click', handleDateInput);
+
+/* ---------------------- save and submit event inputs ---------------------- */
+// event name input selector
+const eventNameInput = $('#eventNameInput');
+// event type input selector
+const eventTypeSelection = $('.select-event-type');
+console.log(eventTypeSelection);
+// event start date selector
+const startDateInput = $('#dateStartInput');
+// event start time selector
+const startTimeSelection = $('.select-start-time');
+// event end date selector
+
+// event end time selector
+
+// event all day checkbox selector
+
+// event recurring settings button selector
+
+// event description selector
+
+/* ---------------------- custom recurring event modal ---------------------- */
+// get the modal instance
+const recurringEventInstance = M.Modal.getInstance($('#custom-recurring-event'));
+// days checkboxes selector
+const daysChecked = document.querySelectorAll('.day-repeat-checks');
+// recurring event submit button
+const recurringEventSbtBtn = $('.submit-recurring-button');
+// recurring event cancel button
+const recurringEventCnclBtn = $('.cancel-recurring-button');
+
+// handle function for the recurring event submit button
+function handleRecurringSubmit(e) {
+    // create an empty array for the repeat days
+    const repeatDaysData = [];
+    daysChecked.forEach((dayChecked) => {
+        if (dayChecked.checked) {
+            // get the checked days data and push it into the array
+            repeatDaysData.push(dayChecked.dataset.dayNum);
+        }
+    });
+    recurringEventInstance.close();
+}
+
+// event listener for the recurring event submit button
+recurringEventSbtBtn.on('click', handleRecurringSubmit);
+
+// handle function for the recurring event cancel button
+function handleRecurringCancel(e) {
+    recurringEventInstance.close();
+}
+
+// event listener for the recurring event cancel button
+recurringEventCnclBtn.on('click', handleRecurringCancel);
