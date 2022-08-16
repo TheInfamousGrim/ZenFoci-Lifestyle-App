@@ -16,7 +16,7 @@ The framework is a library that packs HTML, CSS (written in Sass), and JS that c
 
 Since Materialize is an actual implementation of Material Design, the elements utilize motion and depth. All animations and transitions are smooth and neat and behave as they provide optimal use of the screen.
 
-- JQuery was used to opposed to Javascript.
+- JQuery was used as opposed to Javascript.
 
 It's benefits include:
 
