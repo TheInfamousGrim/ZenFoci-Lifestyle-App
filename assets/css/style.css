@@ -1,0 +1,340 @@
+:root {
+  --sapphire-blue: #2f6690ff;
+  --celadon-blue: #3a7ca5ff;
+  --gainsboro: #d9dcd6ff;
+  --indigo-dye: #16425bff;
+  --dark-sky-blue: #81c3d7ff;
+  --red-salsa: #f94144ff;
+  --orange-red: #f3722cff;
+  --yellow-orange-color-wheel: #f8961eff;
+  --mango-tango: #f9844aff;
+  --maize-crayola: #f9c74fff;
+  --pistachio: #90be6dff;
+  --jungle-green: #43aa8bff;
+  --steel-teal: #4d908eff;
+  --queen-blue: #577590ff;
+  --celadon-blue: #277da1ff;
+  --pink-lace: #ffd6ffff;
+  --mauve: #e7c6ffff;
+  --maximum-blue-purple: #c8b6ffff;
+  --lavender-blue: #b8c0ffff;
+  --lavender-blue-2: #bbd0ffff;
+  --rich-black-fogra-29: #0d1b2aff;
+  --oxford-blue: #1b263bff;
+  --bdazzled-blue: #415a77ff;
+  --shadow-blue: #778da9ff;
+  --platinum: #e0e1ddff;
+  --bg-color: #fffcf2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  background: var(--bg-color);
+}
+
+/* Navbar Styling */
+.nav-wrapper {
+  background-color: var(--celadon-blue);
+}
+
+.nav-wrapper > ul > li:hover {
+  background-color: var(--yellow-orange-color-wheel);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             materialize resets                             */
+/* -------------------------------------------------------------------------- */
+
+/* Title Styling */
+#page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 40vh;
+  background-color: #fffcf2;
+}
+
+.text {
+  color: #fff;
+  font-size: 72px;
+  font-weight: 900;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fade-in-text 0.01s linear 1s forwards;
+}
+
+h1 {
+  position: relative;
+  font-size: 11vw;
+  -webkit-text-stroke: 0.3vh #16425bff;
+  text-transform: uppercase;
+}
+
+h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: #f9844aff;
+  -webkit-text-stroke: 0vw navy;
+  border-right: 2px solid #81c3d7ff;
+  overflow: hidden;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+  70%,
+  90% {
+    width: 100%;
+  }
+}
+
+/* Animations for other titles*/
+.swipe-in-text {
+  position: relative;
+}
+
+.swipe-in-text::after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 100%;
+  width: 50%;
+  bottom: 0;
+  z-index: 1;
+  background-color: #d9dcd6ff;
+  animation: swipe-in-text 1s ease-out 1s forwards;
+}
+@keyframes swipe-in-text {
+  0% {
+    width: 0%;
+    right: 100%;
+    left: 0;
+  }
+  50% {
+    left: 0;
+    width: 100%;
+    right: 0%;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+@keyframes fade-in-text {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Calendar Styling */
+.blink_me {
+  animation: blinker 2.5s linear infinite;
+  margin-top: 75%;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 24vh;
+  background-color: var(--mango-tango);
+  margin-top: 35%;
+}
+
+#calendar {
+  margin-top: 20%;
+  margin-left: -80%;
+  height: 350%;
+  width: 252%;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                    user dashboard call to action section                   */
+/* -------------------------------------------------------------------------- */
+
+.collection .collection-item {
+  background-color: var(--bg-color);
+}
+
+/* ------------------------------ form stylings ----------------------------- */
+
+/* -------------------------------------------------------------------------- */
+
+header {
+  display: flex;
+  flex-direction: column;
+  min-height: 60vh;
+  background: var(--celadon-blue);
+  color: #fff;
+  padding: 2rem 1rem;
+  max-width: 650px;
+  width: 100%;
+}
+
+header section {
+  margin-top: 10%;
+}
+
+header h2 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--gainsboro);
+  text-decoration: underline;
+}
+
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#new-task-form {
+  display: flex;
+}
+
+/* ------------------------------ Weather Card ------------------------------ */
+.card.blue-grey.darken-1 {
+  text-align: center;
+}
+.card.blue-grey.darken-1 {
+  width: 450px;
+}
+span.card-title {
+  font-weight: 600 !important;
+}
+img.pic {
+  width: 100px;
+}
+p.desc {
+  margin-top: -30px !important;
+  /* margin-bottom: 30px !important; */
+}
+p.temp {
+  font-size: 30px;
+  margin-bottom: 20px !important;
+}
+
+/* ------------------------------ modal styles ------------------------------ */
+
+/* -------------------------------------------------------------------------- */
+
+.modal {
+  color: #252422;
+}
+
+#habit {
+  color: rgb(149, 135, 191);
+  font-size: 15px;
+}
+
+.col {
+  color: rgb(149, 135, 191);
+}
+
+.delete {
+  margin-top: -7%;
+}
+
+/* -------------------------- habit settings modal -------------------------- */
+
+.habit-settings-footer {
+  display: flex;
+  justify-content: center;
+}
+
+/* --------------------------- delete habit modal --------------------------- */
+
+.delete-habit-form {
+  display: flex;
+  justify-content: center;
+}
+
+/* Meal-planner Styling */
+
+.meal-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 78%;
+  width: 100vw;
+  height: 20vh;
+  background-color: var(--indigo-dye);
+}
+
+.blink_me {
+  animation: blinker 2.5s linear infinite;
+  margin-top: 75%;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Card Styling */
+#container {
+  margin-left: 5%;
+}
+
+#flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 0%;
+}
+
+/* margin-left: 20%; */
+
+/* .flexbox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  } */
+
+/* --------------------------------- Footer --------------------------------- */
+footer {
+  display: flex;
+  /* min-height: 20vh; */
+  flex-direction: column;
+}
+
+.page-footer {
+  background-color: var(--celadon-blue);
+}
