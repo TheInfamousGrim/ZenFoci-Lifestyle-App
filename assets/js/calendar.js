@@ -103,11 +103,19 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
                   start: 'title',
                   end: 'dayCalendarButton weekCalendarButton prev today next',
               },
+    eventClick: (e) => {
+        console.log(e.event._def.publicId);
+        console.log(e.event._def.extendedProps.eventType);
+        console.log(e.event._def.extendedProps.description);
+        // generate a more event info modal
+        // give the modal a data attribute of the public id
+        //  
+    },
     events: [
         // General event
         {
             // this object will be "parsed" into an event object}
-            id: 1, // increment by one for each event so it has a unique id
+            id: 2, // increment by one for each event so it has a unique id
             title: 'Meet my friends',
             // This is the event type
             eventType: 'general',
@@ -130,50 +138,10 @@ calendar.render();
 // Updates the size to fit in the container
 calendar.updateSize();
 
+console.log(calendar.getEvents());
+console.log(calendar.getEventById(2));
+
 /* ------------------------ submit the calendar form ------------------------ */
-
-// function that formats either to ISOString or Unix Timestamp milliseconds
-function dateTimeFormatted(date, time) {
-    if (date && !time) {
-        const dateISOString = dayjs(date).toISOString();
-        return dateISOString;
-    }
-    if (date && time) {
-        const UnixTimestamp = dayjs(`${date} ${time}`).valueOf();
-        return UnixTimestamp;
-    }
-}
-
-// function that either formats to
-
-// event object constructor full calendar
-const eventsObj = {
-    events: [
-        // General event
-        {
-            // this object will be "parsed" into an event object}
-            id: 1, // increment by one for each event so it has a unique id
-            title: 'Meet my friends',
-            // This is the event type
-            eventType: 'general',
-            classList: 'events general-events',
-            color: '#26a69a',
-            allDay: false,
-            start: '2022-08-16',
-            startTime: '10:00',
-            end: '2022-08-16',
-            endTime: '11:00',
-            // [sun, mon, tue, wed, thu, fri, sat]
-            // [0  , 1  , 2  , 3  , 4  , 5  , 6  ]
-            // If recurring the start or stop properties aren't needed
-            // This would recur every tuesday
-            daysOfWeek: [2],
-            description: 'Going to a tame impala gig at the O2 venue',
-        },
-    ],
-};
-
-calendar.addEvent(eventsObj);
 
 // When I select a day on the full calendar
 // The mini calendar updates as well
@@ -271,7 +239,6 @@ dateInputPicker.on('click', handleDateInput);
 // enables and disables start time and end time depending on whether all day has been checked
 function handleAllDayCheckbox(e) {
     if (e.currentTarget.checked) {
-        console.log('all day is checked');
         // disable the start time and end time
         selectTimeSelections.forEach((timeSelection) => {
             timeSelection.setAttribute('disabled', true);
@@ -279,7 +246,6 @@ function handleAllDayCheckbox(e) {
         });
     }
     if (!e.currentTarget.checked) {
-        console.log('all day is unchecked');
         selectTimeSelections.forEach((timeSelection) => {
             timeSelection.removeAttribute('disabled');
             const enabledTimeInstance = M.FormSelect.init(timeSelection);
@@ -350,7 +316,21 @@ function handleRecurringCancel(e) {
 // event listener for the recurring event cancel button
 recurringEventCnclBtn.on('click', handleRecurringCancel);
 
-/* ------------------- save event and append to calendars ------------------- */
+/* -------------------------------------------------------------------------- */
+/*                   save events and render to the calendar                   */
+/* -------------------------------------------------------------------------- */
+
+// format either to ISOString or Unix Timestamp milliseconds
+function dateTimeFormatted(date, time) {
+    if (date && !time) {
+        const dateISOString = dayjs(date).toISOString();
+        return dateISOString;
+    }
+    if (date && time) {
+        const UnixTimestamp = dayjs(`${date} ${time}`).valueOf();
+        return UnixTimestamp;
+    }
+}
 
 // format the repeat day inputs for full calendar
 function formatRepeatDays() {
@@ -365,7 +345,6 @@ function formatRepeatDays() {
         const repeatDaysData = [];
         daysChecked.forEach((dayChecked) => {
             if (dayChecked.checked) {
-                console.log(dayChecked.checked);
                 // get the checked days data and push it into the array
                 repeatDaysData.push(dayChecked.dataset.dayNum);
             }
@@ -380,15 +359,21 @@ function allDayFormatter(userEventInputs) {
     // remove the time inputs from the object
     const allDayEventsFormatted = {
         ...userAllDayInputs,
-        start: `${startDateInput.val()}`,
-        end: `${endDateInput.val()}`,
+        start: dateTimeFormatted(startDateInput.val()),
+        end: dateTimeFormatted(endDateInput.val()),
     };
     return allDayEventsFormatted;
 }
 // no repeat event formatter
 function noRepeatFormatter(userEventInputs) {
-    const { daysOfWeek, startTime, endTime, ...noRepeatEvents } = userEventInputs;
+    const { daysOfWeek, allDay, startTime, endTime, ...noRepeatEvents } = userEventInputs;
     return noRepeatEvents;
+}
+
+// no repeat all day formatter
+function noRepeatAllDayFormatter(userEventInputs) {
+    const { daysOfWeek, startTime, endTime, ...noRepeatAllDay } = userEventInputs;
+    return noRepeatAllDay;
 }
 
 // handle add event function
@@ -401,40 +386,39 @@ function handleAddEvent(e) {
         title: `${eventNameInput.val()}`,
         eventType: `${eventTypeSelection.val()}`,
         classList: `events ${eventTypeSelection.val()}-events`,
-        start: `${startDateInput.val()} ${startTimeSelection.val()}`,
+        start: dateTimeFormatted(startDateInput.val(), startTimeSelection.val()),
         startTime: `${startTimeSelection.val()}`,
-        end: `${startDateInput.val()} ${endTimeSelection.val()}`,
+        end: dateTimeFormatted(startDateInput.val(), endTimeSelection.val()),
         endTime: `${endTimeSelection.val()}`,
         allDay: `${allDayCheckbox.is(':checked')}`,
         daysOfWeek: formatRepeatDays(),
         description: `${eventDescriptionInput.val()}`,
     };
-    console.log(userEventInputs);
 
     // if the title, type, start date and end date aren't selected
     // return
     // if all day and no repeat are checked
     if (allDayCheckbox.is(':checked') && userEventInputs.daysOfWeek === null) {
-        console.log('all day no repeat');
-        const allDayEvent = allDayFormatter(userEventInputs);
-        const allDayNoRepeatEvent = noRepeatFormatter(allDayEvent);
-        console.log(allDayNoRepeatEvent);
+        const allDayNoRepeatEvent = noRepeatAllDayFormatter(userEventInputs);
+        // render event to full calendar
+        calendar.addEvent(allDayNoRepeatEvent);
+        // save event to the local storage
         return;
     }
     // if all day is checked
     if (allDayCheckbox.is(':checked')) {
-        console.log('all day event');
         const allDayEvent = allDayFormatter(userEventInputs);
-        console.log(allDayEvent);
-        // create event in calendar
+        // render event to full calendar
+        calendar.addEvent(allDayEvent);
         // save to the local storage
         return;
     }
-    // if userEventInputs.daysOfWeek === null remove the allDay property
+    // if the event isn't repeated
     if (userEventInputs.daysOfWeek === null) {
-        console.log('no repeat event');
         const noRepeatEvents = noRepeatFormatter(userEventInputs);
-        console.log(noRepeatEvents);
+        // render event to full calendar
+        calendar.addEvent(noRepeatEvents);
+        // save event to the local storage
     }
 }
 
