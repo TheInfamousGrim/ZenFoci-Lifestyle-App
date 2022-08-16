@@ -61,7 +61,32 @@
     <div class="large-calendar-container col xl9 s12">
       <div id="calendar"></div>
     </div>
-    <!-- Modal Structure -->
+    <!-- Event info modal structure -->
+    <div id="event-info-modal" class="modal">
+      <div class="modal-content event-info-modal-content row">
+        <h4>Event Name: <span id="event-info-name">Meet my friends</span></h4>
+        <ul class="collection">
+          <li class="collection-item">Event Description: <span id="event-info-description">
+              Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute consequat. Sunt
+              dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo cupidatat laborum non
+              nostrud consequat qui exercitation aliqua consectetur.</span>
+          </li>
+          <li class="collection-item">Event Type <div class="secondary-content">
+              <p id="event-info-type">general</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <div class="event-info-btns-container">
+          <button class="btn red lighten-1 waves-effect waves-light" id="delete-event-button"><i
+              class="fa-solid fa-trash-can left"></i> Delete
+            event</button>
+          <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+        </div>
+      </div>
+    </div>
+    <!-- Event form modal structure -->
     <div id="new-event-modal" class="modal">
       <div class="modal-content new-event-modal-content row">
         <div class="row col s12">

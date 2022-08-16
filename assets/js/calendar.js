@@ -1,6 +1,8 @@
 /* -------------------------------------------------------------------------- */
-/*                                   plugins                                  */
+/*                              general selectors                             */
 /* -------------------------------------------------------------------------- */
+
+const eventInfoModal = document.querySelector('#event-info-modal');
 
 /* --------------------------- materialize plugins -------------------------- */
 
@@ -10,6 +12,9 @@ const instances = M.Modal.init(elems, {
     startingTop: '0%',
     endingTop: '0%',
 });
+
+// Event info modal instance
+const eventInfoInstance = M.Modal.getInstance(eventInfoModal);
 
 // Select initializer
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,8 +31,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                         get the users saved events                         */
+/*                              get saved events                              */
 /* -------------------------------------------------------------------------- */
+
+// get all events
+function getUserEvents() {
+    const savedEvents = JSON.parse(localStorage.getItem('userEvents')) || [];
+    return savedEvents;
+}
+
+// get a specific event
+function getSavedEventById(id) {
+    const allEvents = getUserEvents();
+    const filteredEvent = allEvents.filter((event) => (event.id = id));
+    console.log(filteredEvent);
+}
 
 /* -------------------------------------------------------------------------- */
 /*                         full calendar main calendar                        */
@@ -104,42 +122,27 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
                   end: 'dayCalendarButton weekCalendarButton prev today next',
               },
     eventClick: (e) => {
-        console.log(e.event._def.publicId);
-        console.log(e.event._def.extendedProps.eventType);
-        console.log(e.event._def.extendedProps.description);
-        // generate a more event info modal
+        // inject event info into modal
+        const eventInfoName = $('#event-info-name');
+        eventInfoName.text(e.event._def.title);
+
+        const eventInfoDescription = $('#event-info-description');
+        eventInfoDescription.text(e.event._def.extendedProps.description);
+
+        const eventInfoType = $('#event-info-type');
+        eventInfoType.text(e.event._def.extendedProps.eventType);
+
         // give the modal a data attribute of the public id
-        //  
+        eventInfoModal.setAttribute('data-event-id', e.event._def.publicId);
+        // open the modal
+        eventInfoInstance.open();
     },
-    events: [
-        // General event
-        {
-            // this object will be "parsed" into an event object}
-            id: 2, // increment by one for each event so it has a unique id
-            title: 'Meet my friends',
-            // This is the event type
-            eventType: 'general',
-            classList: 'events general-events',
-            color: '#26a69a',
-            allDay: false,
-            start: dayjs('2022-08-16 10:00').valueOf(),
-            // startTime: '10:00',
-            end: dayjs('2022-08-16 11:00').valueOf(),
-            // endTime: '11:00',
-            // [sun, mon, tue, wed, thu, fri, sat]
-            // [0  , 1  , 2  , 3  , 4  , 5  , 6  ]
-            // If recurring the start or stop properties aren't needed
-            description: 'Going to a tame impala gig at the O2 venue',
-        },
-    ],
+    events: getUserEvents(),
 });
 // Renders the calendar to the screen
 calendar.render();
 // Updates the size to fit in the container
 calendar.updateSize();
-
-console.log(calendar.getEvents());
-console.log(calendar.getEventById(2));
 
 /* ------------------------ submit the calendar form ------------------------ */
 
@@ -159,6 +162,28 @@ const calendarMini = new VanillaCalendar('.vanilla-calendar', {
     },
 });
 calendarMini.init();
+
+/* -------------------------------------------------------------------------- */
+/*                              event info modal                              */
+/* -------------------------------------------------------------------------- */
+
+const deleteEventBtn = $('#delete-event-button');
+// event handler for the delete button
+function handleDeleteEvent(e) {
+    // get the data-event-id
+    const { eventId } = eventInfoModal.dataset;
+    // get the full calendar event by id
+    const fullCalendarEvent = calendar.getEventById(eventId);
+    // remove the event from the calendar
+    fullCalendarEvent.remove();
+    // remove the event from the local storage
+    // get the event by id
+    // close the modal
+    eventInfoInstance.close();
+}
+
+// event listener for the delete button
+deleteEventBtn.on('click', handleDeleteEvent);
 
 /* -------------------------------------------------------------------------- */
 /*                               new event modal                              */
@@ -320,6 +345,16 @@ recurringEventCnclBtn.on('click', handleRecurringCancel);
 /*                   save events and render to the calendar                   */
 /* -------------------------------------------------------------------------- */
 
+// save the user event to the local storage
+function saveEventToLocalStorage(formattedEvent) {
+    const savedUserEvents = getUserEvents();
+    console.log('saved events: ', savedUserEvents);
+    console.log('formatted event: ', formattedEvent);
+    const updatedSavedEvents = [...savedUserEvents, formattedEvent];
+    console.log('updated saved events: ', updatedSavedEvents);
+    localStorage.setItem('userEvents', JSON.stringify(updatedSavedEvents));
+}
+
 // format either to ISOString or Unix Timestamp milliseconds
 function dateTimeFormatted(date, time) {
     if (date && !time) {
@@ -355,8 +390,9 @@ function formatRepeatDays() {
 
 // all day event formatter
 function allDayFormatter(userEventInputs) {
-    const { startTime, endTime, ...userAllDayInputs } = userEventInputs;
     // remove the time inputs from the object
+    const { startTime, endTime, ...userAllDayInputs } = userEventInputs;
+    // reformat the start and end dates
     const allDayEventsFormatted = {
         ...userAllDayInputs,
         start: dateTimeFormatted(startDateInput.val()),
@@ -366,23 +402,42 @@ function allDayFormatter(userEventInputs) {
 }
 // no repeat event formatter
 function noRepeatFormatter(userEventInputs) {
+    // remove all repeat and allDay properties
     const { daysOfWeek, allDay, startTime, endTime, ...noRepeatEvents } = userEventInputs;
     return noRepeatEvents;
 }
 
 // no repeat all day formatter
 function noRepeatAllDayFormatter(userEventInputs) {
+    // remove all repeat properties
     const { daysOfWeek, startTime, endTime, ...noRepeatAllDay } = userEventInputs;
     return noRepeatAllDay;
+}
+
+// bounded custom formatter
+function boundedCustomRepeatFormatter(userEventInputs) {
+    const { allDay, ...boundedCustomInputs } = userEventInputs;
+    const boundedCustomEvents = {
+        ...boundedCustomInputs,
+        start: dateTimeFormatted(startDateInput.val()),
+        end: dateTimeFormatted(endDateInput.val()),
+    };
+    return boundedCustomEvents;
 }
 
 // handle add event function
 function handleAddEvent(e) {
     e.preventDefault();
-    // format the start date and time as well as end date and time
-    const startVal = dayjs(`${startDateInput.val()} ${startTimeSelection.val()}`);
+
+    // get the saved events
+    const savedEvents = getUserEvents();
+
+    // increment the id by finding the length of the array of data
+    const eventId = savedEvents.length + 1;
+
     // grab the inputs and store them in an object
     const userEventInputs = {
+        id: eventId,
         title: `${eventNameInput.val()}`,
         eventType: `${eventTypeSelection.val()}`,
         classList: `events ${eventTypeSelection.val()}-events`,
@@ -403,6 +458,7 @@ function handleAddEvent(e) {
         // render event to full calendar
         calendar.addEvent(allDayNoRepeatEvent);
         // save event to the local storage
+        saveEventToLocalStorage(allDayNoRepeatEvent);
         return;
     }
     // if all day is checked
@@ -411,14 +467,24 @@ function handleAddEvent(e) {
         // render event to full calendar
         calendar.addEvent(allDayEvent);
         // save to the local storage
+        saveEventToLocalStorage(allDayEvent);
         return;
     }
     // if the event isn't repeated
     if (userEventInputs.daysOfWeek === null) {
-        const noRepeatEvents = noRepeatFormatter(userEventInputs);
+        const noRepeatEvent = noRepeatFormatter(userEventInputs);
         // render event to full calendar
-        calendar.addEvent(noRepeatEvents);
+        calendar.addEvent(noRepeatEvent);
         // save event to the local storage
+        saveEventToLocalStorage(noRepeatEvent);
+    }
+
+    // if the event isn't all day and there is a custom repeat
+    if (!allDayCheckbox.is(':checked') && userEventInputs.daysOfWeek !== null) {
+        const boundedCustomEvent = boundedCustomRepeatFormatter(userEventInputs);
+        calendar.addEvent(boundedCustomEvent);
+        console.log(boundedCustomEvent);
+        saveEventToLocalStorage(boundedCustomEvent);
     }
 }
 
