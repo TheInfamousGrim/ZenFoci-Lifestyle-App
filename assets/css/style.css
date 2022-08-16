@@ -221,4 +221,15 @@ h1::before {
     align-items: center;
   } */
 
-
+input#habits {
+  background: #fff;
+  width: 65%;
+}
+label {
+  font-size: 20px;
+  color: #fff;
+  padding: 10px;
+}
+.formcontainer {
+  padding: 20px;
+}
