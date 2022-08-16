@@ -40,11 +40,13 @@ function getUserEvents() {
     return savedEvents;
 }
 
-// get a specific event
-function getSavedEventById(id) {
+/* -------------------------------------------------------------------------- */
+/*                       delete event from local storage                      */
+/* -------------------------------------------------------------------------- */
+
+function deleteEvent(eventsToSave) {
     const allEvents = getUserEvents();
-    const filteredEvent = allEvents.filter((event) => (event.id = id));
-    console.log(filteredEvent);
+    localStorage.setItem('userEvents', JSON.stringify(eventsToSave));
 }
 
 /* -------------------------------------------------------------------------- */
@@ -139,6 +141,7 @@ const calendar = new FullCalendar.Calendar(calendarEl, {
     },
     events: getUserEvents(),
 });
+
 // Renders the calendar to the screen
 calendar.render();
 // Updates the size to fit in the container
@@ -176,8 +179,16 @@ function handleDeleteEvent(e) {
     const fullCalendarEvent = calendar.getEventById(eventId);
     // remove the event from the calendar
     fullCalendarEvent.remove();
+
     // remove the event from the local storage
-    // get the event by id
+    // get the event from local storage
+    const savedEvents = getUserEvents();
+    console.log(savedEvents);
+    // filter the saved events by using the current event id
+    const filteredSavedEvents = savedEvents.filter((event) => event.id !== parseInt(eventId));
+    // delete the event
+    deleteEvent(filteredSavedEvents);
+
     // close the modal
     eventInfoInstance.close();
 }
