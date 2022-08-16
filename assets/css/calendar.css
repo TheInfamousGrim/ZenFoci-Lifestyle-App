@@ -72,8 +72,20 @@ body {
 }
 
 /* meal events */
-.meal-events {
+.general-events {
   background-color: #289b95;
+}
+
+.habit-events {
+  background-color: #ba68c8;
+}
+
+.meal-events {
+  background-color: #f06292;
+}
+
+.goal-events {
+  background-color: #64b5f6;
 }
 
 /* -------------------------------------------------------------------------- */
