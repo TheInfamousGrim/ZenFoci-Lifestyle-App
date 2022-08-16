@@ -30,6 +30,10 @@ body {
 /*                           mini calendar stylings                           */
 /* -------------------------------------------------------------------------- */
 
+.vanilla-calendar {
+  background-color: #4242422e;
+}
+
 .mini-calendar-container {
   margin-bottom: 2rem;
 }

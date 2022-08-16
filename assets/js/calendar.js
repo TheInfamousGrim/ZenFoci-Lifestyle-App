@@ -7,6 +7,7 @@ const eventInfoModal = document.querySelector('#event-info-modal');
 /* --------------------------- materialize plugins -------------------------- */
 
 // Modal initializer
+
 const elems = document.querySelectorAll('.modal');
 const instances = M.Modal.init(elems, {
     startingTop: '0%',
@@ -15,6 +16,7 @@ const instances = M.Modal.init(elems, {
 
 // Event info modal instance
 const eventInfoInstance = M.Modal.getInstance(eventInfoModal);
+console.log(eventInfoInstance);
 
 // Select initializer
 document.addEventListener('DOMContentLoaded', () => {
