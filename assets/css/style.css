@@ -327,3 +327,14 @@ p.temp {
     justify-content: center;
     align-items: center;
   } */
+
+/* --------------------------------- Footer --------------------------------- */
+footer {
+  display: flex;
+  /* min-height: 20vh; */
+  flex-direction: column;
+}
+
+.page-footer {
+  background-color: var(--celadon-blue);
+}
