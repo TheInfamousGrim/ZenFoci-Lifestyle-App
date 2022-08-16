@@ -1,0 +1,77 @@
+{
+  "events": {
+    "habits": [
+      {
+        "id": 1,
+        "habit_name": "skateboarding",
+        "habit_repeat_time": "09:00",
+        "habit_repeat_days": {
+          "mon": true,
+          "tue": true,
+          "wed": true,
+          "thu": true,
+          "fri": true,
+          "sat": false,
+          "sun": false
+        }
+      }
+    ],
+    "monthly_goals": [
+      {
+        "id": 1,
+        "goal_name": "bench press 100kgs",
+        "completed": false
+      }
+    ],
+    "meals": [
+      {
+        "id": 1,
+        "meal_type": "breakfast",
+        "meal_time": "07:30",
+        "repeat": "daily"
+      },
+      {
+        "id": 2,
+        "meal_type": "lunch",
+        "meal_time": "12:00",
+        "repeat": "daily"
+      },
+      {
+        "id": 3,
+        "meal_type": "dinner",
+        "meal_time": "18:00",
+        "repeat": "daily"
+      }
+    ],
+    "general-events": [
+      {
+        "id": 1,
+        "start_day": "Thursday August 11, 2022",
+        "start_time": "21:00",
+        "end_day": "Thursday August 11, 2022",
+        "end_time": "22:00",
+        "all_day": false,
+        "repeat": "no",
+        "location": "The Gym",
+        "description": "Aliqua dolor sint laboris ut elit nulla."
+      }
+    ]
+  },
+  "groceries" {
+    "red_meat": [{
+      "id": 1,
+      "food_name": "steak",
+      "food_quantity": 2
+    }, {
+      "id": 2,
+      "food_name": "lamb chop",
+      "food_quanity": 4,
+    }],
+    "poultry": [],
+    "fish": [{
+      "id": 1,
+      "food_name": "salmon",
+      ""
+    }]
+  }
+}
