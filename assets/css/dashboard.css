@@ -74,6 +74,11 @@ main {
 /*                               Style the page                               */
 /* -------------------------------------------------------------------------- */
 
+.delete-modla-link {
+  padding
+}
+
+
 /* ------------------------------- list items ------------------------------- */
 
 .collection li:nth-child(even) {
@@ -81,6 +86,10 @@ main {
 }
 
 .collection li:hover {
+  background-color: #d3d2cb;
+}
+
+.habits-daily-collection input:checked {
   background-color: #d3d2cb;
 }
 
