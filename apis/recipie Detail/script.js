@@ -1,19 +1,7 @@
 var button = document.querySelector(".submit");
 var input = document.querySelector(".input_text");
 var listings = document.querySelector(".list-group");
-var names = [" "];
-var preExistingData = localStorage.getItem("shopping-list");
-var recipe = [" "];
-var recipeID = [" "];
-names.push(preExistingData);
-console.log(preExistingData);
 
-if (preExistingData === null) {
-  var names = [" "];
-}
-
-console.log(recipeID);
-console.log(names);
 function openTab(evt, id) {
   alert(id);
   alert(evt);
@@ -21,9 +9,6 @@ function openTab(evt, id) {
 
 button.addEventListener("click" || "keypress", function (event) {
   event.preventDefault();
-  $(".title")
-    .empty()
-    .append("<h2>Search results for : " + input.value + "</h2>");
   search(event);
 });
 
@@ -87,67 +72,15 @@ function search(event) {
               "<li a href='#' class='listitem'>" +
               data.results[i].sections["0"].components[l].raw_text +
               "</li>";
-            console.log("#tabcon-" + did + " a");
+              console.log( "#tabcon-"+did+" a" );
+              $( ".listitem" ).on( "click", function( event ) {
+                event.preventDefault();
+                console.log( $( this ).text().replace(/\d+/g, '').replace(/tablespoons|tablespoon|cups|pints|teaspoons|to taste|slices|of|ounces|sliced|teaspoon|cup|sharp|¼|¾|½|⅓|room temperature|/g,"") );
+            });
           }
 
           ingredientsHtml += "</ul>";
         }
-
-        //create a new array
-        $(".listitem").on("click", function (event) {
-          event.preventDefault();
-          $(this).attr("id", "done");
-
-          names.push(
-            "<li id='item'>" +
-              $(this)
-                .html()
-                .replace(/\d+/g, "")
-                .replace(
-                  /tablespoons|tablespoon|cups|pints|teaspoons|to taste|slices|of|ounces|sliced|teaspoon|cup|sharp|¼|¾|½|⅓|room temperature|-ounce|-ounces|plus more|-whole|cans|can/g,
-                  ""
-                ) +
-              "</li>"
-          );
-
-          let filteredNames = [...new Set(names)];
-
-          console.log(filteredNames);
-
-          localStorage.setItem("shopping-list", JSON.stringify(filteredNames));
-        });
-
-        $(".tab").on("click", "#savebutton", function (event) {
-          // for (i = 0; i<recipeID.length; i++){
-          event.preventDefault();
-
-          // console.log(event.currentTarget.value)
-
-          recipe = event.currentTarget.value;
-          unqref = event.currentTarget.className;
-          console.log(unqref);
-          console.log(event.currentTarget);
-          recipeID.push(
-            "<li id='" + unqref + "' class='item'>" + recipe + "</li>"
-          );
-          // console.log(datArray)
-          //  let filteredRecipe = [...new Set(recipe)];
-
-          let filteredMealID = [...new Set(recipeID)];
-          localStorage.setItem("meal-list", JSON.stringify(filteredMealID));
-          // push all the data in the array
-          //push all the filtered meal
-          // localStorage.setItem("meal-list",  JSON.stringify(datArray[i]));
-          // }
-          // recipeID.push("<li>" + did +"</li>")
-
-          // localStorage.setItem("meal-id",  JSON.stringify(filteredMealID));
-          // recipeID.push(datArray)
-
-          //  console.log(filteredRecipe)
-          //  console.log(filteredMealID)
-          console.log(filteredMealID);
-        });
         // let ratingDec = data.results[i].user_ratings;
         // ratingDec = ratingDec * 100;
         var rating = Math.round(data.results[i].user_ratings.score * 10);
@@ -155,7 +88,7 @@ function search(event) {
           data.results[i].user_ratings.count_positive +
           data.results[i].user_ratings.count_negative;
 
-        // console.log(votes);
+        console.log(votes);
 
         var nutritionHTML =
           "<li>Calories: " +
@@ -172,11 +105,11 @@ function search(event) {
           data.results[i].nutrition.sugar +
           "</li>";
 
-        html += "<div class='tab' id='" + did + "'>";
+        html += "<div class='tab'>";
         html +=
-          "<div class='header'><div><h2>" +
+          "<div class='header'><h2>" +
           data.results[i].name +
-          "</h2></div><strong><p class='cooking-time'>Cooking Time: </strong>" +
+          "</h2><strong><p class='cooking-time'>Cooking Time: </strong>" +
           data.results[i].cook_time_minutes +
           "mins  -<strong>  Prep Time: </strong>" +
           data.results[i].prep_time_minutes +
@@ -186,11 +119,7 @@ function search(event) {
           rating +
           "/10 (" +
           votes +
-          " votes)</p></div><button class='" +
-          did +
-          "' id='savebutton' value='" +
-          data.results[i].name +
-          "' style='float: right;' >Save Recipe</button>";
+          " votes)</p></div>";
         html +=
           "<button class='tablinks tabbtn-" +
           did +
@@ -237,9 +166,9 @@ function search(event) {
           did +
           " ingredients" +
           did +
-          "'><h4>Click on an ingredient to add it to your shopping list</h4><ul class='inglist'>" +
+          "'><ul class='inglist'>" +
           ingredientsHtml +
-          "</ul><a href='#'></a></div>";
+          "</ul><a href='#'><button class='btn btn-primary' id='addtolist'>Save</button></a></div>";
         html +=
           "<div class='tabcontent tabcon-" +
           did +

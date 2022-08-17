@@ -21,7 +21,9 @@ img.activator {
   border: 1px solid #ccc;
   background-color: #f1f1f1;
 }
-
+.item {
+  color: #fff;
+}
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
@@ -31,6 +33,17 @@ img.activator {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+}
+li#done {
+  text-decoration: line-through;
+}
+#savebutton {
+  background: #26a69a;
+  padding: 10px 1px;
+  padding-bottom: 10px;
+  width: 117px;
+  color: #fff;
+  border: 1px solid black;
 }
 
 /* Change background color of buttons on hover */
