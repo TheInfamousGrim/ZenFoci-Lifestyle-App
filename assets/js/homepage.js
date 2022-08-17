@@ -42,3 +42,11 @@ function saveData() {
     const storedValue = localStorage.getItem('server');
 }
  
+
+/* --------------------------------- Splash Images - Animation --------------------------------- */
+
+
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+       

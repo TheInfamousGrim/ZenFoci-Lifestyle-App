@@ -178,6 +178,14 @@ h1::before {
   background-color: var(--bg-color);
 }
 
+#dashboard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  text-align: center;
+  background-color: rgb(186, 186, 184);
+}
+
 /* -------------------------------------------------------------------------- */
 /*                    Welcome Section                  */
 /* -------------------------------------------------------------------------- */
