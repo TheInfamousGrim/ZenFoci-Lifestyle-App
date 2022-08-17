@@ -39,3 +39,12 @@ When you design a website, images take up a lot of web space due to their file s
 When you are seeking standard icon images, such as for vehicles, certain punctuation characters or graphical charting icons, icon fonts can offer you scalable images that look the same irrespective of the size of the font. This is just as letters and numbers appear the same irrespective of whether you use a size 2 or 5 or a 10 or 24 point font size.
 
 In many cases, people simply do not use images because of this problem, and their article or online report suffers in detail or clarity because of it. By using Font Awesome, they can add basic icons to their sites and scale them to the required size, limited only by the dimensions of their documents – and they can so without losing definition. You can look upon scalable icons in the same way as scalable font characters.
+
+# Credits
+
+Github
+
+George - https://github.com/TheInfamousGrim
+Ayan - https://github.com/ayaneey
+Darren -
+Omar -
