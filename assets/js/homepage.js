@@ -50,3 +50,9 @@ $(document).ready(function(){
     $('.materialboxed').materialbox();
   });
        
+
+  // Mobile side nav
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems, {});
+});

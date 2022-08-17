@@ -33,21 +33,32 @@
 
 <body>
 
-  <header>
-    <!-- Navbar -->
+
+  <header class="meals-header">
     <nav>
       <div class="nav-wrapper">
         <!-- <a href="#" class="brand-logo">Logo</a> -->
-        <a href="#"><img id="logo" src="./assets/favicons/favicon.ico" alt="logo-image" /></a>
+        <a href="./index.html" class="brand-logo">
+          <img width="48px" id="logo" src="./assets/favicons/android-chrome-512x512.png" alt="logo-image" />
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="fa-solid fa-bars"></i>
+        </a>
         <ul id="nav-bar" class="right hide-on-med-and-down">
-          <li><a href="sass.html">User Dashboard</a></li>
-          <li><a href="collapsible.html">Calendar</a></li>
-          <li><a href="badges.html">Meals and Groceries</a></li>
+          <li class="nav-links"><a href="./pages/dashboard.html">User Dashboard</a></li>
+          <li class="nav-links"><a href="./pages/meals-groceries.html">Meals and Groceries</a>
+          </li>
+          <li class="nav-links"><a href="./pages/calendar.html">Calendar</a></li>
         </ul>
       </div>
+
     </nav>
   </header>
-
+  <ul class="sidenav" id="mobile-demo">
+    <li class="nav-links"><a href="./pages/dashboard.html">User Dashboard</a></li>
+    <li class="nav-links"><a href="./pages/meals-groceries.html">Meals and Groceries</a></li>
+    <li class="nav-links"><a href="./pages/calendar.html">Calendar</a></li>
+  </ul>
 
   <main>
     <div id="page-wrapper">
@@ -191,62 +202,56 @@
           </div>
         </form>
       </div>
-      <!-- user dashboard section -->
-      <div class="row">
-        <div class="col s4">
-          <div class="dashboard-call-to-action-container row">
-            <div class="create-habits col l4 s12">
-              <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                  <div class="row ongoing-habits-title-container">
-                    <h4 class="habits">Ongoing Habits</h4>
-                  </div>
-                  <div class="habit-list-container row">
-                    <ul class="collection green-text">
-                      <li class="collection-item avatar">
-                        <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
-                            class="fa-solid fa-gear circle green"></i></a>
-                        <p>Go to the Gym</p>
-                        <a href="#delete-modal" class="secondary-content modal-trigger delete-modal-link red-text"><i
-                            class="fa-solid fa-trash-can"></i></a>
-                      </li>
-                      <li class="collection-item avatar">
-                        <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
-                            class="fa-solid fa-gear circle green"></i></a>
-                        <p>Go skateboarding</p>
-                        <a href="#delete-modal" class="secondary-content modal-trigger delete-modal-link red-text"><i
-                            class="fa-solid fa-trash-can"></i></a>
-                      </li>
-                      <li class="collection-item avatar">
-                        <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
-                            class="fa-solid fa-gear circle green"></i></a>
-                        <p>Read a chapter of a philosophy book</p>
-                        <a href="#delete-modal" class="secondary-content modal-trigger delete-modal-link red-text"><i
-                            class="fa-solid fa-trash-can"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- Modal Trigger -->
-                  <div class="row add-habit-btn-container center">
-                    <a class="waves-effect waves-light btn modal-trigger" href="#habit-modal"><i
-                        class="fa-solid fa-plus left"></i>
-                      Add
-                      habit</a>
-                  </div>
+
+      <div class="row row-1">
+        <div class="habit-settings-container">
+          <div class="col l4 s12">
+            <div class="card card-color">
+              <div class="card-content black-text">
+                <div class="row ongoing-habits-title-container">
+                  <h4 class="habits">Ongoing Habits</h4>
+                </div>
+                <div class="habit-list-container row">
+                  <ul class="collection green-text habits-settings-collection">
+                    <li class="collection-item avatar">
+                      <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
+                          class="fa-solid fa-gear circle green"></i></a>
+                      <p>Go to the Gym</p>
+                      <a href="#delete-modal" class="secondary-content modal-trigger delete-modal-link red-text"><i
+                          class="fa-solid fa-trash-can"></i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                      <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
+                          class="fa-solid fa-gear circle green"></i></a>
+                      <p>Go skateboarding</p>
+                      <a href="#delete-modal" class="secondary-content modal-trigger delete-modal-link red-text"><i
+                          class="fa-solid fa-trash-can"></i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                      <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
+                          class="fa-solid fa-gear circle green"></i></a>
+                      <p>Read a chapter of a philosophy book</p>
+                      <a href="#delete-modal" class="secondary-content modal-trigger delete-modal-link red-text"><i
+                          class="fa-solid fa-trash-can"></i></a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Modal Trigger -->
+                <div class="row add-habit-btn-container center">
+                  <a class="waves-effect waves-light btn modal-trigger" href="#habit-modal"><i
+                      class="fa-solid fa-plus left"></i>
+                    Add
+                    habit</a>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col s4">
-          <div class="content1">
-          </div>
-        </div>
-        <div class="col s4">
-          <div class="content">
-          </div>
+          <div class="daily-affirmation-container content1"></div>
+          <div class="todays-weather-container content"></div>
         </div>
       </div>
+
+
 
       <div id="flexbox">
         <div class="row">
@@ -258,69 +263,87 @@
           <br>
         </div>
 
-        <div class="container">
-          <div class="calendar-day-view-container">
-            <div id="calendar-day-view-content"></div>
+
+        <!-- <div class="row">
+        <div class="col s3 right">
+          <div class="card">
+            <div class="card-content grey-text">
+              <span class="card-title">Want to add an event?</span>
+            </div>
+            <div class="card-action">
+              <a href="pages/calendar.html">Click this link</a>
+            </div>
+
           </div>
         </div>
 
-        <div class="row">
-          <div class="col s3 right">
-            <div class="card">
-              <div class="card-content grey-text">
-                <span class="card-title">Want to add an event?</span>
+      </div> -->
+      </div>
+
+
+      <div class="container">
+        <div class="calendar-day-view-container">
+          <div id="calendar-day-view-content"></div>
+        </div>
+      </div>
+      <!-- Event info home modal structure -->
+
+      <div id="event-info-home-modal" class="modal">
+        <div class="modal-content event-info-modal-content row">
+          <h4>Event Name: <span id="event-info-home-name">Meet my friends</span></h4>
+          <ul class="collection">
+            <li class="collection-item">Event Description: <span id="event-info-home-description">
+                Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute consequat. Sunt
+                dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo cupidatat laborum
+                non
+                nostrud consequat qui exercitation aliqua consectetur.</span>
+            </li>
+            <li class="collection-item">Event Type <div class="secondary-content">
+                <p id="event-info-home-type">general</p>
               </div>
-              <div class="card-action">
-                <a href="pages/calendar.html">Click this link</a>
-              </div> -->
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <div class="event-info-home-btns-container">
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+        </div>
+      </div>
 
 
-            </div>
+
+
+    </div>
+
+    <div class="row">
+      <div class="col s4 left">
+        <div class="card-action-card-calendar">
+          <div class="card-content white-text">
+            <span class="card-title">Want to navigate to calendar? <i class="fa-solid fa-lightbulb"></i></span>
+          </div>
+          <div class="card-action">
+            <a href="pages/calendar.html">Click this link</a>
           </div>
 
         </div>
-
-
       </div>
-
-
-
-
 
     </div>
 
-
-
-
-    <!-- Event info home modal structure -->
-
-    <div id="event-info-home-modal" class="modal">
-      <div class="modal-content event-info-modal-content row">
-        <h4>Event Name: <span id="event-info-home-name">Meet my friends</span></h4>
-        <ul class="collection">
-          <li class="collection-item">Event Description: <span id="event-info-home-description">
-              Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute consequat. Sunt
-              dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo cupidatat laborum
-              non
-              nostrud consequat qui exercitation aliqua consectetur.</span>
-          </li>
-          <li class="collection-item">Event Type <div class="secondary-content">
-              <p id="event-info-home-type">general</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <div class="event-info-home-btns-container">
-          <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+    <div id="flexbox">
+      <div class="row">
+        <div id="meals-container">
+          <div class="col s12 black-text">
+            <h2>Meals/Groceries</h2>
+          </div>
         </div>
       </div>
-    </div>
 
 
 
 
-    </div>
+
   </main>
 
 
