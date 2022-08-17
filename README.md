@@ -2,6 +2,10 @@
 
 An app, where you can manage meals, groceries, goals and healthy habits that you wish to cement in your schedule.
 
+# screenshot of working application:
+
+![Screenshot](./assets/imgs/homepage%20screenshot.png)
+
 # Languages and Libraries
 
 *Click [here](https://materializecss.com/) to go to Materialize  
@@ -32,7 +36,7 @@ Simplifies complex operations such as animation, event handling, and Ajax intera
 
 It’s a tool with proven success, thanks to almost 15 years of widespread use
 
-- Fontawesome was used for Icons
+- Font Awesome was used for Icons
 
 When you design a website, images take up a lot of web space due to their file sizes. They also have to be called up to your web pages using HTML markup. Not only that, but their scaling is frequently a problem, losing definition as they are increased in size. A regular image only resolves as intended when used in its originally designed dimensions.
 
@@ -42,7 +46,7 @@ In many cases, people simply do not use images because of this problem, and thei
 
 # Credits
 
-Github
+Githubs
 
 George - https://github.com/TheInfamousGrim \
 Ayan - https://github.com/ayaneey \
