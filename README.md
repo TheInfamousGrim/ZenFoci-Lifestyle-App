@@ -52,3 +52,4 @@ George - https://github.com/TheInfamousGrim \
 Ayan - https://github.com/ayaneey \
 Darren - http://github.com/kandekore \
 Omar - https://github.com/omar20222222 \
+Afif - https://github.com/Affiiiffff \
