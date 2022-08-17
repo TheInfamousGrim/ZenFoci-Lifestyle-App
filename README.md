@@ -8,9 +8,9 @@ An app, where you can manage meals, groceries, goals and healthy habits that you
 
 # Languages and Libraries
 
-*Click [here](https://materializecss.com/) to go to Materialize  
-*Click [here](https://fontawesome.com/) to go to Font Awesome  
-\*Click [here](https://jquery.com/) to go to Jquery
+*Click [here](https://materializecss.com/) to learn more about Materialize  
+*Click [here](https://fontawesome.com/) to learn more about Font Awesome  
+\*Click [here](https://jquery.com/) to learn more about Jquery
 
 - The CSS framework was done by materialize.
 
