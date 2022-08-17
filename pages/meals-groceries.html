@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./../assets/css/normalize.css" />
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./../assets/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./../assets/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./../assets/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="./../assets/favicons/site.webmanifest" />
+    <!-- materialize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style sheets -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="stylesheet" href="./../assets/css/meal-groceries.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-wrapper">
+            <!-- <a href="#" class="brand-logo">Logo</a> -->
+            <a href="./../index.html"><img id="logo" src="./../assets/favicons/favicon.ico" alt="logo-image" /></a>
+            <ul id="nav-bar" class="right hide-on-med-and-down">
+                <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+                <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+                <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="d-flex search-card-row" role="search">
+            <div class="col s12 m7 center">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text search-card-content center">
+                        <h5>Search for your favorite meal</h5>
+                        <p>Just type in your favorite meal or food, and let the algorithm work it's magic 🤤</p>
+                        <form class="search-meal-form">
+                            <input type="text" placeholder="search" class="input_text form-control me-2" id="search" />
+                            <button type="submit" value="Submit" class="submit btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <container>
+        <div class="steps"></div>
+        <div class="title"></div>
+    </container>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./../assets/js/mealSearch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">$(document).on('click', '.tablinks', function () {
+            const did = $(this).attr('data-id');
+            const id = $(this).attr('id');
+
+            $(`.tabbtn-${did}`).removeClass('active');
+            $(this).addClass('active');
+            $(`.tabcon-${did}`).removeClass('active');
+            $(`.${id}`).addClass('active');
+        });
+    </script>
+</body>
+
+</html>
