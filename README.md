@@ -2,7 +2,7 @@
 
 An app, where you can manage meals, groceries, goals and healthy habits that you wish to cement in your schedule.
 
-# screenshot of working application:
+# Screenshot of working application:
 
 ![Screenshot](./assets/imgs/homepage%20screenshot.png)
 
