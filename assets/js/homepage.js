@@ -43,7 +43,7 @@ function saveData() {
 }
  
 
-/* --------------------------------- Splash Images - Animation --------------------------------- */
+/* ------------------------------- Splash Images in About section - Animation -------------------------- */
 
 
 $(document).ready(function(){
@@ -56,3 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const elems = document.querySelectorAll('.sidenav');
     const instances = M.Sidenav.init(elems, {});
 });
+
+
+/* ------------------------------- Meals/Groceries carousel images -------------------------- */
+
+$(document).ready(function(){
+    $('.slider').slider();
+  });
+       
