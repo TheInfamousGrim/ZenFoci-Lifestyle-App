@@ -41,6 +41,4 @@ function saveData() {
     localStorage.setItem('server', input.value);
     const storedValue = localStorage.getItem('server');
 }
-
-const calendarMini = new VanillaCalendar('.vanilla-calendar', {});
-calendarMini.init();
+ 
