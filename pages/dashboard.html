@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./../assets/css/normalize.css" />
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./../assets/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./../assets/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./../assets/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="./../assets/favicons/site.webmanifest" />
+    <!-- materialize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style sheets -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="stylesheet" href="./../assets/css/dashboard.css">
+    <title>ZenFoci | User Dashboard</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="meals-header">
+        <nav>
+            <div class="nav-wrapper">
+                <!-- <a href="#" class="brand-logo">Logo</a> -->
+                <a href="./../index.html" class="brand-logo">
+                    <img width="48px" id="logo" src="./../assets/favicons/android-chrome-512x512.png"
+                        alt="logo-image" />
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <ul id="nav-bar" class="right hide-on-med-and-down">
+                    <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+                    <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+                    <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <ul class="sidenav" id="mobile-demo">
+                <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+                <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+                <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">Javascript</a></li>
+        <li><a href="mobile.html">Mobile</a></li>
+    </ul>
+    <main>
+        <div class="container dashboard-container">
+            <div class="row row-1">
+                <div class="daily-affirmation"></div>
+                <div class="todays-weather"></div>
+                <div class="monthly-goals"></div>
+            </div>
+            <div class="row row-2">
+                <div class="habits-daily"></div>
+                <div class="habit-settings"></div>
+                <div class="monthly-habit-progress"> </div>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer class="page-footer">
+        <div class="row">
+            <div class="col l6 m6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+            </div>
+            <div class="col l6 s12">
+                <h6 class="white-text">Contact Us</h6>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="col l6 m6 s12 grey-text text-lighten-3">&copy; 2022 Copyright <a
+                    class="white-text text-lighten-4"></a>
+            </div>
+
+            <div class="col l6 m6 s12"><a class="grey-text text-lighten-4 right" href="http://www.freetimelearning.com/"
+                    target="_blank">Designed By ZenFoci Team</a></div>
+        </div>
+    </footer>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- dayJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.5/dayjs.min.js"
+        integrity="sha512-Ot7ArUEhJDU0cwoBNNnWe487kjL5wAOsIYig8llY/l0P2TUFwgsAHVmrZMHsT8NGo+HwkjTJsNErS6QqIkBxDw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- materialize  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/be1d8d18da.js" crossorigin="anonymous"></script>
+    <!-- scripts -->
+    <script src="./../assets/js/quotes.js"></script>
+    <script src="./../assets/js/weather.js"></script>
+    <script src="./../assets/js/dashboard.js"></script>
+</body>
+
+</html>
