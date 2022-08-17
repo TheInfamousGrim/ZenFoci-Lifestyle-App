@@ -1,5 +1,5 @@
 :root {
-  --lovely-pink: #ffbeaa;
+  --card-color: #ffbeaa;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -17,6 +17,10 @@
 
 .modal-overlay {
   top: 0%;
+}
+
+.collection.with-header .collection-header {
+  background-color: var(--bg-color);
 }
 
 /* ------------------------------ sticky footer ----------------------------- */
@@ -58,5 +62,44 @@ main {
 /* ---------------------------------- cards --------------------------------- */
 
 .card {
-  background-color: var(--lovely-pink);
+  background-color: var(--card-color) !important;
+}
+
+.frosted-card {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(5px);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Style the page                               */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------- list items ------------------------------- */
+
+.collection li:nth-child(even) {
+  background-color: #f1eee2;
+}
+
+.collection li:hover {
+  background-color: #d3d2cb;
+}
+
+/* ------------------------------ progress bar ------------------------------ */
+
+.progress-bar-container {
+  position: relative;
+}
+
+.my-progress {
+  width: 100%;
+  background-color: grey;
+}
+
+.my-bar {
+  width: 1%;
+  height: 30px;
+  background-color: var(--celadon-blue);
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
 }
