@@ -1,3 +1,23 @@
+/* -------------------------------------------------------------------------- */
+/*                             materialize resets                             */
+/* -------------------------------------------------------------------------- */
+
+/* ------------------------------ sticky footer ----------------------------- */
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             meal card stylings                             */
+/* -------------------------------------------------------------------------- */
+
 img.activator {
   width: 300px;
   /* FONT-WEIGHT: 200; */
@@ -35,6 +55,7 @@ img.activator {
 
 button.btn.submit {
   background: #26a69a;
+  margin-right: 2rem;
   padding: 1px 1px;
   padding-bottom: 10px;
   width: 117px;
@@ -78,6 +99,11 @@ ul {
 ul li {
   list-style: circle !important;
 }
+
+.tabcontent {
+  color: #998cc1;
+}
+
 .row .col.s7 {
   /* width: 58.3333333333%; */
   /* margin-left: auto; */
@@ -110,23 +136,108 @@ p.cooking-time {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   nav bar                                  */
+/*                                style resets                                */
 /* -------------------------------------------------------------------------- */
+
+/* --------------------------------- header --------------------------------- */
+
+.meals-header {
+  min-height: fit-content;
+  max-width: 100vw;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------- nav bar -------------------------------- */
 
 .nav-links {
   list-style-type: none !important;
+}
+
+/* brand logo */
+.brand-logo {
+  padding: 0.3rem !important;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                                 search card                                */
 /* -------------------------------------------------------------------------- */
 
+.search-card {
+  max-width: 90vw;
+}
+
 .search-card-row {
-  margin-top: 2rem;
+  margin: 2rem 0rem 2rem 0rem;
   display: flex;
   justify-content: center;
 }
 
 .search-card-content {
   background-color: var(--celadon-blue) !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 pre loader                                 */
+/* -------------------------------------------------------------------------- */
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+}
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+  margin-bottom: 1rem;
+}
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #ffbeaa;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #ffbeaa;
+}
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
 }
