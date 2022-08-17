@@ -12,14 +12,17 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./../assets/favicons/favicon-16x16.png" />
   <link rel="manifest" href="./../assets/favicons/site.webmanifest" />
   <!-- mini vanilla calendar -->
-  <!-- <link rel="stylesheet"
+  <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.css"
-    crossorigin="anonymous" /> -->
+    crossorigin="anonymous" />
+  <script
+    src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.js"></script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>ZenFoci - Lifestyle and Habit App</title>
 </head>
@@ -34,8 +37,8 @@
         <a href="#"><img id="logo" src="./assets/favicons/favicon.ico" alt="logo-image" /></a>
         <ul id="nav-bar" class="right hide-on-med-and-down">
           <li><a href="sass.html">User Dashboard</a></li>
-          <li><a href="badges.html">Meals and Groceries</a></li>
           <li><a href="collapsible.html">Calendar</a></li>
+          <li><a href="badges.html">Meals and Groceries</a></li>
         </ul>
       </div>
     </nav>
@@ -45,7 +48,48 @@
   <main>
     <div id="page-wrapper">
       <h1 data-text="ZenFoci">ZenFoci</h1>
+      <p class="slogan">The perfect balance for your meals & habits</p>
     </div>
+    <br>
+    <div id="flexbox">
+      <div class="row">
+        <div id="welcome-container">
+          <div class="col s12 black-text">
+            <h2>About</h2>
+          </div>
+        </div>
+        <br>
+        <div class="col s4 left"><img class="materialboxed" height="550" width="450"
+            src="assets/imgs/meal plan image.jpeg">
+        </div>
+        <div class="intro-container col s6">
+          <br>
+          <p class="intro">
+            Share your fitness journey with ZenFoci; an optimized all-inclusive app with a focus on simplicity and clean
+            design. ZenFoci allows you to keep track of
+            your daily habits, workouts and offers you nutritious and customizable meal-plans from a range of well-known
+            recipes.
+          </p>
+          <br>
+          <p class="intro">
+            ZenFoci allows you to track progress toward your nutrition, fitness, weight loss and water goals with
+            simplicity. Behind all the time and careful precision that went into the app, ZenFoci aims to deliver a
+            seamless food and fitness journal app where we hope is every minimalist's dream in both form and function!
+          </p>
+          <br>
+          <p class="intro">
+            Switch to ZenFoci today. See more. Do more.
+          </p>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+
     <!-- modals  -->
     <!-- Modal Structure delete habit -->
     <div class="row">
@@ -203,14 +247,17 @@
             </div>
           </div>
           <br>
+
+          <div class="vanilla-calendar"></div>
+
           <div class="row">
-            <div class="col s3 left">
+            <div class="col s3 right">
               <div class="card">
                 <div class="card-content grey-text">
-                  <span class="card-title">Add an event?</span>
+                  <span class="card-title">Want to add an event?</span>
                 </div>
                 <div class="card-action">
-                  <a href="#">Click this link</a>
+                  <a href="pages/calendar.html">Click this link</a>
                 </div>
 
               </div>
@@ -222,9 +269,11 @@
       </div>
 
 
+
+
       <!-- Event info home modal structure -->
 
-      <div id="event-info-home-modal" class="modal">
+      <!-- <div id="event-info-home-modal" class="modal">
         <div class="modal-content event-info-modal-content row">
           <h4>Event Name: <span id="event-info-home-name">Meet my friends</span></h4>
           <ul class="collection">
@@ -245,7 +294,7 @@
             <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
           </div>
         </div>
-      </div>
+      </div> -->
 
 
 

@@ -62,6 +62,11 @@ body {
   background-color: #fffcf2;
 }
 
+.slogan {
+  font-family: "Lobster", cursive;
+  font-size: 40px;
+}
+
 .text {
   color: #fff;
   font-size: 72px;
@@ -171,6 +176,25 @@ h1::before {
 
 .collection .collection-item {
   background-color: var(--bg-color);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                    Welcome Section                  */
+/* -------------------------------------------------------------------------- */
+
+#welcome-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  text-align: center;
+  background-color: #ffbeaa;
+}
+
+.intro {
+  font-size: 20px;
+  color: #277da1ff;
+  /* margin-left: 33%;
+  margin-bottom: 5%; */
 }
 
 /* ------------------------------ form stylings -- NOT REQUIRED ----------------------------- */
@@ -323,6 +347,15 @@ p.temp {
   border: 1px solid black;
   background-color: rgba(0 0 0 0.5);
   margin-bottom: 2rem;
+}
+
+.row .col.s3 {
+  width: 25%;
+  /* margin-left: auto; */
+  /* left: -21%; */
+  right: auto;
+  margin-right: 50%;
+  margin-top: -15%;
 }
 
 /* --------------------------------- Footer --------------------------------- */
