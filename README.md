@@ -44,7 +44,7 @@ In many cases, people simply do not use images because of this problem, and thei
 
 Github
 
-*George - https://github.com/TheInfamousGrim
-*Ayan - https://github.com/ayaneey
-*Darren - http://github.com/kandekore
-*Omar -
+George - https://github.com/TheInfamousGrim \
+Ayan - https://github.com/ayaneey \
+Darren - http://github.com/kandekore \
+Omar - \
