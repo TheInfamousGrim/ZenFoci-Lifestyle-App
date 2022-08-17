@@ -16,6 +16,16 @@ button.addEventListener('click' || 'keypress', (event) => {
 });
 
 /* -------------------------------------------------------------------------- */
+/*                             materailize plugins                            */
+/* -------------------------------------------------------------------------- */
+
+// Mobile side nav
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems, {});
+});
+
+/* -------------------------------------------------------------------------- */
 /*                              loader functions                              */
 /* -------------------------------------------------------------------------- */
 
