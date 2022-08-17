@@ -149,33 +149,20 @@ h1::before {
 }
 
 /* Calendar Styling */
-.blink_me {
-  animation: blinker 2.5s linear infinite;
-  margin-top: 75%;
-}
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-.calendar-wrapper {
+.calendar-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
-  height: 24vh;
-  background-color: var(--mango-tango);
-  margin-top: 35%;
+  text-align: center;
 }
 
-#calendar {
-  margin-top: 20%;
-  margin-left: -80%;
-  height: 350%;
-  width: 252%;
+.card-title {
+  color: black;
+}
+
+.card {
+  background-color: #f9844aff;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -186,15 +173,15 @@ h1::before {
   background-color: var(--bg-color);
 }
 
-/* ------------------------------ form stylings ----------------------------- */
+/* ------------------------------ form stylings -- NOT REQUIRED ----------------------------- */
 
 /* -------------------------------------------------------------------------- */
 
-header {
+/* header {
   display: flex;
   flex-direction: column;
   min-height: 60vh;
-  background: var(--celadon-blue);
+  background: var(--bg-color);
   color: #fff;
   padding: 2rem 1rem;
   max-width: 650px;
@@ -222,7 +209,7 @@ button {
 
 #new-task-form {
   display: flex;
-}
+} */
 
 /* ------------------------------ Weather Card ------------------------------ */
 .card.blue-grey.darken-1 {
