@@ -238,7 +238,7 @@ h1::before {
 
 .card-title {
   color: black;
-  font-size: 30px;
+  font-size: 17px;
 }
 
 .card-action-card-calendar {
@@ -250,6 +250,11 @@ h1::before {
 
 .card {
   background-color: #e0e1ddff;
+}
+
+.orange-box {
+  text-align: center;
+  padding: 1.5rem;
 }
 
 /* -------------------------------------------------------------------------- */
