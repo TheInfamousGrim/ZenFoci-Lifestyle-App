@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- normalize css -->
+    <link rel="stylesheet" href="./../assets/css/normalize.css" />
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./../assets/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./../assets/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./../assets/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="./../assets/favicons/site.webmanifest" />
+    <!-- materialize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- style sheets -->
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <link rel="stylesheet" href="./../assets/css/dashboard.css">
+    <title>ZenFoci | User Dashboard</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="meals-header">
+        <nav>
+            <div class="nav-wrapper">
+                <!-- <a href="#" class="brand-logo">Logo</a> -->
+                <a href="./../index.html" class="brand-logo">
+                    <img width="48px" id="logo" src="./../assets/favicons/android-chrome-512x512.png"
+                        alt="logo-image" />
+                </a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+                <ul id="nav-bar" class="right hide-on-med-and-down">
+                    <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+                    <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+                    <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <ul class="sidenav" id="mobile-demo">
+                <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+                <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+                <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <ul class="sidenav" id="mobile-demo">
+        <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+        <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+        <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+    </ul>
+    <!-- modals  -->
+    <!-- Modal Structure delete habit -->
+    <div class="row">
+        <div id="delete-modal" class="modal row">
+            <div class="modal-content">
+                <h4 class="center">Are you sure you want to delete this habit?</h4>
+                <form action="" class="delete-habit-form row center-align">
+                    <div class="cancel-delete-habit-container col"><a href="#!"
+                            class="modal-action modal-close btn red darken-1 cancel-delete-habit-btn"><i
+                                class="fa-solid fa-xmark left"></i>No</a></div>
+                    <div class="delete-habit-container col">
+                        <button class="btn waves-effect waves-light modal-close delete-habit-btn" type="submit"
+                            name="action" href="!#">Yes
+                            <i class="fa-solid fa-check left"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal Structure for habits settings -->
+        <div id="habit-modal" class="modal container">
+            <form class="habit-settings-form col s12">
+                <div class="modal-content">
+                    <h4>Habit setting</h4>
+                    <div class="input-field col s12">
+                        <input placeholder="Enter your name" id="habit_name" type="text" class="validate">
+                        <label for="first_name">Habit Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <select class="select-end-time">
+                            <option value="" disabled selected>Choose time</option>
+                            <option value="00:00">00:00</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                        </select>
+                        <label><i class="fa-solid fa-clock"></i> Habit Start Time</label>
+                    </div>
+                    <!-- Dropdown Trigger -->
+                    <div class="repeat-dropdown-btn-container row center-align">
+                        <a class='dropdown-trigger btn' href='#' data-target='repeatWhenDropdown'><i
+                                class="fa-solid fa-repeat left-align"></i>
+                            Repeat
+                            when?</a>
+                    </div>
+                    <!-- Repeat when dropdown Structure -->
+                    <ul id='repeatWhenDropdown' class='dropdown-content'>
+                        <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
+                        <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
+                        <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
+                    </ul>
+                    <!-- <input type='text' name="" id="saveServer" /><button
+            onclick="save_data()" type="button" value="Save" id="Save">Save</button> -->
+                </div>
+                <div class="modal-footer habit-settings-footer row">
+                    <div class="cancel-button-container col">
+                        <a href="#!" class="modal-action modal-close btn red darken-1 cancel-edit-habit-button">Cancel
+                            <i class="fa-solid fa-xmark right"></i>
+                        </a>
+                    </div>
+                    <div class="save-settings-container col">
+                        <button class="modal-action modal-close btn waves-effect waves-light" type="submit"
+                            name="action" href="!#">Save settings
+                            <i class="fa-solid fa-floppy-disk right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <main>
+        <div class="container dashboard-container">
+            <div class="row row-1">
+                <div class="habit-settings-container">
+                    <div class="col l4 s12">
+                        <div class="card">
+                            <div class="card-content white-text">
+                                <div class="row ongoing-habits-title-container">
+                                    <h4 class="habits">Ongoing Habits</h4>
+                                </div>
+                                <div class="habit-list-container row">
+                                    <ul class="collection green-text habits-settings-collection">
+                                        <li class="collection-item avatar">
+                                            <a class="settings-modal-link modal-trigger green-text lighten-2"
+                                                href="#habit-modal"><i class="fa-solid fa-gear circle green"></i></a>
+                                            <p>Go to the Gym</p>
+                                            <a href="#delete-modal"
+                                                class="secondary-content modal-trigger delete-modal-link red-text"><i
+                                                    class="fa-solid fa-trash-can"></i></a>
+                                        </li>
+                                        <li class="collection-item avatar">
+                                            <a class="settings-modal-link modal-trigger green-text lighten-2"
+                                                href="#habit-modal"><i class="fa-solid fa-gear circle green"></i></a>
+                                            <p>Go skateboarding</p>
+                                            <a href="#delete-modal"
+                                                class="secondary-content modal-trigger delete-modal-link red-text"><i
+                                                    class="fa-solid fa-trash-can"></i></a>
+                                        </li>
+                                        <li class="collection-item avatar">
+                                            <a class="settings-modal-link modal-trigger green-text lighten-2"
+                                                href="#habit-modal"><i class="fa-solid fa-gear circle green"></i></a>
+                                            <p>Read a chapter of a philosophy book</p>
+                                            <a href="#delete-modal"
+                                                class="secondary-content modal-trigger delete-modal-link red-text"><i
+                                                    class="fa-solid fa-trash-can"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Modal Trigger -->
+                                <div class="row add-habit-btn-container center">
+                                    <a class="waves-effect waves-light btn modal-trigger" href="#habit-modal"><i
+                                            class="fa-solid fa-plus left"></i>
+                                        Add
+                                        habit</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="daily-affirmation-container content1"></div>
+                    <div class="todays-weather-container content"></div>
+                </div>
+            </div>
+            <div class="row row-2">
+                <div class="habits-daily-container">
+                    <div class="col l4 s12">
+                        <div class="card">
+                            <div class="card-content white-text">
+                                <ul class="collection with-header black-text habits-daily-collection">
+                                    <li class="collection-header center-align">
+                                        <h4>Your Daily Habits 💪</h4>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div>
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>Go to the gym</span>
+                                                        </label>
+                                                    </p>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div>
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>Practice skateboarding</span>
+                                                        </label>
+                                                    </p>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div>
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>Read philosophy</span>
+                                                        </label>
+                                                    </p>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="monthly-habit-progress-container">
+                    <div class="col l4 s12">
+                        <div class="card">
+                            <div class="card-content white-text">
+                                <ul class="collection with-header black-text montly-habit-collection">
+                                    <li class="collection-header center-align">
+                                        <h4>Your Monthly Habits Progress 😲</h4>
+                                    </li>
+                                    <li class="collection-item center-align progress-bar-container"> <span>Go to the
+                                            gym</span>
+                                        <div class="my-progress">
+                                            <div class="my-bar">
+                                                <div class="progress-number">0%</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item center-align progress-bar-container"> <span>Go to the
+                                            gym</span>
+                                        <div class="my-progress">
+                                            <div class="my-bar">
+                                                <div class="progress-number">0%</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item center-align progress-bar-container"> <span>Go to the
+                                            gym</span>
+                                        <div class="my-progress">
+                                            <div class="my-bar">
+                                                <div class="progress-number">0%</div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Monthly-goals-container">
+                    <div class="col l4 s12">
+                        <div class="card">
+                            <div class="card-content white-text">
+                                <ul class="collection with-header black-text goals-collection">
+                                    <li class="collection-header center-align">
+                                        <h4>Your goals!🏆</h4>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div>
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>Bench Press 120ks</span>
+                                                        </label>
+                                                    </p>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div>
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>Do a kickflip</span>
+                                                        </label>
+                                                    </p>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item">
+                                        <div>
+                                            <p>
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" />
+                                                            <span>finish capital vol. 1</span>
+                                                        </label>
+                                                    </p>
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Event info home modal structure -->
+        <div id="event-info-home-modal" class="modal">
+            <div class="modal-content event-info-modal-content row">
+                <h4>Event Name: <span id="event-info-home-name">Meet my friends</span></h4>
+                <ul class="collection">
+                    <li class="collection-item">Event Description: <span id="event-info-home-description">
+                            Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute
+                            consequat. Sunt
+                            dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo
+                            cupidatat laborum
+                            non
+                            nostrud consequat qui exercitation aliqua consectetur.</span>
+                    </li>
+                    <li class="collection-item">Event Type <div class="secondary-content">
+                            <p id="event-info-home-type">general</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="event-info-home-btns-container">
+                    <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="calendar-day-view-container">
+                <div id="calendar-day-view-content"></div>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer class="page-footer">
+        <div class="row">
+            <div class="col l6 m6 s12">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of the printing and typesetting
+                    industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                </p>
+            </div>
+            <div class="col l6 s12">
+                <h6 class="white-text">Contact Us</h6>
+                <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="col l6 m6 s12 grey-text text-lighten-3">&copy; 2022 Copyright <a
+                    class="white-text text-lighten-4"></a>
+            </div>
+            <div class="col l6 m6 s12"><a class="grey-text text-lighten-4 right" href="http://www.freetimelearning.com/"
+                    target="_blank">Designed By ZenFoci Team</a></div>
+        </div>
+    </footer>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- dayJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.5/dayjs.min.js"
+        integrity="sha512-Ot7ArUEhJDU0cwoBNNnWe487kjL5wAOsIYig8llY/l0P2TUFwgsAHVmrZMHsT8NGo+HwkjTJsNErS6QqIkBxDw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- materialize  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/be1d8d18da.js" crossorigin="anonymous"></script>
+    <!-- scripts -->
+    <script src="./../assets/js/quotes.js"></script>
+    <script src="./../assets/js/weather.js"></script>
+    <script src="./../assets/js/dashboard.js"></script>
+</body>
+
+</html>
