@@ -25,24 +25,26 @@ function removeLoader() {
 /* -------------------------------------------------------------------------- */
 
 function getRecipeList() {
-    const recipeList = localStorage
-        .getItem('meal-list')
-        .replace(/-/g, '')
-        .replace(/","/g, '')
-        .replace(/[\[\]']+/g, '')
-        .replace(/["]/g, '')
-        .replace(/\\ /g, '');
-    recipeList.replaceAll('[\\]', '');
-    const preExistingMealData = localStorage.getItem('meal-list') || [];
+    if (JSON.parse(localStorage.getItem('meal-list')) !== null) {
+        const recipeList = localStorage
+            .getItem('meal-list')
+            .replace(/-/g, '')
+            .replace(/","/g, '')
+            .replace(/[\[\]']+/g, '')
+            .replace(/["]/g, '')
+            .replace(/\\ /g, '');
+        recipeList.replaceAll('[\\]', '');
+        const preExistingMealData = JSON.parse(localStorage.getItem('meal-list')) || [];
 
-    let mealNames = [];
-    mealNames.push(preExistingMealData);
-    if (preExistingMealData === null) {
-        mealNames = [];
+        let mealNames = [];
+        mealNames.push(preExistingMealData);
+        if (preExistingMealData === null) {
+            mealNames = [];
+        }
+        $('#display').append(recipeList).html();
+        const savedMealsList = $('.display');
+        savedMealsList.children().addClass('collection-item saved-meal-list-item');
     }
-    $('#display').append(recipeList).html();
-    const savedMealsList = $('.display');
-    savedMealsList.children().addClass('collection-item saved-meal-list-item');
 }
 
 getRecipeList();
