@@ -47,26 +47,48 @@
             </ul>
         </nav>
     </header>
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">Javascript</a></li>
-        <li><a href="mobile.html">Mobile</a></li>
-    </ul>
+    <!-- error modal -->
+    <div id="error-modal" class="modal row">
+        <div class="modal-content">
+            <h4 class="center">👾 Like zoinks scoob, seems like there's an error afoot 😱</h4>
+            <p class="error-message center"> Jinkies, that doesn't seem like a seriously stellar key word <br>
+                Maybe start of with something simple like chicken or ice cream🍧?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
     <main>
-        <div class="container">
-            <div class="d-flex search-card-row" role="search">
-                <div class="col s12 m7 center">
-                    <div class="card blue-grey darken-1 search-card">
-                        <div class="card-content white-text search-card-content center">
-                            <h5>Search for your favorite meal</h5>
-                            <p>Just type in your favorite meal or food, and let the algorithm work it's magic 🤤</p>
-                            <form class="search-meal-form">
-                                <input type="text" placeholder="search" class="input_text form-control me-2"
-                                    id="search" />
-                                <button type="submit" value="Submit" class="submit btn">Search</button>
-                            </form>
-                        </div>
+        <div class="container widget-cards-container row">
+            <div class="col s12 l4">
+                <div class="card meal-cards-content">
+                    <div class="card-content meal-cards-content">
+                        <span class="card-title white-text">Meals Saved for Later</span>
+                        <ul class="display collection" id="display"></ul>
+                    </div>
+                    <div class="card-action meal-cards-content">
+                        <div class="meals-saved-results"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l4">
+                <div class="card search-card">
+                    <div class="card-content white-text meal-cards-content center">
+                        <h5>Search for your favorite meal</h5>
+                        <p>Use your foodie knowledge and search for a scrumptious meal by looking up your favorite
+                            food🤤</p>
+                        <form class="search-meal-form">
+                            <input type="text" placeholder="search" class="input_text form-control me-2" id="search" />
+                            <button type="submit" value="Submit" class="submit btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l4">
+                <div class="card meal-cards-content">
+                    <div class="card-content meal-cards-content">
+                        <span class="card-title white-text">Shopping List</span>
+                        <ul class="display-shopping-list collection" id="display-shopping-list"></ul>
                     </div>
                 </div>
             </div>
@@ -75,7 +97,7 @@
         </div>
         <container>
             <div class="steps"></div>
-            <div class="title"></div>
+            <div class="meal-search-results"></div>
         </container>
     </main>
     <!-- footer -->
@@ -112,7 +134,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/be1d8d18da.js" crossorigin="anonymous"></script>
-    <!-- page script -->
+    <!-- page scripts -->
+    <script src="./../assets/js/shopping.js"></script>
+    <script src="./../assets/js/recipe.js"></script>
     <script src="./../assets/js/mealSearch.js"></script>
     <script type="text/javascript">$(document).on('click', '.tablinks', function () {
             const did = $(this).attr('data-id');
