@@ -154,11 +154,6 @@ calendar.render();
 // Updates the size to fit in the container
 calendar.updateSize();
 
-/* ------------------------ submit the calendar form ------------------------ */
-
-// When I select a day on the full calendar
-// The mini calendar updates as well
-
 /* -------------------------------------------------------------------------- */
 /*                      vanilla javascript mini calendar                      */
 /* -------------------------------------------------------------------------- */
@@ -190,7 +185,7 @@ function handleDeleteEvent(e) {
     // remove the event from the local storage
     // get the event from local storage
     const savedEvents = getUserEvents();
-    console.log(savedEvents);
+
     // filter the saved events by using the current event id
     const filteredSavedEvents = savedEvents.filter((event) => event.id !== parseInt(eventId));
     // delete the event
@@ -206,6 +201,11 @@ deleteEventBtn.on('click', handleDeleteEvent);
 /* -------------------------------------------------------------------------- */
 /*                               new event modal                              */
 /* -------------------------------------------------------------------------- */
+
+/* ----------------------------- modal selector ----------------------------- */
+const newEventModal = document.getElementById('event-info-modal');
+
+const newEventModalInstance = M.Modal.getInstance(newEventModal);
 
 /* ----------------------------- form selectors ----------------------------- */
 // event name input selector
@@ -345,6 +345,7 @@ function handleRecurringSubmit(e) {
     const dirtyRepeatWhenHTML = `<i class="fa-solid fa-repeat left"></i> Custom</a>`;
     const cleanRepeatWhenHTML = DOMPurify.sanitize(dirtyRepeatWhenHTML, { USE_PROFILE: { html: true } });
     repeatWhenBtn.html(cleanRepeatWhenHTML);
+    console.log(recurringEventInstance);
     recurringEventInstance.close();
 }
 
@@ -366,10 +367,7 @@ recurringEventCnclBtn.on('click', handleRecurringCancel);
 // save the user event to the local storage
 function saveEventToLocalStorage(formattedEvent) {
     const savedUserEvents = getUserEvents();
-    console.log('saved events: ', savedUserEvents);
-    console.log('formatted event: ', formattedEvent);
     const updatedSavedEvents = [...savedUserEvents, formattedEvent];
-    console.log('updated saved events: ', updatedSavedEvents);
     localStorage.setItem('userEvents', JSON.stringify(updatedSavedEvents));
 }
 
@@ -477,6 +475,8 @@ function handleAddEvent(e) {
         calendar.addEvent(allDayNoRepeatEvent);
         // save event to the local storage
         saveEventToLocalStorage(allDayNoRepeatEvent);
+        console.log('event-fired: all day no custom repeat');
+        newEventModalInstance.close();
         return;
     }
     // if all day is checked
@@ -486,6 +486,8 @@ function handleAddEvent(e) {
         calendar.addEvent(allDayEvent);
         // save to the local storage
         saveEventToLocalStorage(allDayEvent);
+        console.log('event-fired: all day');
+        newEventModalInstance.close();
         return;
     }
     // if the event isn't repeated
@@ -495,14 +497,17 @@ function handleAddEvent(e) {
         calendar.addEvent(noRepeatEvent);
         // save event to the local storage
         saveEventToLocalStorage(noRepeatEvent);
+        console.log('event-fired: ');
+        newEventModalInstance.close();
+        return;
     }
 
     // if the event isn't all day and there is a custom repeat
     if (!allDayCheckbox.is(':checked') && userEventInputs.daysOfWeek !== null) {
         const boundedCustomEvent = boundedCustomRepeatFormatter(userEventInputs);
         calendar.addEvent(boundedCustomEvent);
-        console.log(boundedCustomEvent);
         saveEventToLocalStorage(boundedCustomEvent);
+        newEventModalInstance.close();
     }
 }
 

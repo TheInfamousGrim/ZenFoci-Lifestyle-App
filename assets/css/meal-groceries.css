@@ -1,4 +1,12 @@
 /* -------------------------------------------------------------------------- */
+/*                               root variables                               */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --hvr-clr-lst-item: #dddbd3;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                             materialize resets                             */
 /* -------------------------------------------------------------------------- */
 
@@ -92,12 +100,20 @@ header {
   padding: 20px;
   background: #f7f7f7;
 }
-ul {
-  padding-left: 12px !important;
+
+/* ------------------------------- list items ------------------------------- */
+
+/* ingredients */
+
+.list-item:hover,
+.list-item:focus {
+  cursor: pointer;
+  background-color: #f1efe9;
 }
 
-ul li {
-  list-style: circle !important;
+/* ingredients selected and added to shopping list */
+.added-to-list {
+  text-decoration: line-through;
 }
 
 .tabcontent {
@@ -105,17 +121,10 @@ ul li {
 }
 
 .row .col.s7 {
-  /* width: 58.3333333333%; */
-  /* margin-left: auto; */
-  /* left: auto; */
-  /* right: auto; */
   margin: 22px !important;
 }
+
 h2 {
-  margin-left: 52px;
-}
-h2 {
-  margin-left: 52px;
   text-shadow: 1px 1px #e66d71;
   font-weight: 600;
   font-size: 35px;
@@ -124,8 +133,25 @@ h4 {
   font-size: 18px;
   text-shadow: 1px 1px #e66d71;
 }
+
+/* ------------------------------- meal header ------------------------------ */
+
 .header {
   padding-left: 50px;
+  margin-bottom: 1rem;
+}
+
+/* save recipe button container */
+.save-recipe-btn-container {
+  padding-left: 50px;
+}
+
+/* header mobil */
+@media only screen and (max-width: 450px) {
+  .header,
+  .save-recipe-btn-container {
+    padding-left: 1.5rem;
+  }
 }
 
 .tabcontent {
@@ -160,11 +186,36 @@ p.cooking-time {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                 search card                                */
+/*                             main app components                            */
 /* -------------------------------------------------------------------------- */
+
+/* ----------------------- container for widget cards ----------------------- */
+
+.widget-cards-container {
+  width: 90vw;
+}
+
+/* ------------------------- card widget list items ------------------------- */
+
+.saved-meal-list-item,
+.shopping-list-item {
+  transition: all 0.5s;
+}
+
+/* card widget list items */
+.saved-meal-list-item:hover,
+.saved-meal-list-item:focus,
+.shopping-list-item:hover,
+.shopping-list-item:focus {
+  cursor: pointer;
+  background-color: var(--hvr-clr-lst-item);
+}
+
+/* ------------------------------- search card ------------------------------ */
 
 .search-card {
   max-width: 90vw;
+  background-color: var(--celadon-blue);
 }
 
 .search-card-row {
@@ -173,13 +224,11 @@ p.cooking-time {
   justify-content: center;
 }
 
-.search-card-content {
+.meal-cards-content {
   background-color: var(--celadon-blue) !important;
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                 pre loader                                 */
-/* -------------------------------------------------------------------------- */
+/* ------------------------------- pre loader ------------------------------- */
 
 .loader-container {
   display: flex;

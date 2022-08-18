@@ -48,7 +48,15 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                             materialize resets                             */
+/*                                   navbar                                   */
+/* -------------------------------------------------------------------------- */
+
+.brand-logo {
+  padding: 0.3rem !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    title                                   */
 /* -------------------------------------------------------------------------- */
 
 /* Title Styling */
@@ -60,6 +68,11 @@ body {
   width: 100vw;
   height: 40vh;
   background-color: #fffcf2;
+}
+
+.slogan {
+  font-family: "Lobster", cursive;
+  font-size: 40px;
 }
 
 .text {
@@ -148,34 +161,48 @@ h1::before {
   }
 }
 
-/* Calendar Styling */
-.blink_me {
-  animation: blinker 2.5s linear infinite;
-  margin-top: 75%;
+/* -------------------------------------------------------------------------- */
+/*                    Welcome Section                                         */
+/* -------------------------------------------------------------------------- */
+
+#welcome-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  text-align: center;
+  background-color: #ffbeaa;
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
+.welcomer-content-container:chi {
 }
 
-.calendar-wrapper {
+.intro {
+  font-size: 20px;
+  color: #277da1ff;
+  /* margin-left: 33%;
+  margin-bottom: 5%; */
+}
+
+.welcome-imgs {
+  width: 100%;
+  height: auto;
+}
+
+.welcome-flex-column {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 24vh;
-  background-color: var(--mango-tango);
-  margin-top: 35%;
 }
 
-#calendar {
-  margin-top: 20%;
-  margin-left: -80%;
-  height: 350%;
-  width: 252%;
+.welcome-text-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.welcome-text-containers {
+  margin: 2rem 0rem 2rem 0rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -186,15 +213,70 @@ h1::before {
   background-color: var(--bg-color);
 }
 
-/* ------------------------------ form stylings ----------------------------- */
+#dashboard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  text-align: center;
+  background-color: rgb(186, 186, 184);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                    Calendar Styling                                        */
+/* -------------------------------------------------------------------------- */
+
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  text-align: center;
+}
+
+.calendar-action-container {
+  margin-top: 2rem;
+}
+
+.card-title {
+  color: black;
+  font-size: 30px;
+}
+
+.card-action-card-calendar {
+  background-color: #f9844aff;
+  border-radius: 3px;
+  border-color: black;
+  border-style: solid;
+}
+
+.card {
+  background-color: #e0e1ddff;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                    Meals/Groceries Styling                                 */
+/* -------------------------------------------------------------------------- */
+
+#meals-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  text-align: center;
+  background-color: var(--lavender-blue-2);
+}
+
+.meal {
+  font-size: 20px;
+  color: #277da1ff;
+}
+/* ------------------------------ form stylings -- NOT REQUIRED ----------------------------- */
 
 /* -------------------------------------------------------------------------- */
 
-header {
+/* header {
   display: flex;
   flex-direction: column;
   min-height: 60vh;
-  background: var(--celadon-blue);
+  background: var(--bg-color);
   color: #fff;
   padding: 2rem 1rem;
   max-width: 650px;
@@ -222,10 +304,10 @@ button {
 
 #new-task-form {
   display: flex;
-}
+} */
 
 /* ------------------------------ Weather Card ------------------------------ */
-.card.blue-grey.darken-1 {
+/* .card.blue-grey.darken-1 {
   text-align: center;
 }
 .card.blue-grey.darken-1 {
@@ -239,11 +321,16 @@ img.pic {
 }
 p.desc {
   margin-top: -30px !important;
-  /* margin-bottom: 30px !important; */
-}
-p.temp {
+  margin-bottom: 30px !important;
+} */
+/* p.temp {
   font-size: 30px;
   margin-bottom: 20px !important;
+} */
+
+.frosted-card {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(5px);
 }
 
 /* ------------------------------ modal styles ------------------------------ */
@@ -336,6 +423,15 @@ p.temp {
   border: 1px solid black;
   background-color: rgba(0 0 0 0.5);
   margin-bottom: 2rem;
+}
+
+.row .col.s3 {
+  width: 25%;
+  /* margin-left: auto; */
+  /* left: -21%; */
+  right: auto;
+  margin-right: 50%;
+  margin-top: -15%;
 }
 
 /* --------------------------------- Footer --------------------------------- */
