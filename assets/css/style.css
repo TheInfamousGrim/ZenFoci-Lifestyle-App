@@ -232,8 +232,8 @@ h1::before {
   text-align: center;
 }
 
-.calendar-action-container {
-  margin-top: 2rem;
+.calendar-action-card-container {
+  margin-top: 4rem;
 }
 
 .card-title {
@@ -246,6 +246,7 @@ h1::before {
   border-radius: 3px;
   border-color: black;
   border-style: solid;
+  padding: 2rem;
 }
 
 .card {
@@ -273,65 +274,6 @@ h1::before {
   font-size: 20px;
   color: #277da1ff;
 }
-/* ------------------------------ form stylings -- NOT REQUIRED ----------------------------- */
-
-/* -------------------------------------------------------------------------- */
-
-/* header {
-  display: flex;
-  flex-direction: column;
-  min-height: 60vh;
-  background: var(--bg-color);
-  color: #fff;
-  padding: 2rem 1rem;
-  max-width: 650px;
-  width: 100%;
-}
-
-header section {
-  margin-top: 10%;
-}
-
-header h2 {
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: var(--gainsboro);
-  text-decoration: underline;
-}
-
-input,
-button {
-  appearance: none;
-  border: none;
-  outline: none;
-  background: none;
-}
-
-#new-task-form {
-  display: flex;
-} */
-
-/* ------------------------------ Weather Card ------------------------------ */
-/* .card.blue-grey.darken-1 {
-  text-align: center;
-}
-.card.blue-grey.darken-1 {
-  width: 450px;
-}
-span.card-title {
-  font-weight: 600 !important;
-}
-img.pic {
-  width: 100px;
-}
-p.desc {
-  margin-top: -30px !important;
-  margin-bottom: 30px !important;
-} */
-/* p.temp {
-  font-size: 30px;
-  margin-bottom: 20px !important;
-} */
 
 .frosted-card {
   background-color: rgba(0, 0, 0, 0.15) !important;
@@ -410,15 +352,6 @@ p.desc {
   flex-direction: row;
   margin-left: 0%;
 }
-
-/* margin-left: 20%; */
-
-/* .flexbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  } */
 
 /* ------------------------ Vanilla calendar styling ------------------------ */
 
