@@ -1,4 +1,12 @@
 /* -------------------------------------------------------------------------- */
+/*                               root variables                               */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --hvr-clr-lst-item: #dddbd3;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                             materialize resets                             */
 /* -------------------------------------------------------------------------- */
 
@@ -113,10 +121,6 @@ header {
 }
 
 .row .col.s7 {
-  /* width: 58.3333333333%; */
-  /* margin-left: auto; */
-  /* left: auto; */
-  /* right: auto; */
   margin: 22px !important;
 }
 
@@ -189,6 +193,22 @@ p.cooking-time {
 
 .widget-cards-container {
   width: 90vw;
+}
+
+/* ------------------------- card widget list items ------------------------- */
+
+.saved-meal-list-item,
+.shopping-list-item {
+  transition: all 0.5s;
+}
+
+/* card widget list items */
+.saved-meal-list-item:hover,
+.saved-meal-list-item:focus,
+.shopping-list-item:hover,
+.shopping-list-item:focus {
+  cursor: pointer;
+  background-color: var(--hvr-clr-lst-item);
 }
 
 /* ------------------------------- search card ------------------------------ */

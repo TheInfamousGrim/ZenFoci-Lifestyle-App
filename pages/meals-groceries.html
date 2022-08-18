@@ -58,7 +58,7 @@
             <div class="col s12 l4">
                 <div class="card meal-cards-content">
                     <div class="card-content meal-cards-content">
-                        <span class="card-title white-text">Meal List</span>
+                        <span class="card-title white-text">Meals Saved for Later</span>
                         <ul class="display collection" id="display"></ul>
                     </div>
                     <div class="card-action meal-cards-content">
@@ -70,12 +70,20 @@
                 <div class="card search-card">
                     <div class="card-content white-text meal-cards-content center">
                         <h5>Search for your favorite meal</h5>
-                        <p>Use your foodie knowledge and search for your favorite meal by looking up your favorite
+                        <p>Use your foodie knowledge and search for a scrumptious meal by looking up your favorite
                             food🤤</p>
                         <form class="search-meal-form">
                             <input type="text" placeholder="search" class="input_text form-control me-2" id="search" />
                             <button type="submit" value="Submit" class="submit btn">Search</button>
                         </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 l4">
+                <div class="card meal-cards-content">
+                    <div class="card-content meal-cards-content">
+                        <span class="card-title white-text">Shopping List</span>
+                        <ul class="display-shopping-list collection" id="display-shopping-list"></ul>
                     </div>
                 </div>
             </div>
@@ -122,6 +130,7 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/be1d8d18da.js" crossorigin="anonymous"></script>
     <!-- page scripts -->
+    <script src="./../assets/js/shopping.js"></script>
     <script src="./../assets/js/recipe.js"></script>
     <script src="./../assets/js/mealSearch.js"></script>
     <script type="text/javascript">$(document).on('click', '.tablinks', function () {

@@ -37,23 +37,7 @@ button.addEventListener('click' || 'keypress', (event) => {
 /*                              loader functions                              */
 /* -------------------------------------------------------------------------- */
 
-// loader container selector
-const loaderContainer = document.querySelector('.loader-container');
-
-// loader HTML
-const preLoaderHTML = `
-<div class="lds-heart center">
-    <div></div>
-</div>
-`;
-
-function displayLoader() {
-    loaderContainer.innerHTML = preLoaderHTML;
-}
-
-function removeLoader() {
-    loaderContainer.innerHTML = '';
-}
+/* ------------------ loader functions are in the recipe.js ----------------- */
 
 /* -------------------------------------------------------------------------- */
 /*                          filter out all junk data                          */
@@ -192,6 +176,7 @@ function search(event) {
 
                     const filteredMealID = [...new Set(recipeID)];
                     localStorage.setItem('meal-list', JSON.stringify(filteredMealID));
+                    // FUNCTION DEFINED IN recipe.js
                     getRecipeList();
                 })
             );
@@ -220,6 +205,8 @@ function search(event) {
                     const filteredNames = [...new Set(names)];
 
                     localStorage.setItem('shopping-list', JSON.stringify(filteredNames));
+                    // FUNCTION DEFINED IN shopping.js
+                    getShoppingList();
                 })
             );
         })

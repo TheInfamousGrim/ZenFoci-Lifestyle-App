@@ -1,4 +1,26 @@
 /* -------------------------------------------------------------------------- */
+/*                              loader functions                              */
+/* -------------------------------------------------------------------------- */
+
+// loader container selector
+const loaderContainer = document.querySelector('.loader-container');
+
+// loader HTML
+const preLoaderHTML = `
+<div class="lds-heart center">
+    <div></div>
+</div>
+`;
+
+function displayLoader() {
+    loaderContainer.innerHTML = preLoaderHTML;
+}
+
+function removeLoader() {
+    loaderContainer.innerHTML = '';
+}
+
+/* -------------------------------------------------------------------------- */
 /*                    function for getting the recipe list                    */
 /* -------------------------------------------------------------------------- */
 
@@ -22,7 +44,7 @@ function getRecipeList() {
     console.log(recipeList);
     $('#display').append(recipeList).html();
     const savedMealsList = $('.display');
-    savedMealsList.children().addClass('collection-item');
+    savedMealsList.children().addClass('collection-item saved-meal-list-item');
 }
 
 getRecipeList();
@@ -32,6 +54,7 @@ getRecipeList();
 /* -------------------------------------------------------------------------- */
 
 $('.item').on('click', function (event) {
+    displayLoader();
     const query = $(this).attr('id');
     fetch(`https://tasty.p.rapidapi.com/recipes/get-more-info?id=${query}`, {
         method: 'GET',
@@ -42,9 +65,11 @@ $('.item').on('click', function (event) {
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log($('.title').html() !== '');
-            $('.title').html('');
-
+            $('.meal-search-results').html('');
+            // set innerHTML to be an empty string
+            const mealContainer = document.querySelector('.meal-search-results');
+            console.log(mealContainer);
+            mealContainer.innerHTML = '';
             let html = '';
 
             const did = data.id;
@@ -90,6 +115,7 @@ $('.item').on('click', function (event) {
             html += `<div class='tabcontent tabcon-${did} ingredients${did}'><ul class='inglist'>${ingredientsHtml}</ul><a href='#'></a></div>`;
             html += `<div class='tabcontent tabcon-${did} instructions${did}'>${instructionsHtml}</div>`;
 
-            $('.title').append(html);
+            $('.meal-search-results').append(html);
+            removeLoader();
         });
 });
