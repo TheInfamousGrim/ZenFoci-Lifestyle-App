@@ -1,0 +1,114 @@
+:root {
+  --card-color: #ffbeaa;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                             materialize resets                             */
+/* -------------------------------------------------------------------------- */
+
+.container {
+  width: 90%;
+  margin: 5rem auto;
+}
+
+.row {
+  width: 100%;
+}
+
+.modal-overlay {
+  top: 0%;
+}
+
+.collection.with-header .collection-header {
+  background-color: var(--bg-color);
+}
+
+/* ------------------------------ sticky footer ----------------------------- */
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                style resets                                */
+/* -------------------------------------------------------------------------- */
+
+/* --------------------------------- header --------------------------------- */
+
+.meals-header {
+  min-height: fit-content;
+  max-width: 100vw;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+/* --------------------------------- nav bar -------------------------------- */
+
+.nav-links {
+  list-style-type: none !important;
+}
+
+/* brand logo */
+.brand-logo {
+  padding: 0.3rem !important;
+}
+
+/* ---------------------------------- cards --------------------------------- */
+
+.card {
+  background-color: var(--card-color) !important;
+}
+
+.frosted-card {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(5px);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Style the page                               */
+/* -------------------------------------------------------------------------- */
+
+.delete-modla-link {
+  padding
+}
+
+
+/* ------------------------------- list items ------------------------------- */
+
+.collection li:nth-child(even) {
+  background-color: #f1eee2;
+}
+
+.collection li:hover {
+  background-color: #d3d2cb;
+}
+
+.habits-daily-collection input:checked {
+  background-color: #d3d2cb;
+}
+
+/* ------------------------------ progress bar ------------------------------ */
+
+.progress-bar-container {
+  position: relative;
+}
+
+.my-progress {
+  width: 100%;
+  background-color: grey;
+}
+
+.my-bar {
+  width: 1%;
+  height: 30px;
+  background-color: var(--celadon-blue);
+  text-align: center; /* To center it horizontally (if you want) */
+  line-height: 30px; /* To center it vertically */
+  color: white;
+}

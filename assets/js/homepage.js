@@ -1,16 +1,4 @@
 /* -------------------------------------------------------------------------- */
-/*                                   modals                                   */
-/* -------------------------------------------------------------------------- */
-
-// Modal initializer
-document.addEventListener('DOMContentLoaded', () => {
-    const elems = document.querySelectorAll('.modal');
-    const instances = M.Modal.init(elems, { opacity: 0.5 });
-});
-
-// Modal
-
-/* -------------------------------------------------------------------------- */
 /*                                    forms                                   */
 /* -------------------------------------------------------------------------- */
 
@@ -41,26 +29,21 @@ function saveData() {
     localStorage.setItem('server', input.value);
     const storedValue = localStorage.getItem('server');
 }
- 
 
 /* ------------------------------- Splash Images in About section - Animation -------------------------- */
 
-
-$(document).ready(function(){
+$(document).ready(() => {
     $('.materialboxed').materialbox();
-  });
-       
+});
 
-  // Mobile side nav
+// Mobile side nav
 document.addEventListener('DOMContentLoaded', () => {
     const elems = document.querySelectorAll('.sidenav');
     const instances = M.Sidenav.init(elems, {});
 });
 
-
 /* ------------------------------- Meals/Groceries carousel images -------------------------- */
 
-$(document).ready(function(){
+$(document).ready(() => {
     $('.slider').slider();
-  });
-       
+});
