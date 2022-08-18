@@ -1,10 +1,6 @@
-const eventInfoHomepageModal = document.querySelector('#event-info-home-modal');
-
-/* --------------------------- materialize plugins -------------------------- */
-
-// Event info modal instance
-const eventInfoDayInstance = M.Modal.getInstance(eventInfoHomepageModal);
-console.log(eventInfoDayInstance);
+// Modal initializer
+const modalElems = document.querySelectorAll('.modal');
+const modalInstances = M.Modal.init(modalElems, { opacity: 0.5 });
 
 /* -------------------------------------------------------------------------- */
 /*                              get saved events                              */
@@ -21,7 +17,6 @@ function getUserEvents() {
 /* -------------------------------------------------------------------------- */
 
 const dayViewCalendarEl = document.getElementById('calendar-day-view-content');
-console.log(dayViewCalendarEl);
 const dayViewCalendar = new FullCalendar.Calendar(dayViewCalendarEl, {
     // Set the initial view depending on the window width
     initialView: $(window).width() < 678 ? 'timeGridDay' : 'timeGridWeek',
@@ -108,3 +103,14 @@ const dayViewCalendar = new FullCalendar.Calendar(dayViewCalendarEl, {
 dayViewCalendar.render();
 // Updates the size to fit in the container
 dayViewCalendar.updateSize();
+
+/* -------------------------------------------------------------------------- */
+/*                              event info modal                              */
+/* -------------------------------------------------------------------------- */
+
+const eventInfoHomepageModal = document.querySelector('#event-info-home-modal');
+
+/* --------------------------- materialize plugins -------------------------- */
+
+// Event info modal instance
+const eventInfoDayInstance = M.Modal.getInstance(eventInfoHomepageModal);

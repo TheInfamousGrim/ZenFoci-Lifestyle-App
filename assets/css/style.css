@@ -55,6 +55,10 @@ body {
   padding: 0.3rem !important;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                    title                                   */
+/* -------------------------------------------------------------------------- */
+
 /* Title Styling */
 #page-wrapper {
   display: flex;
@@ -169,11 +173,36 @@ h1::before {
   background-color: #ffbeaa;
 }
 
+.welcomer-content-container:chi {
+}
+
 .intro {
   font-size: 20px;
   color: #277da1ff;
   /* margin-left: 33%;
   margin-bottom: 5%; */
+}
+
+.welcome-imgs {
+  width: 100%;
+  height: auto;
+}
+
+.welcome-flex-column {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome-text-flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.welcome-text-containers {
+  margin: 2rem 0rem 2rem 0rem;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -203,6 +232,10 @@ h1::before {
   text-align: center;
 }
 
+.calendar-action-container {
+  margin-top: 2rem;
+}
+
 .card-title {
   color: black;
   font-size: 30px;
@@ -210,7 +243,6 @@ h1::before {
 
 .card-action-card-calendar {
   background-color: #f9844aff;
-  width: 32vw;
   border-radius: 3px;
   border-color: black;
   border-style: solid;
