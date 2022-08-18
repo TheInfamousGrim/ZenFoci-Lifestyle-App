@@ -69,7 +69,7 @@ In many cases, people simply do not use images because of this problem, and thei
 
 ## Contributors
 
-[![My Skills](https://skills.thijs.gg/icons?i=github)](https://www.javascript.com/)
+[![My Skills](https://skills.thijs.gg/icons?i=github)](https://github.com/TheInfamousGrim/ZenFoci-Lifestyle-App/graphs/contributors)
 
 [George](https://github.com/TheInfamousGrim)
 
