@@ -9,7 +9,6 @@ function getShoppingList() {
 
     shoppingList.replaceAll('[\\]g', '');
 
-    console.log(shoppingList);
     $('#display-shopping-list').append(shoppingList).html();
     const displayedShoppingList = $('.display-shopping-list');
     displayedShoppingList.children().addClass('collection-item shopping-list-item');

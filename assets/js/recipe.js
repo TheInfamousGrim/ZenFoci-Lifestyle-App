@@ -33,15 +33,13 @@ function getRecipeList() {
         .replace(/["]/g, '')
         .replace(/\\ /g, '');
     recipeList.replaceAll('[\\]', '');
-    console.log(recipeList);
-    const preExistingMealData = localStorage.getItem('shopping-list') || [];
+    const preExistingMealData = localStorage.getItem('meal-list') || [];
 
     let mealNames = [];
     mealNames.push(preExistingMealData);
     if (preExistingMealData === null) {
         mealNames = [];
     }
-    console.log(recipeList);
     $('#display').append(recipeList).html();
     const savedMealsList = $('.display');
     savedMealsList.children().addClass('collection-item saved-meal-list-item');
@@ -68,13 +66,13 @@ $('.item').on('click', function (event) {
             $('.meal-search-results').html('');
             // set innerHTML to be an empty string
             const mealContainer = document.querySelector('.meal-search-results');
-            console.log(mealContainer);
             mealContainer.innerHTML = '';
+
+            // create an empty html element
             let html = '';
 
             const did = data.id;
             const mealName = data.name;
-            const { description } = data;
 
             let instructionsHtml = '';
             let ingredientsHtml = '';
@@ -93,6 +91,7 @@ $('.item').on('click', function (event) {
 
             for (let l = 0; l < data.sections['0'].components.length; l++) {
                 ingredientsHtml += `<li a href='#' class='listitem'>${data.sections['0'].components[l].raw_text}</li>`;
+                console.log(`#tabcon-${did} a`);
             }
 
             ingredientsHtml += '</ul>';
@@ -100,19 +99,48 @@ $('.item').on('click', function (event) {
             const rating = Math.round(data.user_ratings.score * 10);
             const votes = data.user_ratings.count_positive + data.user_ratings.count_negative;
 
-            nutritionHTML = `<li>Calories: ${data.nutrition.calories}</li><li>Carbohydrates: ${data.nutrition.carbohydrates}</li><li>Fat: ${data.nutrition.fat}</li><li>Fibre: ${data.nutrition.fibre}</li><li>Protein: ${data.nutrition.protein}</li><li>Sugar: ${data.nutrition.sugar}</li>`;
+            nutritionHTML = `
+            <ul class="nutrition-list collection">
+                <li class="collection-item">Calories: ${data.nutrition.calories}</li>
+                <li class="collection-item">Carbohydrates: ${data.nutrition.carbohydrates}</li>
+                <li class="collection-item">Fat: ${data.nutrition.fat}</li>
+                <li class="collection-item">Fibre: ${data.nutrition.fibre}</li>
+                <li class="collection-item">Protein: ${data.nutrition.protein}</li>
+                <li class="collection-item">Sugar: ${data.nutrition.sugar}</li>
+            </ul>`;
 
             html += `<div class='tab' id='${did}'>`;
-            html += `<div class='header'><div><h2>${data.name}</h2></div><strong><p class='cooking-time'>Cooking Time: </strong>${data.cook_time_minutes}mins  -<strong>  Prep Time: </strong>${data.prep_time_minutes}mins<br><strong>  Servings: </strong>${data.num_servings}  -<strong>  User Rating: </strong>${rating}/10 (${votes} votes)</p></div>`;
+            html += `
+            <div class='header'>
+                <div>
+                    <h2>${data.name}</h2>
+                </div>
+                <strong><p class='cooking-time'>Cooking Time: </strong>${data.cook_time_minutes}mins  -<strong>  Prep Time: </strong>${data.prep_time_minutes}mins<br><strong>  Servings: </strong>${data.num_servings}  -<strong>  User Rating: </strong>${rating}/10 (${votes} votes)</p>
+            </div>`;
             html += `<button class='tablinks tabbtn-${did} active' id='overview${did}' data-id='${did}'>Overview</button>`;
 
             html += `<button class='tablinks tabbtn-${did}' id='ingredients${did}'  data-id='${did}'>Ingredients</button>`;
             html += `<button class='tablinks tabbtn-${did}' id='instructions${did}'  data-id='${did}'>Instructions</button>`;
             html += '</div>';
-            html += `<div class='tabcontent tabcon-${did} active overview${did}'><div class='row'><div class='col s3'><img class='activator' src='${data.thumbnail_url}'/></div>`;
-            html += `<div class='col s3'>${data.description}<div><h4>Nutrition</h4>${nutritionHTML}</div></div></div>`;
+            html += `
+            <div class='tabcontent tabcon-${did} active overview${did}'>
+                <div class='row'>
+                    <div class='col xl4 s12'>
+                        <img class='activator' src='${data.thumbnail_url}'/>
+                    </div>`;
+            html += `
+            <div class='col xl7 s12'>${data.description}
+                <div>
+                    <h4>Nutrition</h4>
+                    ${nutritionHTML}</div>
+                </div>
+            </div>`;
             html += '</div>';
-            html += `<div class='tabcontent tabcon-${did} ingredients${did}'><ul class='inglist'>${ingredientsHtml}</ul><a href='#'></a></div>`;
+            html += `
+            <div class='tabcontent tabcon-${did} ingredients${did}'>
+                <ul class='inglist'>${ingredientsHtml}</ul>
+                <a href='#'></a>
+            </div>`;
             html += `<div class='tabcontent tabcon-${did} instructions${did}'>${instructionsHtml}</div>`;
 
             $('.meal-search-results').append(html);

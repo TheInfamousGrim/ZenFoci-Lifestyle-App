@@ -34,16 +34,6 @@ button.addEventListener('click' || 'keypress', (event) => {
 });
 
 /* -------------------------------------------------------------------------- */
-/*                             materailize plugins                            */
-/* -------------------------------------------------------------------------- */
-
-// Mobile side nav
-document.addEventListener('DOMContentLoaded', () => {
-    const elems = document.querySelectorAll('.sidenav');
-    const instances = M.Sidenav.init(elems, {});
-});
-
-/* -------------------------------------------------------------------------- */
 /*                              loader functions                              */
 /* -------------------------------------------------------------------------- */
 
@@ -145,24 +135,58 @@ function search(event) {
 
                 const votes = filteredData[i].user_ratings.count_positive + filteredData[i].user_ratings.count_negative;
 
-                nutritionHTML = `<ul class="nutrition-list collection"><li class="collection-item">Calories: ${filteredData[i].nutrition.calories}</li><li class="collection-item">Carbohydrates: ${filteredData[i].nutrition.carbohydrates}</li><li class="collection-item">Fat: ${filteredData[i].nutrition.fat}</li><li class="collection-item">Fiber: ${filteredData[i].nutrition.fiber}</li><li class="collection-item">Protein: ${filteredData[i].nutrition.protein}</li><li class="collection-item">Sugar: ${filteredData[i].nutrition.sugar}</li></ul>`;
+                nutritionHTML = `
+                <ul class="nutrition-list collection">
+                    <li class="collection-item">Calories: ${filteredData[i].nutrition.calories}</li>
+                    <li class="collection-item">Carbohydrates: ${filteredData[i].nutrition.carbohydrates}</li>
+                    <li class="collection-item">Fat: ${filteredData[i].nutrition.fat}</li>
+                    <li class="collection-item">Fiber: ${filteredData[i].nutrition.fiber}</li>
+                    <li class="collection-item">Protein: ${filteredData[i].nutrition.protein}</li>
+                    <li class="collection-item">Sugar: ${filteredData[i].nutrition.sugar}</li>
+                </ul>`;
 
                 if (filteredData[i].nutrition.calories === undefined) {
                     nutritionHTML = `<p>Couldn't find those scrumptious nutritional factoids 🍖😢</p>`;
                 }
 
                 html += `<div class='tab' id='${did}'>`;
-                html += `<div class='header'><div><h2>${filteredData[i].name}</h2></div><strong><p class='cooking-time'>Cooking Time: </strong>${filteredData[i].cook_time_minutes}mins  -<strong>  Prep Time: </strong>${filteredData[i].prep_time_minutes}mins  -<strong>  Servings: </strong>${filteredData[i].num_servings}  -<strong>  User Rating: </strong>${rating}/10 (${votes} votes)</p></div><div class="row save-recipe-btn-container"><button class='btn submit save-recipe-btn ${did}' id='savebutton' value='${filteredData[i].name}'>Save Recipe</button></div>`;
+                html += `
+                <div class='header'>
+                    <div>
+                        <h2>${filteredData[i].name}</h2>
+                    </div>
+                    <strong><p class='cooking-time'>Cooking Time: </strong>${filteredData[i].cook_time_minutes}mins  -<strong>  Prep Time: </strong>${filteredData[i].prep_time_minutes}mins  -<strong>  Servings: </strong>${filteredData[i].num_servings}  -<strong>  User Rating: </strong>${rating}/10 (${votes} votes)</p>
+                    </div>
+                    <div class="row save-recipe-btn-container">
+                        <button class='btn submit save-recipe-btn ${did}' id='savebutton' value='${filteredData[i].name}'>Save Recipe</button>
+                </div>`;
                 html += `<button class='tablinks tabbtn-${did} active' id='overview${did}' data-id='${did}'>Overview</button>`;
 
                 html += `<button class='tablinks tabbtn-${did}' id='ingredients${did}'  data-id='${did}'>Ingredients</button>`;
                 html += `<button class='tablinks tabbtn-${did}' id='instructions${did}'  data-id='${did}'>Instructions</button>`;
                 html += '</div>';
-                html += `<div class='tabcontent tabcon-${did} active overview${did}'><div class='row'><div class='col xl4 s12 center-align'><img class='activator' src='${filteredData[i].thumbnail_url}'/></div>`;
-                html += `<div class='col xl7 s12'>${filteredData[i].description}<div><h4>Nutrition</h4>${nutritionHTML}</div></div></div>`;
+                html += `
+                <div class='tabcontent tabcon-${did} active overview${did}'>
+                    <div class='row'>
+                        <div class='col xl4 s12 center-align'>
+                            <img class='activator' src='${filteredData[i].thumbnail_url}'/>
+                        </div>`;
+                html += `
+                <div class='col xl7 s12'>${filteredData[i].description}
+                    <div>
+                        <h4>Nutrition</h4>
+                        ${nutritionHTML}
+                    </div>
+                </div>
+                </div>`;
                 html += '</div>';
-                html += `<div class='tabcontent tabcon-${did} ingredients${did}'><ul class='inglist collection'>${ingredientsHtml}</ul><a href='#'><button class='btn btn-primary' id='addtolist'>Save</button></a></div>`;
-                html += `<div class='tabcontent tabcon-${did} instructions${did}'>${instructionsHtml}</div>`;
+                html += `
+                <div class='tabcontent tabcon-${did} ingredients${did}'>
+                    <ul class='inglist collection'>${ingredientsHtml}</ul>
+                        <a href='#'><button class='btn btn-primary' id='addtolist'>Save</button></a>
+                    </div>`;
+                html += `
+                <div class='tabcontent tabcon-${did} instructions${did}'>${instructionsHtml}</div>`;
                 $('.meal-search-results').append(html);
             }
             removeLoader();
