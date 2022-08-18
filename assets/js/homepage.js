@@ -41,6 +41,26 @@ function saveData() {
     localStorage.setItem('server', input.value);
     const storedValue = localStorage.getItem('server');
 }
+ 
 
-const calendarMini = new VanillaCalendar('.vanilla-calendar', {});
-calendarMini.init();
+/* ------------------------------- Splash Images in About section - Animation -------------------------- */
+
+
+$(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+       
+
+  // Mobile side nav
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems, {});
+});
+
+
+/* ------------------------------- Meals/Groceries carousel images -------------------------- */
+
+$(document).ready(function(){
+    $('.slider').slider();
+  });
+       

@@ -6,6 +6,12 @@ const eventInfoModal = document.querySelector('#event-info-modal');
 
 /* --------------------------- materialize plugins -------------------------- */
 
+// Mobile side nav
+document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.sidenav');
+    const instances = M.Sidenav.init(elems, {});
+});
+
 // Modal initializer
 
 const elems = document.querySelectorAll('.modal');
@@ -16,7 +22,6 @@ const instances = M.Modal.init(elems, {
 
 // Event info modal instance
 const eventInfoInstance = M.Modal.getInstance(eventInfoModal);
-console.log(eventInfoInstance);
 
 // Select initializer
 document.addEventListener('DOMContentLoaded', () => {

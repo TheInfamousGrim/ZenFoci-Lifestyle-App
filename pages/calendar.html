@@ -39,269 +39,312 @@
 
 <body>
   <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper">
-      <!-- <a href="#" class="brand-logo">Logo</a> -->
-      <a href="#"><img id="logo" src="./../assets/favicons/favicon.ico" alt="logo-image" /></a>
-      <ul id="nav-bar" class="right hide-on-med-and-down">
-        <li><a href="sass.html">User Dashboard</a></li>
-        <li><a href="badges.html">Meals and Groceries</a></li>
-        <li><a href="collapsible.html">Calendar</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="container row">
-    <!-- mini calendar -->
-    <div class="mini-calendar-container col xl3 s12 center-align">
-      <div class="vanilla-calendar center-block"></div>
-      <div class="new-event-button-container row col s12"><a class="waves-effect waves-light btn modal-trigger"
-          href="#new-event-modal"><i class="fa-solid fa-calendar-circle-plus"></i> Add an event</a></div>
-    </div>
-    <!-- full calendar -->
-    <div class="large-calendar-container col xl9 s12">
-      <div id="calendar"></div>
-    </div>
-    <!-- Event info modal structure -->
-    <div id="event-info-modal" class="modal">
-      <div class="modal-content event-info-modal-content row">
-        <h4>Event Name: <span id="event-info-name">Meet my friends</span></h4>
-        <ul class="collection">
-          <li class="collection-item">Event Description: <span id="event-info-description">
-              Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute consequat. Sunt
-              dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo cupidatat laborum non
-              nostrud consequat qui exercitation aliqua consectetur.</span>
-          </li>
-          <li class="collection-item">Event Type <div class="secondary-content">
-              <p id="event-info-type">general</p>
-            </div>
-          </li>
+  <header class="meals-header">
+    <nav>
+      <div class="nav-wrapper">
+        <!-- <a href="#" class="brand-logo">Logo</a> -->
+        <a href="./../index.html" class="brand-logo">
+          <img width="48px" id="logo" src="./../assets/favicons/android-chrome-512x512.png" alt="logo-image" />
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+        <ul id="nav-bar" class="right hide-on-med-and-down">
+          <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+          <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+          <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
         </ul>
       </div>
-      <div class="modal-footer">
-        <div class="event-info-btns-container">
-          <button class="btn red lighten-1 waves-effect waves-light" id="delete-event-button"><i
-              class="fa-solid fa-trash-can left"></i> Delete
-            event</button>
-          <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+      <ul class="sidenav" id="mobile-demo">
+        <li class="nav-links"><a href="./dashboard.html">User Dashboard</a></li>
+        <li class="nav-links"><a href="./meals-groceries.html">Meals and Groceries</a></li>
+        <li class="nav-links"><a href="./calendar.html">Calendar</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container row">
+      <!-- mini calendar -->
+      <div class="mini-calendar-container col xl3 s12 center-align">
+        <div class="vanilla-calendar center-block"></div>
+        <div class="new-event-button-container row col s12"><a class="waves-effect waves-light btn modal-trigger"
+            href="#new-event-modal"><i class="fa-solid fa-calendar-circle-plus"></i> Add an event</a></div>
+      </div>
+      <!-- full calendar -->
+      <div class="large-calendar-container col xl9 s12">
+        <div id="calendar"></div>
+      </div>
+      <!-- Event info modal structure -->
+      <div id="event-info-modal" class="modal">
+        <div class="modal-content event-info-modal-content row">
+          <h4>Event Name: <span id="event-info-name">Meet my friends</span></h4>
+          <ul class="collection">
+            <li class="collection-item">Event Description: <span id="event-info-description">
+                Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute consequat. Sunt
+                dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo cupidatat laborum
+                non
+                nostrud consequat qui exercitation aliqua consectetur.</span>
+            </li>
+            <li class="collection-item">Event Type <div class="secondary-content">
+                <p id="event-info-type">general</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <div class="event-info-btns-container">
+            <button class="btn red lighten-1 waves-effect waves-light" id="delete-event-button"><i
+                class="fa-solid fa-trash-can left"></i> Delete
+              event</button>
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Event form modal structure -->
-    <div id="new-event-modal" class="modal">
-      <div class="modal-content new-event-modal-content row">
-        <div class="row col s12">
-          <h4>Add An Event</h4>
-        </div>
-        <form class="add-event-form">
+      <!-- Event form modal structure -->
+      <div id="new-event-modal" class="modal">
+        <div class="modal-content new-event-modal-content row">
           <div class="row col s12">
-            <div class="event-title-container input-field col s12">
-              <input type="text" name="event-name-input" id="eventNameInput" placeholder="Enter a title">
-              <label for="event-title-input">Event Title</label>
-            </div>
+            <h4>Add An Event</h4>
           </div>
-          <div class="row col s12">
-            <div class="event-type-container input-field col s12">
-              <select class="select-event-type">
-                <option value="" disabled selected>Choose event type</option>
-                <option value="habit">Habit</option>
-                <option value="goal">Goal</option>
-                <option value="meal">Meal</option>
-                <option value="general">General</option>
-              </select>
-              <label for="event-title-input">Event Type</label>
-            </div>
-          </div>
-          <div class="start-event-container row col s12">
-            <div class="input-field col s6 date-picker-input-container">
-              <input type="text" name="start-date-input" placeholder="Pick a start date" id="dateStartInput"
-                class="date-picker">
-              <label for="start-date-input" class="start-date-label">Start Date</label>
-              <div class="date-picker-start date-picker-general date-picker-general-hidden"></div>
-            </div>
-            <div class="start-time-input-container input-field col s6 l4">
-              <select class="disabled select-start-time select-time">
-                <option value="" disabled selected>Choose time</option>
-                <option value="00:00">00:00</option>
-                <option value="01:00">01:00</option>
-                <option value="02:00">02:00</option>
-                <option value="03:00">03:00</option>
-                <option value="04:00">04:00</option>
-                <option value="05:00">05:00</option>
-                <option value="06:00">06:00</option>
-                <option value="07:00">07:00</option>
-                <option value="08:00">08:00</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                <option value="18:00">18:00</option>
-                <option value="19:00">19:00</option>
-                <option value="20:00">20:00</option>
-                <option value="21:00">21:00</option>
-                <option value="22:00">22:00</option>
-                <option value="23:00">23:00</option>
-              </select>
-              <label><i class="fa-solid fa-clock"></i> Start Time</label>
-            </div>
-          </div>
-          <div class="end-event-container row col s12">
-            <div class="input-field col s6 date-picker-input-container">
-              <input name="end-date-input" type="text" placeholder="Pick an end date" id="dateEndInput"
-                class="date-picker">
-              <label for="end-date-input" class="end-date-label">End Date</label>
-              <div class="date-picker-end date-picker-general date-picker-general-hidden"></div>
-            </div>
-            <div class="end-time-input-container input-field col s6 l4">
-              <select class="select-end-time select-time">
-                <option value="" disabled selected>Choose time</option>
-                <option value="00:00">00:00</option>
-                <option value="01:00">01:00</option>
-                <option value="02:00">02:00</option>
-                <option value="03:00">03:00</option>
-                <option value="04:00">04:00</option>
-                <option value="05:00">05:00</option>
-                <option value="06:00">06:00</option>
-                <option value="07:00">07:00</option>
-                <option value="08:00">08:00</option>
-                <option value="09:00">09:00</option>
-                <option value="10:00">10:00</option>
-                <option value="11:00">11:00</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="14:00">14:00</option>
-                <option value="15:00">15:00</option>
-                <option value="16:00">16:00</option>
-                <option value="17:00">17:00</option>
-                <option value="18:00">18:00</option>
-                <option value="19:00">19:00</option>
-                <option value="20:00">20:00</option>
-                <option value="21:00">21:00</option>
-                <option value="22:00">22:00</option>
-                <option value="23:00">23:00</option>
-              </select>
-              <label><i class="fa-solid fa-clock"></i> End Time</label>
-            </div>
-          </div>
-          <div class="event-time-settings row col s12 valign-wrapper">
-            <div class="input-field col s6 l3">
-              <p>
-                <label>
-                  <input type="checkbox" class="filled-in" id="allDayCheckbox">
-                  <span>All Day</span>
-                </label>
-              </p>
-            </div>
-            <div class="input-field col s6 l4">
-              <!-- Dropdown Trigger -->
-              <a class='dropdown-trigger btn repeat-when-button' href='#' data-target='dropdown1'><i
-                  class="fa-solid fa-repeat left"></i> Repeat
-                when?</a>
-              <!-- Dropdown Structure -->
-              <ul id='dropdown1' class='dropdown-content'>
-                <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
-                <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="#custom-recurring-event" class="modal-trigger">Custom <i
-                      class="fa-solid fa-angle-right right"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="event-description-container row col s12">
-            <div class="input-field col s12">
-              <textarea id="event-description-textarea" class="materialize-textarea"></textarea>
-              <label for="event-description-textarea">Event Description</label>
-            </div>
-          </div>
-          <div class="form-submmit-buttons row col s12 center-align">
-            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
-            <button type="submit" class="submit-event-button waves-effect waves-light btn"><i
-                class="fa-solid fa-plus left"></i>
-              add event</button>
-          </div>
-        </form>
-        <!-- Custom Event Modal Structure -->
-        <div id="custom-recurring-event" class="modal">
-          <div class="modal-content row custom-recurring-event-content">
+          <form class="add-event-form">
             <div class="row col s12">
-              <h4>Custom Recurring Event</h4>
+              <div class="event-title-container input-field col s12">
+                <input type="text" name="event-name-input" id="eventNameInput" placeholder="Enter a title">
+                <label for="event-title-input">Event Title</label>
+              </div>
             </div>
-            <form class="recurring-event-form">
-              <div class="row col s12 recurring-days-description">
-                <h6>Days event is to be repeated on</h6>
+            <div class="row col s12">
+              <div class="event-type-container input-field col s12">
+                <select class="select-event-type">
+                  <option value="" disabled selected>Choose event type</option>
+                  <option value="habit">Habit</option>
+                  <option value="goal">Goal</option>
+                  <option value="meal">Meal</option>
+                  <option value="general">General</option>
+                </select>
+                <label for="event-title-input">Event Type</label>
               </div>
-              <div class="row col s12 day-pickers">
+            </div>
+            <div class="start-event-container row col s12">
+              <div class="input-field col s6 date-picker-input-container">
+                <input type="text" name="start-date-input" placeholder="Pick a start date" id="dateStartInput"
+                  class="date-picker">
+                <label for="start-date-input" class="start-date-label">Start Date</label>
+                <div class="date-picker-start date-picker-general date-picker-general-hidden"></div>
+              </div>
+              <div class="start-time-input-container input-field col s6 l4">
+                <select class="disabled select-start-time select-time">
+                  <option value="" disabled selected>Choose time</option>
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+                <label><i class="fa-solid fa-clock"></i> Start Time</label>
+              </div>
+            </div>
+            <div class="end-event-container row col s12">
+              <div class="input-field col s6 date-picker-input-container">
+                <input name="end-date-input" type="text" placeholder="Pick an end date" id="dateEndInput"
+                  class="date-picker">
+                <label for="end-date-input" class="end-date-label">End Date</label>
+                <div class="date-picker-end date-picker-general date-picker-general-hidden"></div>
+              </div>
+              <div class="end-time-input-container input-field col s6 l4">
+                <select class="select-end-time select-time">
+                  <option value="" disabled selected>Choose time</option>
+                  <option value="00:00">00:00</option>
+                  <option value="01:00">01:00</option>
+                  <option value="02:00">02:00</option>
+                  <option value="03:00">03:00</option>
+                  <option value="04:00">04:00</option>
+                  <option value="05:00">05:00</option>
+                  <option value="06:00">06:00</option>
+                  <option value="07:00">07:00</option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
+                  <option value="23:00">23:00</option>
+                </select>
+                <label><i class="fa-solid fa-clock"></i> End Time</label>
+              </div>
+            </div>
+            <div class="event-time-settings row col s12 valign-wrapper">
+              <div class="input-field col s6 l3">
                 <p>
                   <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="sunRepeat" data-day-num="0" />
-                    <span>Sunday</span>
+                    <input type="checkbox" class="filled-in" id="allDayCheckbox">
+                    <span>All Day</span>
                   </label>
                 </p>
               </div>
-              <div class="row col s12 day-pickers">
-                <p>
-                  <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="monRepeat" data-day-num="1" />
-                    <span>Monday</span>
-                  </label>
-                </p>
+              <div class="input-field col s6 l4">
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger btn repeat-when-button' href='#' data-target='dropdown1'><i
+                    class="fa-solid fa-repeat left"></i> Repeat
+                  when?</a>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                  <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
+                  <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
+                  <li class="divider" tabindex="-1"></li>
+                  <li><a href="#custom-recurring-event" class="modal-trigger">Custom <i
+                        class="fa-solid fa-angle-right right"></i></a></li>
+                </ul>
               </div>
-              <div class="row col s12 day-pickers">
-                <p>
-                  <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="tueRepeat" data-day-num="2" />
-                    <span>Tuesday</span>
-                  </label>
-                </p>
+            </div>
+            <div class="event-description-container row col s12">
+              <div class="input-field col s12">
+                <textarea id="event-description-textarea" class="materialize-textarea"></textarea>
+                <label for="event-description-textarea">Event Description</label>
               </div>
-              <div class="row col s12 day-pickers">
-                <p>
-                  <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="wedRepeat" data-day-num="3" />
-                    <span>Wednesday</span>
-                  </label>
-                </p>
+            </div>
+            <div class="form-submmit-buttons row col s12 center-align">
+              <a href="#!" class="modal-close waves-effect waves-red btn-flat">Cancel</a>
+              <button type="submit" class="submit-event-button waves-effect waves-light btn"><i
+                  class="fa-solid fa-plus left"></i>
+                add event</button>
+            </div>
+          </form>
+          <!-- Custom Event Modal Structure -->
+          <div id="custom-recurring-event" class="modal">
+            <div class="modal-content row custom-recurring-event-content">
+              <div class="row col s12">
+                <h4>Custom Recurring Event</h4>
               </div>
-              <div class="row col s12 day-pickers">
-                <p>
-                  <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="thuRepeat" data-day-num="4" />
-                    <span>Thursday</span>
-                  </label>
-                </p>
-              </div>
-              <div class="row col s12 day-pickers">
-                <p>
-                  <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="friRepeat" data-day-num="5" />
-                    <span>Friday</span>
-                  </label>
-                </p>
-              </div>
-              <div class="row col s12 day-pickers">
-                <p>
-                  <label>
-                    <input type="checkbox" class="filled-in day-repeat-checks" id="satRepeat" data-day-num="6" />
-                    <span>Saturday</span>
-                  </label>
-                </p>
-              </div>
-              <div class="form-submmit-buttons row col s12 center-align">
-                <a href="#new-event-modal" class="cancel-recurring-button waves-effect waves-red btn-flat">Cancel</a>
-                <button type="submit" class="submit-recurring-button waves-effect waves-light btn"><i
-                    class="fa-solid fa-floppy-disk left"></i>
-                  save</button>
-              </div>
-            </form>
+              <form class="recurring-event-form">
+                <div class="row col s12 recurring-days-description">
+                  <h6>Days event is to be repeated on</h6>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="sunRepeat" data-day-num="0" />
+                      <span>Sunday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="monRepeat" data-day-num="1" />
+                      <span>Monday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="tueRepeat" data-day-num="2" />
+                      <span>Tuesday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="wedRepeat" data-day-num="3" />
+                      <span>Wednesday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="thuRepeat" data-day-num="4" />
+                      <span>Thursday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="friRepeat" data-day-num="5" />
+                      <span>Friday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="row col s12 day-pickers">
+                  <p>
+                    <label>
+                      <input type="checkbox" class="filled-in day-repeat-checks" id="satRepeat" data-day-num="6" />
+                      <span>Saturday</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="form-submmit-buttons row col s12 center-align">
+                  <a href="#new-event-modal" class="cancel-recurring-button waves-effect waves-red btn-flat">Cancel</a>
+                  <button type="submit" class="submit-recurring-button waves-effect waves-light btn"><i
+                      class="fa-solid fa-floppy-disk left"></i>
+                    save</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </main>
+  <!-- footer -->
+  <footer class="page-footer">
+    <div class="row">
+      <div class="col l6 m6 s12">
+        <h5 class="white-text">About Us</h5>
+        <p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+      </div>
+      <div class="col l6 s12">
+        <h6 class="white-text">Contact Us</h6>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="col l6 m6 s12 grey-text text-lighten-3">&copy; 2022 Copyright <a
+          class="white-text text-lighten-4"></a>
+      </div>
+
+      <div class="col l6 m6 s12"><a class="grey-text text-lighten-4 right" href="http://www.freetimelearning.com/"
+          target="_blank">Designed By ZenFoci Team</a></div>
+    </div>
+  </footer>
   <!-- jquery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
