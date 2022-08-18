@@ -153,6 +153,11 @@ main {
   width: 100% !important;
 }
 
+/* repeat when btn */
+.repeat-when-button {
+  width: 10rem;
+}
+
 /* form submit buttons */
 .form-submit-buttons {
   margin-bottom: 2rem;
