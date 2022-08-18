@@ -15,136 +15,204 @@
   <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.css"
     crossorigin="anonymous" />
-
+  <script
+    src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.js"></script>
+  <!-- Full calendar -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.css"
+    integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.2/main.min.js"
+    integrity="sha256-sR+oJaZ3c0FHR6+kKaX1zeXReUGbzuNI8QTKpGHE0sg=" crossorigin="anonymous" async></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     integrity="sha512-UJfAaOlIRtdR+0P6C3KUoTDAxVTuy3lnSXLyLKlHYJlcSU8Juge/mjeaxDNMlw9LgeIotgz5FP8eUQPhX1q10A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>ZenFoci - Lifestyle and Habit App</title>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div class="nav-wrapper">
-      <!-- <a href="#" class="brand-logo">Logo</a> -->
-      <a href="./index.html"><img id="logo" src="./assets/favicons/favicon.ico" alt="logo-image" /></a>
-      <ul id="nav-bar" class="right hide-on-med-and-down">
-        <li><a href="./pages/dashboard.html">User Dashboard</a></li>
-        <li><a href="./pages/meals-groceries.html">Meals and Groceries</a></li>
-        <li><a href="./pages/calendar.html">Calendar</a></li>
-      </ul>
+  <header class="meals-header">
+    <nav>
+      <div class="nav-wrapper">
+        <!-- <a href="#" class="brand-logo">Logo</a> -->
+        <a href="./index.html" class="brand-logo">
+          <img width="48px" id="logo" src="./assets/favicons/android-chrome-512x512.png" alt="logo-image" />
+        </a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+          <i class="fa-solid fa-bars"></i>
+        </a>
+        <ul id="nav-bar" class="right hide-on-med-and-down">
+          <li class="nav-links"><a href="./pages/dashboard.html">User Dashboard</a></li>
+          <li class="nav-links"><a href="./pages/calendar.html">Calendar</a></li>
+          <li class="nav-links"><a href="./pages/meals-groceries.html">Meals and Groceries</a>
+          </li>
+
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+  <ul class="sidenav" id="mobile-demo">
+    <li class="nav-links"><a href="./pages/dashboard.html">User Dashboard</a></li>
+    <li class="nav-links"><a href="./pages/calendar.html">Calendar</a></li>
+    <li class="nav-links"><a href="./pages/meals-groceries.html">Meals and Groceries</a></li>
+  </ul>
+
+  <main>
+    <div id="page-wrapper">
+      <h1 data-text="ZenFoci">ZenFoci</h1>
+      <p class="slogan">The perfect balance for your meals & habits</p>
     </div>
-  </nav>
-  <div id="page-wrapper">
-    <h1 data-text="ZenFoci">ZenFoci</h1>
-  </div>
-  <!-- modals  -->
-  <!-- Modal Structure delete habit -->
-  <div class="row">
-    <div id="delete-modal" class="modal row">
-      <div class="modal-content">
-        <h4 class="center">Are you sure you want to delete this habit?</h4>
-        <form action="" class="delete-habit-form row center-align">
-          <div class="cancel-delete-habit-container col"><a href="#!"
-              class="modal-action modal-close btn red darken-1 cancel-delete-habit-btn"><i
-                class="fa-solid fa-xmark left"></i>No</a></div>
-          <div class="delete-habit-container col">
-            <button class="btn waves-effect waves-light modal-close delete-habit-btn" type="submit" name="action"
-              href="!#">Yes
-              <i class="fa-solid fa-check left"></i>
-            </button>
+    <br>
+    <div id="flexbox">
+      <div class="row">
+        <div id="welcome-container">
+          <div class="col s12 black-text">
+            <h2>About</h2>
+          </div>
+        </div>
+        <br>
+        <div class="col s4 left"><img class="materialboxed" height="550" width="450"
+            src="assets/imgs/meal plan image.jpeg">
+        </div>
+        <div class="intro-container col s4">
+          <br>
+          <p class="intro">
+            Share your fitness journey with ZenFoci; an optimized all-inclusive app with a focus on simplicity and clean
+            design. ZenFoci allows you to keep track of
+            your daily habits, workouts and offers you nutritious and customizable meal-plans from a range of well-known
+            recipes.
+          </p>
+          <br>
+          <p class="intro">
+            ZenFoci allows you to track progress toward your nutrition, fitness, weight loss and water goals with
+            simplicity. Behind all the time and careful precision that went into the app, ZenFoci aims to deliver a
+            seamless food and fitness journal app where we hope is every minimalist's dream in both form and function!
+          </p>
+          <br>
+          <p class="intro">
+            Switch to ZenFoci today. See more. Do more.
+          </p>
+        </div>
+        <div class="col s4 left"><img class="materialboxed" height="550" width="450"
+            src="assets/imgs/chase-kinney-FMQBLyhD2HU-unsplash.jpg">
+        </div>
+
+
+      </div>
+
+    </div>
+    <br>
+    <div id="dashboard-container">
+      <div class="col s12 black-text">
+        <h2>Dashboard</h2>
+      </div>
+    </div>
+    <br>
+    <!-- modals  -->
+    <!-- Modal Structure delete habit -->
+    <div class="row">
+      <div id="delete-modal" class="modal row">
+        <div class="modal-content">
+          <h4 class="center">Are you sure you want to delete this habit?</h4>
+          <form action="" class="delete-habit-form row center-align">
+            <div class="cancel-delete-habit-container col"><a href="#!"
+                class="modal-action modal-close btn red darken-1 cancel-delete-habit-btn"><i
+                  class="fa-solid fa-xmark left"></i>No</a></div>
+            <div class="delete-habit-container col">
+              <button class="btn waves-effect waves-light modal-close delete-habit-btn" type="submit" name="action"
+                href="!#">Yes
+                <i class="fa-solid fa-check left"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Modal Structure for habits settings -->
+      <div id="habit-modal" class="modal row">
+        <form class="habit-settings-form col s12">
+          <div class="modal-content">
+            <h4>Habit setting</h4>
+            <div class="input-field col s12">
+              <input placeholder="Enter your name" id="habit_name" type="text" class="validate">
+              <label for="first_name">Habit Name</label>
+            </div>
+            <div class="input-field col s12">
+              <select class="select-end-time">
+                <option value="" disabled selected>Choose time</option>
+                <option value="00:00">00:00</option>
+                <option value="01:00">01:00</option>
+                <option value="02:00">02:00</option>
+                <option value="03:00">03:00</option>
+                <option value="04:00">04:00</option>
+                <option value="05:00">05:00</option>
+                <option value="06:00">06:00</option>
+                <option value="07:00">07:00</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+                <option value="22:00">22:00</option>
+                <option value="23:00">23:00</option>
+              </select>
+              <label><i class="fa-solid fa-clock"></i> Habit Start Time</label>
+            </div>
+            <!-- Dropdown Trigger -->
+            <div class="repeat-dropdown-btn-container row center-align">
+              <a class='dropdown-trigger btn' href='#' data-target='repeatWhenDropdown'><i
+                  class="fa-solid fa-repeat left-align"></i>
+                Repeat
+                when?</a>
+            </div>
+            <!-- Repeat when dropdown Structure -->
+            <ul id='repeatWhenDropdown' class='dropdown-content'>
+              <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
+              <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
+              <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
+              <li class="divider" tabindex="-1"></li>
+              <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
+            </ul>
+            <!-- <input type='text' name="" id="saveServer" /><button
+              onclick="save_data()" type="button" value="Save" id="Save">Save</button> -->
+          </div>
+          <div class="modal-footer habit-settings-footer row">
+            <div class="cancel-button-container col">
+              <a class="btn red waves-effect waves-light modal-close left" href="!#">Cancel
+                <i class="fa-solid fa-floppy-disk right"></i>
+              </a>
+            </div>
+            <div class="save-settings-container col">
+              <button class="btn waves-effect waves-light modal-close" type="submit" name="action" href="!#">Save
+                settings
+                <i class="fa-solid fa-floppy-disk right"></i>
+              </button>
+            </div>
           </div>
         </form>
       </div>
-    </div>
-    <!-- Modal Structure for habits settings -->
-    <div id="habit-modal" class="modal row">
-      <form class="habit-settings-form col s12">
-        <div class="modal-content">
-          <h4>Habit setting</h4>
-          <div class="input-field col s12">
-            <input placeholder="Enter your name" id="habit_name" type="text" class="validate">
-            <label for="first_name">Habit Name</label>
-          </div>
-          <div class="input-field col s12">
-            <select class="select-end-time">
-              <option value="" disabled selected>Choose time</option>
-              <option value="00:00">00:00</option>
-              <option value="01:00">01:00</option>
-              <option value="02:00">02:00</option>
-              <option value="03:00">03:00</option>
-              <option value="04:00">04:00</option>
-              <option value="05:00">05:00</option>
-              <option value="06:00">06:00</option>
-              <option value="07:00">07:00</option>
-              <option value="08:00">08:00</option>
-              <option value="09:00">09:00</option>
-              <option value="10:00">10:00</option>
-              <option value="11:00">11:00</option>
-              <option value="12:00">12:00</option>
-              <option value="13:00">13:00</option>
-              <option value="14:00">14:00</option>
-              <option value="15:00">15:00</option>
-              <option value="16:00">16:00</option>
-              <option value="17:00">17:00</option>
-              <option value="18:00">18:00</option>
-              <option value="19:00">19:00</option>
-              <option value="20:00">20:00</option>
-              <option value="21:00">21:00</option>
-              <option value="22:00">22:00</option>
-              <option value="23:00">23:00</option>
-            </select>
-            <label><i class="fa-solid fa-clock"></i> Habit Start Time</label>
-          </div>
-          <!-- Dropdown Trigger -->
-          <div class="repeat-dropdown-btn-container row center-align">
-            <a class='dropdown-trigger btn' href='#' data-target='repeatWhenDropdown'><i
-                class="fa-solid fa-repeat left-align"></i>
-              Repeat
-              when?</a>
-          </div>
-          <!-- Repeat when dropdown Structure -->
-          <ul id='repeatWhenDropdown' class='dropdown-content'>
-            <li><a href="#!" class="repeat-basic-choices">Does not repeat</a></li>
-            <li><a href="#!" class="repeat-basic-choices">Every day</a></li>
-            <li><a href="#!" class="repeat-basic-choices">Every week</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a href="#!">Custom <i class="fa-solid fa-angle-right"></i></a></li>
-          </ul>
-          <!-- <input type='text' name="" id="saveServer" /><button
-            onclick="save_data()" type="button" value="Save" id="Save">Save</button> -->
-        </div>
-        <div class="modal-footer habit-settings-footer row">
-          <div class="cancel-button-container col">
-            <a class="btn red waves-effect waves-light modal-close left" href="!#">Cancel
-              <i class="fa-solid fa-floppy-disk right"></i>
-            </a>
-          </div>
-          <div class="save-settings-container col">
-            <button class="btn waves-effect waves-light modal-close" type="submit" name="action" href="!#">Save settings
-              <i class="fa-solid fa-floppy-disk right"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
 
-    <!-- user dashboard section -->
-
-    <div class="row">
-      <div class="col s4">
-        <div class="dashboard-call-to-action-container row">
-          <div class="create-habits col l4 s12">
-            <div class="card blue-grey darken-1">
-              <div class="card-content white-text">
+      <div class="row row-1">
+        <div class="habit-settings-container">
+          <div class="col l4 s12">
+            <div class="card card-color">
+              <div class="card-content black-text">
                 <div class="row ongoing-habits-title-container">
                   <h4 class="habits">Ongoing Habits</h4>
                 </div>
                 <div class="habit-list-container row">
-                  <ul class="collection green-text">
+                  <ul class="collection green-text habits-settings-collection">
                     <li class="collection-item avatar">
                       <a class="settings-modal-link modal-trigger green-text lighten-2" href="#habit-modal"><i
                           class="fa-solid fa-gear circle green"></i></a>
@@ -178,79 +246,185 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="col s4">
-        <div class="content1">
-        </div>
-      </div>
-
-      <div class="col s4">
-        <div class="content">
+          <div class="daily-affirmation-container content1"></div>
+          <div class="todays-weather-container content"></div>
         </div>
       </div>
 
 
 
+      <div id="flexbox">
+        <div class="row">
+          <div class="calendar-container">
+            <div class="col s12 orange lighten-2 black-text">
+              <h2>Calendar</h2>
+            </div>
+          </div>
+          <br>
+        </div>
 
 
 
+      </div>
 
+      <!-- CALENDAR section-->
+      <div class="container">
+        <div class="calendar-day-view-container">
+          <div id="calendar-day-view-content"></div>
+        </div>
+      </div>
+      <!-- Event info home modal structure -->
+
+      <div id="event-info-home-modal" class="modal">
+        <div class="modal-content event-info-modal-content row">
+          <h4>Event Name: <span id="event-info-home-name">Meet my friends</span></h4>
+          <ul class="collection">
+            <li class="collection-item">Event Description: <span id="event-info-home-description">
+                Ut non reprehenderit sit nisi occaecat dolor officia nisi sit eiusmod culpa esse aute consequat. Sunt
+                dolore amet ullamco voluptate ex enim. Dolore eiusmod occaecat reprehenderit commodo cupidatat laborum
+                non
+                nostrud consequat qui exercitation aliqua consectetur.</span>
+            </li>
+            <li class="collection-item">Event Type <div class="secondary-content">
+                <p id="event-info-home-type">general</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <div class="event-info-home-btns-container">
+            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Close</a>
+          </div>
+        </div>
+      </div>
 
 
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="./assets/js/weather.js"></script>
-    <script src="./assets/js/quotes.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
-      integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
-      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.js"
-      crossorigin="anonymous" defer></script>
-    <script src="https://kit.fontawesome.com/be1d8d18da.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/homepage.js"></script>
+
+    <div class="row">
+      <div class="col s4 left">
+        <div class="card-action-card-calendar">
+          <div class="card-content white-text">
+            <span class="card-title">Want to navigate to calendar? <i class="fa-solid fa-lightbulb"></i></span>
+          </div>
+          <div class="card-action">
+            <a href="pages/calendar.html">Click this link</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- MEALS/GROCERIES section -->
+
+
+    <div class="row">
+      <div id="meals-container">
+        <div class="col s12 black-text">
+          <h2>Meals & Groceries</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s6">
+        <div class="slider">
+          <ul class="slides">
+            <li>
+              <img src="./assets/imgs/taylor-kiser-EvoIiaIVRzU-unsplash.jpg"> <!-- random image -->
+              <div class="caption center-align">
+              </div>
+            </li>
+            <li>
+              <img src="./assets/imgs/ca-creative-bpPTlXWTOvg-unsplash.jpg"> <!-- random image -->
+              <div class="caption left-align">
+              </div>
+            </li>
+            <li>
+              <img src="./assets/imgs/brenda-godinez-MsTOg6rhRVk-unsplash.jpg"> <!-- random image -->
+              <div class="caption right-align">
+              </div>
+            </li>
+            <li>
+              <img src="./assets/imgs/harshil-gudka-sOdiO7rd_NM-unsplash.jpg"> <!-- random image -->
+              <div class="caption center-align">
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="meal-container col s4">
+        <br>
+        <p class="meal">
+          Our recipes are loaded with nutrients, fiber, and protein. They're designed to help you feel nourished and
+          satiated. At ZenFoci, we believe that whole, natural foods are key to a healthy and balanced diet and our meal
+          plans follow these principles. With just the click of a button, you will be able to navigate from our database
+          and find yourself the perfect meal catered just for you (and even your loved ones!)
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+  </main>
+
+
+
+  <!-- ---------------------------------- Scripts ---------------------------------- -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="./assets/js/weather.js"></script>
+  <script src="./assets/js/quotes.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+    integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@uvarov.frontend/vanilla-calendar@1.5.2/build/vanilla-calendar.min.js"
+    crossorigin="anonymous" defer></script> -->
+  <script src="https://kit.fontawesome.com/be1d8d18da.js" crossorigin="anonymous"></script>
+  <script src="./assets/js/homepage.js"></script>
+  <script src="./assets/js/homePageCalendar.js"></script>
+
+
+  <!-- ---------------------------------- Footer ---------------------------------- -->
+  <footer class="page-footer">
+    <div class="row">
+      <div class="col l6 m6 s12">
+        <h5 class="white-text">About Us</h5>
+        <p class="grey-text text-lighten-4">ZenFoci is comprised of a team of aspiring Front-End Developers that
+          collectively came together in this project to design a user-friendly app that caters to fitness and
+          well-being. </p>
+      </div>
+      <div class="col l6 s12">
+        <h6 class="white-text">Contact Us</h6>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Instagram <i class="fa-brands fa-instagram"></i></a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Twitter <i class="fa-brands fa-twitter"></i></a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Facebook <i class="fa-brands fa-facebook"></i></a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">GitHub <i class="fa-brands fa-github"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="col l6 m6 s12 grey-text text-lighten-3">&copy; 2022 Copyright <a
+          class="white-text text-lighten-4"></a>
+      </div>
+
+      <div class="col l6 m6 s12"><a class="grey-text text-lighten-4 right" href="http://www.freetimelearning.com/"
+          target="_blank">Designed By ZenFoci Team</a></div>
+    </div>
+  </footer>
 
 </body>
-
-<!-- ---------------------------------- Footer ---------------------------------- -->
-<footer class="page-footer">
-  <div class="row">
-    <div class="col l6 m6 s12">
-      <h5 class="white-text">About Us</h5>
-      <p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-    </div>
-    <div class="col l6 s12">
-      <h6 class="white-text">Contact Us</h6>
-      <ul>
-        <li><a class="grey-text text-lighten-3" href="#!">Instagram</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Twitter</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">Facebook</a></li>
-        <li><a class="grey-text text-lighten-3" href="#!">GitHub</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="col l6 m6 s12 grey-text text-lighten-3">&copy; 2022 Copyright <a class="white-text text-lighten-4"></a>
-    </div>
-
-    <div class="col l6 m6 s12"><a class="grey-text text-lighten-4 right" href="http://www.freetimelearning.com/"
-        target="_blank">Designed By ZenFoci Team</a></div>
-  </div>
-</footer>
-
-
-
 
 
 
 
 </html>
-
-<!-- <ul id="nav-bar" class="right hide-on-med-and-down">
-  <li><a href="sass.html">User Dashboard</a></li>
-  <li><a href="badges.html">Meals and Groceries</a></li>
-  <li><a href="collapsible.html">Calendar</a></li>
-</ul> -->

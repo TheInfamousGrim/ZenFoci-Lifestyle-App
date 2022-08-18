@@ -36,9 +36,9 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appi
                 ).toFixed(0)} &#8457; `;
                 const windcon = `${(wind * 0.8689762).toFixed(0)}mph`;
 
-                html += "<div class='row'>";
-                html += "<div class='col s12 m6'>";
-                html += "<div class='card blue-grey darken-1'>";
+                // html += "<div class='row'>";
+                html += "<div class='col s12 l4'>";
+                html += "<div class='card frosted-card center-align'>";
                 html += "<div class='card-content white-text'>";
                 html += `<span class='card-title'>Todays Weather in ${nameValue}</span>`;
                 html += `<div><img class='pic' src='https://openweathermap.org/img/wn/${weatherIconSingle}.png' /><p class='desc'><strong>${descValue}</strong><p  class='temp fa fa-thermometer-half' aria-hidden='true'> ${tempcon}</p></div><p><strong>Feels Like:</strong> ${feelscon}</p>`;
@@ -53,7 +53,7 @@ fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appi
                 html += `<p><strong>Max Temp:</strong> ${maxcon}-  <strong>Min Temp:</strong> ${mincon}</p>`;
                 // html += "<p>Min: " + mincon + "</p>";
                 html += `<p class='fa-solid fa-wind'><strong>Wind Speed:</strong> ${windcon}</p>`;
-                html += " </div><div class='card-action'>";
+                // html += " </div><div class='card-action'>";
                 // html += " <button i='btn'>This is a link</button>";
                 html += '  </div></div></div>';
 
