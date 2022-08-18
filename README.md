@@ -12,6 +12,17 @@ An app, where you can manage meals, groceries, goals and healthy habits that you
 *Click [here](https://fontawesome.com/) to learn more about Font Awesome  
 \*Click [here](https://jquery.com/) to learn more about Jquery
 
+# Technology 
+
+github pages
+HTML5
+CSS3
+Materialize
+"[JavaScript]""(https://www.javascript.com/)"
+jQuery
+day.js
+
+
 - The CSS framework was done by materialize.
 
 Materialize employs the philosophy of modern design by Google’s Material design. Its target is bringing uniformity to Google UI on all possible platforms. The main focus of this philosophy is set on how UI elements interact and behave visually.
