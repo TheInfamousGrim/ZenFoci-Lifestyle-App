@@ -26,6 +26,8 @@ function removeLoader() {
 
 function getRecipeList() {
     if (JSON.parse(localStorage.getItem('meal-list')) !== null) {
+        // remove all items from list to re-render
+        $('#display-saved-meals').html('');
         const recipeList = localStorage
             .getItem('meal-list')
             .replace(/-/g, '')
@@ -35,14 +37,13 @@ function getRecipeList() {
             .replace(/\\ /g, '');
         recipeList.replaceAll('[\\]', '');
         const preExistingMealData = JSON.parse(localStorage.getItem('meal-list')) || [];
-
         let mealNames = [];
         mealNames.push(preExistingMealData);
         if (preExistingMealData === null) {
             mealNames = [];
         }
-        $('#display').append(recipeList).html();
-        const savedMealsList = $('.display');
+        $('#display-saved-meals').append(recipeList).html();
+        const savedMealsList = $('.display-saved-meals');
         savedMealsList.children().addClass('collection-item saved-meal-list-item');
     }
 }

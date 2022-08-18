@@ -1,5 +1,7 @@
 function getShoppingList() {
     if (JSON.parse(localStorage.getItem('shopping-list')) !== null) {
+        // remove all the elements from the list
+        $('#display-shopping-list').html('');
         const shoppingList = localStorage
             .getItem('shopping-list')
             .replace(/","/g, '')
