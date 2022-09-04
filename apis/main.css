@@ -1,0 +1,116 @@
+img.activator {
+  width: 300px;
+  /* FONT-WEIGHT: 200; */
+  /* FONT-WEIGHT: 200; */
+  height: auto;
+}
+.result_body {
+  display: inline-flex;
+  padding: 10px;
+}
+.description {
+  padding: 10px;
+}
+.card-content {
+  background: #f7f7f7;
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+.item {
+  color: #fff;
+}
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+li#done {
+  text-decoration: line-through;
+}
+#savebutton {
+  background: #26a69a;
+  padding: 10px 1px;
+  padding-bottom: 10px;
+  width: 117px;
+  color: #fff;
+  border: 1px solid black;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+img.activator {
+  border-radius: 20px;
+  box-shadow: 5px 5px #888888;
+  margin: 20px;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+header {
+  margin-bottom: 200px;
+}
+.tabcontent.active {
+  display: block !important;
+  padding: 20px;
+  background: #f7f7f7;
+}
+ul {
+  padding-left: 12px !important;
+}
+
+ul li {
+  list-style: circle !important;
+}
+.row .col.s7 {
+  /* width: 58.3333333333%; */
+  /* margin-left: auto; */
+  /* left: auto; */
+  /* right: auto; */
+  margin: 22px !important;
+}
+h2 {
+  margin-left: 52px;
+}
+h2 {
+  margin-left: 52px;
+  text-shadow: 1px 1px #e66d71;
+  font-weight: 600;
+  font-size: 35px;
+}
+h4 {
+  font-size: 18px;
+  text-shadow: 1px 1px #e66d71;
+}
+.header {
+  padding-left: 50px;
+}
+
+.tabcontent {
+  padding: 000px;
+}
+p.cooking-time {
+  font-size: 18px;
+}

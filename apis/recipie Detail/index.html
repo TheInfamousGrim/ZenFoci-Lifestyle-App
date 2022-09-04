@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+  <body><header> <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Navbar</a>
+      <div class="d-flex" role="search">
+        <input
+          type="text"
+          placeholder="Search"
+          class="input_text form-control me-2"
+        />
+        <input type="submit" value="Submit" class="submit btn" />
+      </div>
+    </div>
+  </nav></header>
+ <container>
+    <div class="steps"></div>
+  <div class="title"></div>
+
+
+
+
+ </container>
+
+
+
+
+</body>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+
+    $(document).on("click",".tablinks",function(){
+      var did=$(this).attr('data-id');
+      var id=$(this).attr('id');
+
+      $(".tabbtn-"+did).removeClass('active');
+      $(this).addClass('active');
+      $(".tabcon-"+did).removeClass('active');
+      $("."+id).addClass('active');
+    });
+    </script>
+
+  </body>
+</html>
